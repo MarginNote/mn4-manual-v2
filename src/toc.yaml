@@ -1,0 +1,119 @@
+# 用户手册目录 (toc)
+# 结构: section → category → pages，行顺序即目录顺序
+# 每页 id = src/ 文件夹名 (wolai id)；'#' 后为可读标注，构建时标题以各页 H1 为准
+# 以后加元数据：在该页下加键即可，例如
+#   - id: 9aXhp2VEugXYNp9cnWCT7A   # 摘录：抓住全文重点
+#     slug: extract-basics
+
+- section: "📄 文档"
+  categories:
+    - category: "文档快速笔记"
+      pages:
+        - id: 9aXhp2VEugXYNp9cnWCT7A   # 摘录：抓住全文重点
+        - id: 3w7coSpmfsLecSW1hxQV24   # 新建文本框/图片/拍照
+        - id: 9RzcqeeMfTifmGxNdmqzAi   # 新建空白笔记本
+        - id: vYi6Yu4oCudNCr2zDuNQkj   # 留白①|基础操作：字里行间自由开辟笔记空间
+        - id: pYzC5dfXtbC7taLgQC3DFs   # 手写：, 在文档、脑图、卡片中自由书写
+        - id: 6gbzKZ4a16uYGaFNLMYASD   # 图层：文档笔记本&手写图层
+        - id: v2vpgXTJGFsqtRZkRUcqtG   # 翻译及保存译文
+        - id: iLGrRDRMEQepittcNY4Bun   # 手形工具弹出菜单栏及其自定义
+    - category: "文档阅读批注、检索、对照难点"
+      pages:
+        - id: ma1UxicEXg8YWjPQYuDScu   # 文档阅读设置
+        - id: rpmCakup76GuHCF6N4Ns5c   # 检索①：全文 OCR +搜索定位，扫描版书籍也可畅享阅读
+        - id: 8PoZfbSRai6owkvzpttZAE   # 检索②：查看文档目录/缩略图/书签/手写标注/卡片
+        - id: n8VMVG5yoZj8WRatAPzJkm   # 对照①：双文对照窗口
+        - id: 2dQ7P1XFEV2UyqCLWyU7dU   # 对照②：文档间引证回源
+        - id: 91LaezjY5SXvoCRie5UsJQ   # 留白②|使用场景：分层管理阅读笔记
+        - id: 3RP4xfuiFKc6SAF8r1BHfK   # 对照③：附属笔记本
+    - category: "文档排版与书页编辑"
+      pages:
+        - id: 3ceKFREpJyZRZRqk6WgGjM   # 书页折叠
+        - id: kFM4Uh2thC5pEXp11wCuJz   # 书页重组
+        - id: akPnCSBmGv2BXCzkTBrFTB   # 增删页面、裁剪纸张
+        - id: djV6nMiEdSaxCacjWcptpA   # 手动&自动生成文档目录
+
+- section: "📚 学习集与脑图"
+  categories:
+    - category: "从学习集开启主题式学习"
+      pages:
+        - id: vtjSQ6LvQv1TbbjdctzroM   # 新建学习集：开启主题式学习
+        - id: 7PQUHR2ZsY58z128y6KtoW   # 脑图与文档联动视图
+        - id: tttAu9xnHunBPj1YNXGhsc   # 文档标签页管理
+        - id: 4BL4PgiF2rLSyuL9AwXyP7   # 边栏快速切换与全局检索
+        - id: jeJN7Cjyi9fSZovcQ6ZSps   # 卡片盒视图
+        - id: eSR1wAaQdCG2kXSqBMHAB8   # 复习视图
+        - id: sSYs886ZU4gfwVhuBgzNaV   # 研究浏览器视图
+        - id: ueyP4EoMFihG8RpYMY31JV   # 学习集专属样式：打造你的专属学习空间
+        - id: hZouyBD3Cq3HBJwix3TVJN   # 沉浸模式
+    - category: "从文档搭建脑图"
+      pages:
+        - id: 5sY7oXw6U88xhJnKA6ChUr   # 手动摘录生成脑图
+        - id: 5DiLYYJjNeZ4rQmBpDkRwQ   # 摘录工具及其自动化
+        - id: 91ptxv4wkpB2RSq8GQkAtc   # 自动生成脑图①：使用AI模型一键摘录
+    - category: "脑图&卡片快速笔记"
+      pages:
+        - id: 67hDfmy3SZi4oXmMb2bvcH   # 脑图卡片①：新建和编辑卡片
+        - id: pmyU9i1nmv96THhMEM65Na   # 脑图卡片②：移动、合并、重组
+        - id: uyBkyj1HKH6iqRhn4fZLkc   # 脑图侧边工具栏
+        - id: dHgUPznJARhX2ksVjHDLdP   # 脑图概要：跨分支创建总结节点，支持延展为新分支
+        - id: 5nntHuyzfBSdVrEo4YYhxC   # 脑图焦点
+        - id: wAZ8JuGD8M6EZu8qFjFXmD   # 新建和管理子脑图层级
+        - id: 62qCDFNG6viCFUuWQpjzts   # 脑图手写图层：分层管理你的批注
+        - id: eShEtotNTstcUnT6o3FLAP   # Markdown与公式
+        - id: 6QJHeJqZghQKQ4PcEA3w5u   # 卡片弹出菜单栏及其自定义
+    - category: "从大纲编辑脑图"
+      pages:
+        - id: sYsFmUYt3bonXyjwjERxhN   # 大纲显示和排序
+        - id: iRnRj5X6AuY3qmEbM8iDuV   # 大纲编辑和缩进
+        - id: 6tp93F8CwVtoRHBUkpeDq8   # 大纲筛选和搜索
+    - category: "脑图排版美化"
+      pages:
+        - id: iXZn5PKLW4iogVnxZwQ4pt   # 10种分支样式&子脑图坍缩
+        - id: kNdd8eknASZXWUzQ8472U2   # 自定义卡片字体
+        - id: 7bcacoRsGX43EK3KBoodj1   # 脑图手写背景和卡片尺寸设置
+        - id: bqdqqoArAjk9afFWktd9aF   # 脑图手写随动绑定
+        - id: 6b7GJnTDfs2kkNsBWT7AhG   # 自定义卡片摘录颜色
+    - category: "卡片链接与笔记库重复利用"
+      pages:
+        - id: dJvh1K4GEKaJYtZ14zbfgj   # 卡片分组看板①：从海量卡片中精准筛选
+        - id: aBEbDgL6oDgDT4CeXotdbS   # 卡片链接④|关键词标题链接：打造你的个人字典
+        - id: pXcHjMTVqjcvvgEiNnTQm5   # 卡片分组看板②：从看板自动生成脑图，打造个人知识集锦
+        - id: mGz8BQh6r1ad6wv1jqDo1G   # 卡片链接①|单双向链接：跨越层级的自由关联
+        - id: tg7V1E5VRtGvse2ndVgNXx   # 卡片链接②|卡片唯一ID、URL：跨脑图、学习集关联
+        - id: c8dY2ezo4RX67KkmL5dCZp   # 卡片链接③：手绘曲线链接
+        - id: sncaMzMHTBx6abg1dZcPfB   # 卡片链接⑤|行内链接
+
+- section: "🔄 复习"
+  categories:
+    - category: "脑图&文档上下文场景式复习"
+      pages:
+        - id: 5MLZk1D4vJ6wQRx1Y9t8vy   # 脑图复习①：主动回忆与自测方法
+        - id: xb9ytGwYP6gPVGJ4hDvca4   # 脑图复习②：脑图上下文（回源定位）
+    - category: "闪卡制作与复习"
+      pages:
+        - id: auMvW4AbuCoxDmYipisYoS   # 闪卡制作①：认识闪卡和复习卡片组
+        - id: pKZaNAWQAm3Wp41awj1ZJb   # 闪卡制作②：添加卡片到复习卡组
+        - id: 31KwWufHLt8MUbyxQahbP3   # 闪卡复习①：基于FSRS抗遗忘算法的科学复习
+        - id: ozYBXbvi3AkqiBShA7X7Co   # 闪卡复习②：溯源上下文
+        - id: 4zZ4C4Y4jgfdszohqSE4Zm   # 闪卡复习③：导出到Anki &模板配置
+        - id: pBH9BFrgyZgeWJVf3xLyVA   # 闪卡制作③：设置闪卡正反面
+
+- section: "🔧 通用"
+  categories:
+    - category: "数据安全与管理"
+      pages:
+        - id: ehTLoD9HictQhkFirV1g9k   # 导入文档及文档管理
+        - id: gaqm2hZ9YMPQSFpWQjLJ9g   # 从MarginNote 3 迁移笔记
+        - id: wW5jUCGqwwDVgqFKz7dF48   # 添加USB存储文档库
+        - id: wVmpipXpgJM4ZicKDvV6A7   # 笔记数据库①：新建和管理数据库
+        - id: erRJu57Xk6QiAZ6u4yZRoM   # 导出文档、脑图和学习集
+        - id: oVbmHKiwfNETVYEapEWctk   # 笔记数据库②：加密分享
+        - id: qU6nwa4s6GCBuTDsjs9oeu   # 数据同步、备份与恢复
+    - category: "演示与协同"
+      pages:
+        - id: 8t31KYaFrm1XdjqZuPBSVr   # 演示模式及其应用
+        - id: f8k3D3oR5bCw4QCQU7CBZC   # 多窗口联动①：同一设备多开 MN4窗口
+        - id: iz4fVfRZ5meSevCJ8yBfcj   # 多窗口联动②：跨设备、跨平台多开 MN4窗口
+        - id: sfUjjrbMwvEdtmDgXuzpL2   # 第三方应用联动①：认识笔记回源链接
+        - id: hTKcNyLnc362NvwEvMbt2e   # 第三方应用联动②：Obsidian+MN4
