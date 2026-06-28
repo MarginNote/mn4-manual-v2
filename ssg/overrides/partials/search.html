@@ -1,0 +1,9 @@
+{#-
+  覆盖 Material 搜索框：内置搜索已禁用，这里改挂 Pagefind UI。
+  复用 base.html 的 #__search 复选框开关；显隐由 extra.css 纯 CSS 控制（无模态 JS）。
+  #pagefind 容器由 javascripts/pagefind-init.js 初始化。
+-#}
+<label class="mn-search__overlay" for="__search" aria-hidden="true"></label>
+<div class="mn-search__modal" role="dialog" aria-label="搜索手册">
+  <div id="pagefind"></div>
+</div>

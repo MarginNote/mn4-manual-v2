@@ -4,3 +4,6 @@ mistletoe==1.5.1
 PyYAML==6.0.3
 doit==0.37.0
 mkdocs-material==9.7.6
+mkdocs-glightbox==0.5.2
+# Pagefind：构建后中文搜索索引（extended 含 CJK 分词）；CLI 经 `python -m pagefind`
+pagefind[extended]==1.5.2

@@ -18,4 +18,12 @@ BUILD = ROOT / os.environ.get("MN_BUILD", "build")    # 所有生成物的根
 BUILD_SRC = BUILD / "src"                             # 规范化产物 = SSG 的 docs_dir（两阶段契约）
 SITE = BUILD / "site"                                 # mkdocs 站点输出
 MKDOCS_YML = BUILD / "mkdocs.yml"                      # 生成的 mkdocs 配置
+OVERRIDES = BUILD / "overrides"                        # 生成的 Material 主题覆盖目录（custom_dir）
 TOC = SRC / "toc.yaml"                                # 目录结构（发布集）
+
+# 部署/展示配置（非路径）
+SITE_URL = os.environ.get("MN_SITE_URL", "https://manual.marginnote.com.cn/")
+SITE_DESCRIPTION = (
+    "MarginNote 4 用户手册——智能学习软件 PDF、笔记、脑图深度学习的完整指南。"
+    "涵盖文档笔记、脑图、卡片复习、AI 功能与高级技巧。"
+)

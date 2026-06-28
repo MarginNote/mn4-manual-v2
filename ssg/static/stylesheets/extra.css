@@ -1,0 +1,288 @@
+/* ============================================================
+   MarginNote 4 用户手册 · 主题定制
+   - 品牌色 #219cfb：覆盖 Material 调色板（亮/暗）
+   - 首页 hero + 分区卡片
+   - Pagefind 搜索：纯 CSS 模态（复用 base.html 的 #__search 开关）
+   手维护文件；构建期由 ssg 拷贝进 build/src/stylesheets/。
+   ============================================================ */
+
+:root {
+  --mn-brand: #219cfb;
+  --mn-brand-light: #87d3ff;
+  --mn-brand-dark: #1e88e5;
+  --mn-brand-bg: #f0f8ff;
+  --mn-card-skeleton: linear-gradient(135deg, #eef4fb, #e2edfb);
+}
+
+/* —— Material 调色板：亮色 —— */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--mn-brand);
+  --md-primary-fg-color--light: var(--mn-brand-light);
+  --md-primary-fg-color--dark: var(--mn-brand-dark);
+  --md-accent-fg-color: var(--mn-brand-dark);
+  --md-typeset-a-color: var(--mn-brand-dark);
+
+  /* 头部 / 搜索栏（浅色） */
+  --mn-header-bg: #ffffff;
+  --mn-searchbar-bg: #eceff3;
+  --mn-searchbar-bg-hover: #e1e6ec;
+  /* 页脚随主题（覆盖 Material 默认深色页脚） */
+  --md-footer-bg-color: #eef1f5;
+  --md-footer-bg-color--dark: #e2e7ee;
+  --md-footer-fg-color: rgba(0, 0, 0, 0.78);
+  --md-footer-fg-color--light: rgba(0, 0, 0, 0.54);
+  --md-footer-fg-color--lighter: rgba(0, 0, 0, 0.32);
+}
+
+/* —— Material 调色板：暗色 slate —— */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--mn-brand);
+  --md-primary-fg-color--light: var(--mn-brand-light);
+  --md-primary-fg-color--dark: var(--mn-brand-dark);
+  --md-accent-fg-color: var(--mn-brand-light);
+  --md-typeset-a-color: var(--mn-brand-light);
+  --mn-brand-bg: rgba(33, 156, 251, 0.14);
+  --mn-card-skeleton: linear-gradient(135deg, #1b2430, #16202c);
+
+  /* 头部 / 搜索栏（深色） */
+  --mn-header-bg: #1a1e27;
+  --mn-searchbar-bg: rgba(255, 255, 255, 0.08);
+  --mn-searchbar-bg-hover: rgba(255, 255, 255, 0.13);
+  /* 页脚随主题（深色） */
+  --md-footer-bg-color: #12161d;
+  --md-footer-bg-color--dark: #0d1117;
+}
+
+/* ============================================================
+   Pagefind 搜索模态（复用 #__search 复选框开关，纯 CSS 显隐）
+   #__search 是 base.html 中 .md-header 之前的兄弟节点。
+   ============================================================ */
+.mn-search__overlay,
+.mn-search__modal { display: none; }
+
+#__search:checked ~ .md-header .mn-search__overlay {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+#__search:checked ~ .md-header .mn-search__modal {
+  display: block;
+  position: fixed;
+  z-index: 2001;
+  top: 4.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(40rem, 92vw);
+  max-height: 78vh;
+  overflow-y: auto;
+  padding: 1.1rem 1.1rem 1.4rem;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* Pagefind UI 品牌化 */
+.mn-search__modal {
+  --pagefind-ui-primary: var(--mn-brand);
+  --pagefind-ui-text: var(--md-default-fg-color);
+  --pagefind-ui-background: var(--md-default-bg-color);
+  --pagefind-ui-border: var(--md-default-fg-color--lightest);
+  --pagefind-ui-tag: var(--mn-brand-bg);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 10px;
+  --pagefind-ui-font: inherit;
+}
+
+/* ============================================================
+   首页 hero
+   ============================================================ */
+.mn-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  margin: -1.2rem 0 1rem;
+}
+.mn-hero__logo {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+}
+.mn-hero__title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0.7rem 0 0.4rem;
+}
+.mn-hero__sub {
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   分区 + 分类 + 卡片
+   ============================================================ */
+.mn-section { margin: 2.8rem 0; }
+.mn-section__head { margin-bottom: 1.1rem; }
+.mn-section__label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mn-brand);
+}
+.mn-section__head h2 {
+  margin: 0.15rem 0 0.35rem;
+  border: 0;
+  font-weight: 800;
+}
+.mn-section__desc {
+  max-width: 52rem;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.mn-cat { margin: 1.6rem 0; }
+.mn-cat__head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.mn-cat__icon { font-size: 1.15rem; }
+.mn-cat__name { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.mn-cat__desc { color: var(--md-default-fg-color--light); font-size: 0.84rem; }
+
+.mn-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.1rem;
+}
+
+.mn-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-default-bg-color);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.mn-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--mn-brand);
+  box-shadow: 0 8px 26px rgba(33, 156, 251, 0.16);
+}
+.mn-card__thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--mn-card-skeleton);
+}
+.mn-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mn-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.8rem 0.9rem 0.95rem;
+}
+.mn-card__title {
+  margin: 0;
+  font-size: 0.97rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.mn-card__desc {
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mn-card__meta {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.2rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 44.98em) {
+  .mn-hero { padding: 2rem 0.6rem 1.4rem; }
+  .mn-hero__title { font-size: 1.8rem; }
+  .mn-cards { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   布局：全宽（对齐旧站）；侧栏（左导航 / 右目录）沿用 Material 内置样式
+   ============================================================ */
+.md-grid { max-width: initial; }     /* 旧站全宽；去掉 Material 的 61rem 上限 */
+
+/* 首页例外：内容收窄居中（< 1200px） */
+.mn-home { max-width: 1160px; margin-inline: auto; }
+
+/* ============================================================
+   头部：随主题切换底色（浅色=白，深色=暗），前景用正文色。
+   搜索为图标按钮（全设备弹出 Pagefind 模态）；右侧链接/图标靠右；移动/平板 logo 居中。
+   ============================================================ */
+.md-header {
+  background-color: var(--mn-header-bg);
+  color: var(--md-default-fg-color);
+}
+.md-header__title { flex-grow: 0; }   /* 折叠站名：左 logo / 右操作组，中间留白 */
+
+/* 搜索图标按钮（点击弹出 Pagefind；页内查找用浏览器 Ctrl+F） */
+.mn-search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-left: auto;          /* 右对齐：把搜索+链接+配色整组推到右侧 */
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--md-default-fg-color);
+}
+.mn-search-btn:hover { background: var(--mn-searchbar-bg); }
+.mn-search-btn svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+
+.mn-xlinks { display: none; align-items: center; gap: 0.9rem; margin: 0 0.5rem; }
+.mn-xlinks a {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.mn-xlinks a:hover { color: var(--md-default-fg-color); }
+
+/* 跨站链接：平板及以上显示（窄屏手机隐藏，避免挤占） */
+@media screen and (min-width: 48em) {
+  .mn-xlinks { display: flex; }
+}
+
+/* 移动 / 平板：显示 header logo（Material 默认在此断点隐藏它，移进抽屉），置于最左 */
+@media screen and (max-width: 76.24em) {
+  .md-header__button.md-logo { display: inline-flex; }
+}
