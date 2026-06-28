@@ -5,18 +5,19 @@
   format_page  —— mistletoe 语法树内容转换 → index.md
   format_media —— ffmpeg 媒体编码（webp / gif→mp4 / video→mp4 / copy）
 
-本文件同时承载 doit 任务定义（task_page / task_media）与发布集加载；
-仓库根的 dodo.py 仅做「导入 + 配置」，是 doit 的入口外壳。
+路径布局来自顶层 config.py（pipeline 与 ssg 共用，互不 import）。
+本文件承载 doit 任务（task_page / task_media）与发布集加载；dodo.py 仅「导入 + 配置」。
 """
 
 from pathlib import Path
 
 import yaml
 
+import config
 from . import assets, format_page, format_media
 
-SRC = assets.SRC
-BUILD = assets.BUILD_SRC
+SRC = config.SRC
+BUILD_SRC = config.BUILD_SRC
 
 
 def load_published_ids(toc_path) -> set[str]:
@@ -31,7 +32,7 @@ def load_published_ids(toc_path) -> set[str]:
     return ids
 
 
-PUBLISHED = load_published_ids(SRC / "toc.yaml")
+PUBLISHED = load_published_ids(config.TOC)
 
 
 def task_page():
@@ -40,10 +41,10 @@ def task_page():
         md = next((SRC / pid).glob("*.md"), None)
         if md is None:
             continue
-        out = BUILD / pid / "index.md"
+        out = BUILD_SRC / pid / "index.md"
         yield {
             "name": pid,
-            "file_dep": [str(md), str(SRC / "toc.yaml")],
+            "file_dep": [str(md), str(config.TOC)],
             "targets": [str(out)],
             "actions": [(format_page.render_page, [str(md), str(out), PUBLISHED])],
             "clean": True,
@@ -57,7 +58,7 @@ def task_media():
             if not f.is_file():
                 continue
             build_rel, kind = assets.out_relpath(f.relative_to(SRC).as_posix())
-            out = BUILD / build_rel
+            out = BUILD_SRC / build_rel
             yield {
                 "name": f.relative_to(SRC).as_posix(),
                 "file_dep": [str(f)],

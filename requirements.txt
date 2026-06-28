@@ -1,5 +1,6 @@
-# 构建管线依赖（pipeline/ + dodo.py）。系统另需 ffmpeg/ffprobe。
+# 构建依赖（pipeline + ssg + dodo.py）。系统另需 ffmpeg/ffprobe。
 # 创建隔离环境：virtualenv .venv && .venv/bin/pip install -r requirements.txt
 mistletoe==1.5.1
 PyYAML==6.0.3
 doit==0.37.0
+mkdocs-material==9.7.6

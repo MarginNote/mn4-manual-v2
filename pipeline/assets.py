@@ -1,8 +1,9 @@
-"""assets.py —— 构建管线的共享契约。
+"""assets.py —— 构建管线的命名 / 分类契约。
 
 唯一真相来源：哪些 URL 是页内本地资源、每个资源压缩成什么格式、产物叫什么名字。
-纯路径/哈希逻辑，不依赖 mistletoe / ffmpeg，便于单元测试。format_page、format_media、
-dodo 都调用本模块，保证「正文里的引用名 / 磁盘上的文件名 / doit 的构建目标」三者恒一致。
+纯字符串/哈希逻辑，不依赖目录布局（见顶层 config.py）、不依赖 mistletoe / ffmpeg，便于单测。
+format_page、format_media、dodo 都调用本模块，保证「正文引用名 / 磁盘文件名 / doit 构建
+目标」三者一致。
 
 命名：build 内资源名 = md5(源相对路径)[:16] + 新后缀（path-hash，非内容哈希）。
   - 由「路径」决定（非字节）→ 确定、增量安全、不耦合正文与媒体内容。
@@ -13,9 +14,6 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
-
-SRC = Path("src")
-BUILD_SRC = Path("build") / "src"
 
 ASSET_DIRS = ("image", "video", "file")          # 页内资源子目录
 IMG_EXT = {".png", ".jpg", ".jpeg"}              # → webp
