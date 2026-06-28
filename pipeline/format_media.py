@@ -1,14 +1,13 @@
 """format_media.py —— ffmpeg 媒体编码（一次处理一个文件）。
 
 kind（来自 assets.classify）：
-  webp      —— png/jpg/jpeg → webp（q80, ≤1200px, lanczos）
-  mp4_gif   —— gif → mp4（h264/yuv420p/faststart, crf28, ≤1200px,
-               帧率：原 ≤12fps 保留，否则降到 10fps）
-  mp4_video —— mp4/mov/… → mp4（h264, crf26, ≤1280px, 帧率封顶 30fps）
-  copy      —— 其它（如 .ttf）原样复制
+  webp       —— png/jpg/jpeg → 静态 webp（q80, ≤1200px, lanczos, -m 4）
+  webp_anim  —— gif / 视频 → 动画 webp（libwebp_anim, loop 0, q60, ≤1200px,
+                帧率：原 ≤12fps 保留，否则降到 10fps）—— 参数对齐旧仓库 compress_media.py
+  copy       —— 其它（如 .ttf）原样复制
 
-源始终来自只读的 src/；产物写到 build/。改这里的参数会改变本文件内容，
-dodo 用文件哈希做 doit 的 uptodate，故参数变更会自动触发相关媒体重新编码。
+源始终来自只读的 src/；产物写到 build/。注意：doit 只按**源文件**判定 uptodate，
+不跟踪本文件参数——改了编码参数后需自行 `doit forget media` / `doit clean` 再构建。
 """
 
 from __future__ import annotations
@@ -18,16 +17,12 @@ import shutil
 import subprocess
 from pathlib import Path
 
-IMG_WIDTH_CAP = 1200          # 静态图 / gif 最长边上限
-VID_WIDTH_CAP = 1280          # 视频最长边上限
-WEBP_QUALITY = 80
-WEBP_COMPRESSION = 4
-GIF_MP4_CRF = 28
-VIDEO_MP4_CRF = 26
-X264_PRESET = "medium"
-ANIM_FPS_THRESHOLD = 12       # gif 原帧率 ≤ 此值保留
-ANIM_FPS_TARGET = 10          # 否则降到此帧率
-VIDEO_FPS_CAP = 30            # 真实视频帧率封顶
+WIDTH_CAP = 1200             # 最长边上限（静态图与动图统一，对齐旧仓库）
+IMAGE_QUALITY = 80           # 静态 webp -q:v
+ANIM_QUALITY = 60            # 动画 webp -q:v
+WEBP_COMPRESSION = 4         # libwebp -m（4=默认；比 6 快很多，体积只大约 5%）
+ANIM_FPS_THRESHOLD = 12      # 原帧率 ≤ 此值保留
+ANIM_FPS_TARGET = 10         # 否则降到此帧率
 
 
 def _ffmpeg(args: list[str]) -> None:
@@ -61,24 +56,16 @@ def encode(src, dst, kind: str) -> bool:
         shutil.copy2(src, dst)
         return True
 
-    scale = f"scale='min({IMG_WIDTH_CAP},iw)':-2:flags=lanczos"
+    scale = f"scale='min({WIDTH_CAP},iw)':-2:flags=lanczos"
     if kind == "webp":
         args = ["-i", str(src), "-vf", scale, "-c:v", "libwebp",
-                "-q:v", str(WEBP_QUALITY), "-compression_level", str(WEBP_COMPRESSION), str(tmp)]
-    elif kind == "mp4_gif":
+                "-q:v", str(IMAGE_QUALITY), "-compression_level", str(WEBP_COMPRESSION), str(tmp)]
+    elif kind == "webp_anim":                        # gif / 视频 → 循环动画 webp
         fps = media_fps(src)
         target = fps if 0 < fps <= ANIM_FPS_THRESHOLD else ANIM_FPS_TARGET
-        args = ["-i", str(src), "-movflags", "+faststart", "-pix_fmt", "yuv420p",
-                "-vf", f"{scale},fps={target:g}",
-                "-c:v", "libx264", "-preset", X264_PRESET, "-crf", str(GIF_MP4_CRF),
-                "-an", str(tmp)]
-    elif kind == "mp4_video":
-        fps = media_fps(src)
-        target = min(fps, VIDEO_FPS_CAP) if fps > 0 else VIDEO_FPS_CAP
-        args = ["-i", str(src), "-movflags", "+faststart", "-pix_fmt", "yuv420p",
-                "-vf", f"scale='min({VID_WIDTH_CAP},iw)':-2:flags=lanczos,fps={target:g}",
-                "-c:v", "libx264", "-preset", X264_PRESET, "-crf", str(VIDEO_MP4_CRF),
-                "-c:a", "aac", "-b:a", "96k", str(tmp)]
+        args = ["-i", str(src), "-an", "-vf", f"{scale},fps={target:g}",
+                "-c:v", "libwebp_anim", "-loop", "0",
+                "-q:v", str(ANIM_QUALITY), "-compression_level", str(WEBP_COMPRESSION), str(tmp)]
     else:
         raise ValueError(f"unknown kind {kind!r}")
 

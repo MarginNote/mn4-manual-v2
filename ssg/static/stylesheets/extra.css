@@ -234,6 +234,37 @@
 }
 
 /* ============================================================
+   正文图片：桌面/平板限宽 50% 且水平居中（动图/截图不喧宾夺主；手机全宽）。
+   glightbox 把 <img> 包进 <a class=glightbox>，故对外链做块级 + fit-content + auto 边距居中。
+   排除：首页卡片缩略图（.off-glb）、hero logo、表格单元格内图片。
+   ============================================================ */
+@media screen and (min-width: 48em) {
+  .md-typeset a.glightbox {
+    display: block;
+    width: fit-content;        /* 收缩到图片宽度，再由 max-width 封顶、auto 边距居中 */
+    max-width: 50%;
+    margin-inline: auto;
+  }
+  .md-typeset a.glightbox > img { max-width: 100%; height: auto; }
+
+  /* 未被 glightbox 包裹的正文图片（极少）：同样限宽并居中 */
+  .md-typeset p > img:not(.off-glb):not(.mn-hero__logo) {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  /* 表格单元格内图片：随单元格自适应，不强制 50%/居中 */
+  .md-typeset :is(td, th) a.glightbox {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* ============================================================
    布局：全宽（对齐旧站）；侧栏（左导航 / 右目录）沿用 Material 内置样式
    ============================================================ */
 .md-grid { max-width: initial; }     /* 旧站全宽；去掉 Material 的 61rem 上限 */

@@ -5,8 +5,10 @@
      （从 h2 起）——既把 wolai 的多个 `#` 章节降为 h2，也把缺上级的 `###` 升级。
   2. 跨页链接（纯 id）：`wolai.com/<id>` 与根相对 `/<id>`；发布集内 → `../<id>/index.md`
      （去深锚）；自链接 / 悬空 → 降级为纯文本；外链原样。
-  3. 媒体引用：改写为 build 内 16 位 path-hash 名（见 assets）；gif/视频 → <video>；
+  3. 媒体引用：改写为 build 内 16 位 path-hash 名（见 assets）；gif/视频统一为动画 webp（仍是 <img>）；
      引用但磁盘缺失 → 降级（图片去掉、保留 alt 文本）并记录。
+  4. 表格单元格：wolai 把单元格内图片/链接 markdown 反斜杠转义而被当作字面文本；
+     检测到转义序列即按去转义后字面量重新分词（见 walk_table，仍走 mistletoe）。
 
 注：正则只作用于 URL 字符串（id 提取），不解析 Markdown。
 本模块只转换**单页**（render_page）；发布集由调用方（dodo）传入，与 toc 解耦。
@@ -14,7 +16,6 @@
 
 from __future__ import annotations
 
-import html
 import re
 from pathlib import Path
 
@@ -57,16 +58,13 @@ def page_ref(rel: str, pid: str) -> tuple[str, str]:
 # AST 节点构造 / 文本
 # ---------------------------------------------------------------------------
 
-def video_tag(ref: str, *, gif: bool, label: str) -> str:
-    attrs = "autoplay loop muted playsinline" if gif else 'controls preload="metadata" playsinline'
-    al = f' aria-label="{html.escape(label.strip(), quote=True)}"' if label.strip() else ""
-    return f'<video class="mn-video" src="{ref}" {attrs}{al}></video>'
+def _tokenize_inline(text: str) -> list:
+    """把（去转义后的）字面文本重新分词为**内联**节点。
 
-
-def make_html(content: str) -> S.HtmlSpan:
-    tok = S.HtmlSpan.__new__(S.HtmlSpan)
-    tok.content = content
-    return tok
+    用 mistletoe 的行内分词器（不是 Document：那会做块级解析，可能把 ListItem 等块节点
+    塞进表格单元格而无法按内联渲染）。仍是遍历语法树，不正则解析 MD。
+    """
+    return list(S.tokenize_inner(text)) if text else []
 
 
 def inline_text(children) -> str:
@@ -146,13 +144,10 @@ def handle_image(tok, ctx: dict) -> list:
             ctx["stat"]["missing"] += 1
             ctx["missing"].append((ctx["id"], src))
             return list(tok.children)                    # 降级为 alt 文本
-        ref, kind = page_ref(src, ctx["id"])
-        if kind == "mp4_gif":
-            ctx["stat"]["gif_embed"] += 1
-            return [make_html(video_tag(ref, gif=True, label=inline_text(tok.children)))]
-        if kind == "mp4_video":
-            return [make_html(video_tag(ref, gif=False, label=inline_text(tok.children)))]
-        tok.src, tok.title, tok.dest_type = ref, "", "uri"   # webp / copy
+        ref, kind = page_ref(src, ctx["id"])             # gif/视频已统一为动画 webp → 仍是 <img>
+        if kind == "webp_anim":
+            ctx["stat"]["anim"] += 1
+        tok.src, tok.title, tok.dest_type = ref, "", "uri"
         return [tok]
     if HTTP_RE.match(src):
         ctx["stat"]["external"] += 1
@@ -181,7 +176,13 @@ def walk_table(tbl, ctx: dict) -> None:
     rows = ([tbl.header] if getattr(tbl, "header", None) is not None else []) + list(tbl.children or [])
     for row in rows:
         for cell in row.children or []:
-            cell.children = process_inline(cell.children, ctx)
+            kids = cell.children or []
+            # wolai 在表格单元格里把图片/链接的 markdown 反斜杠转义（\[ \( \< …），令其被解析
+            # 为字面文本而非 Image/Link。检测到转义序列时，按去转义后的字面量重新分词（仍走
+            # mistletoe，不正则解析），让图片/链接复原为节点再处理。
+            if any(isinstance(t, S.EscapeSequence) for t in kids):
+                kids = _tokenize_inline(inline_text(kids))
+            cell.children = process_inline(kids, ctx)
 
 
 def walk_blocks(tok, ctx: dict) -> None:
@@ -199,7 +200,7 @@ def walk_blocks(tok, ctx: dict) -> None:
 
 def _new_stat() -> dict:
     return {"normalized": 0, "internal": 0, "self": 0, "dangling": 0,
-            "external": 0, "missing": 0, "gif_embed": 0}
+            "external": 0, "missing": 0, "anim": 0}
 
 
 def render_page(md_path, out_path, published) -> dict:

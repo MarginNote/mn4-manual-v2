@@ -16,9 +16,9 @@ import hashlib
 from pathlib import Path
 
 ASSET_DIRS = ("image", "video", "file")          # 页内资源子目录
-IMG_EXT = {".png", ".jpg", ".jpeg"}              # → webp
-GIF_EXT = {".gif"}                               # → mp4（动画）
-VID_EXT = {".mp4", ".mov", ".webm", ".m4v"}      # → mp4（重编码）
+IMG_EXT = {".png", ".jpg", ".jpeg"}              # → webp（静态）
+GIF_EXT = {".gif"}                               # → webp（动画）
+VID_EXT = {".mp4", ".mov", ".webm", ".m4v"}      # → webp（动画，KISS：一律转动图，无 <video>）
 
 HASH_LEN = 16
 
@@ -29,22 +29,22 @@ def is_local_asset(url: str) -> bool:
 
 
 def classify(ext: str) -> str:
-    """源扩展名 → 编码 kind（webp | mp4_gif | mp4_video | copy）。"""
+    """源扩展名 → 编码 kind（webp | webp_anim | copy）。
+
+    gif 与视频统一转动画 WebP（webp_anim）：产物即 <img>，浏览器原生循环播放，
+    图片灯箱（glightbox）也天然覆盖；不再产出 <video>。
+    """
     e = ext.lower()
     if e in IMG_EXT:
         return "webp"
-    if e in GIF_EXT:
-        return "mp4_gif"
-    if e in VID_EXT:
-        return "mp4_video"
+    if e in GIF_EXT or e in VID_EXT:
+        return "webp_anim"
     return "copy"
 
 
 def _out_ext(kind: str, src_suffix: str) -> str:
-    if kind == "webp":
+    if kind in ("webp", "webp_anim"):
         return ".webp"
-    if kind in ("mp4_gif", "mp4_video"):
-        return ".mp4"
     return src_suffix.lower()
 
 

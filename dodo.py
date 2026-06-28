@@ -12,7 +12,7 @@
   doit site         mkdocs build → site/
   doit search       Pagefind 中文搜索索引 → site/pagefind/
 
-增量仅为本地开发便利：doit 按输入文件时间戳/哈希跳过未变目标
+增量仅为本地开发便利：doit 按输入文件 mtime（时间戳）跳过未变目标
 （改一个 .md → 只重建该页；加一张图 → 只编码这一个文件）。
 **不做源码指纹自动失效**——改了转换代码或编码参数后，自行 `doit clean`
 （全部）或 `doit clean media` / `doit clean "page:<id>"`（局部）再重建。
@@ -25,7 +25,7 @@ from ssg import task_config, task_home, task_site, task_search  # noqa: F401
 
 DOIT_CONFIG = {
     "default_tasks": ["page", "media", "config", "home", "site", "search"],
+    "check_file_uptodate": "timestamp",   # 按 mtime 判定 uptodate，免每次对 ~2GB 媒体做 md5
     "verbosity": 1,
 }
-# 提速可选：加 "check_file_uptodate": "timestamp"（按 mtime，免每次 md5 全量 2GB）；
-# 但切换 checker 会让既有 .doit.db 失配而触发一次全量重编码，故默认保持 md5。
+# 注：从 md5 切到 timestamp 会失配既有 .doit.db，触发一次全量重建（一次性，已接受）。
