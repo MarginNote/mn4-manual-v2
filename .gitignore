@@ -1,0 +1,14 @@
+# 构建产物（build/src 及后续 SSG 输出）
+/build/
+
+# doit 增量数据库
+.doit.db*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
