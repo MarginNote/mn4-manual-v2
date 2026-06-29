@@ -46,6 +46,27 @@ virtualenv .venv
 - **媒体单份存放、中英共用**：static-i18n 自动把 `/en/` 页面的相对引用回指根目录，无副本。
 - 翻译术语一致性参照 `src/glossary.md`（中英术语表，wolai 导出，保持原样不结构化）。
 
+## 部署
+
+纯静态：`build/site/` 可托管在任意静态服务。默认发布在子路径前缀 `/mn4` 下，可经环境变量覆盖：
+
+| 变量 | 默认 | 说明 |
+|---|---|---|
+| `MN_URL_PREFIX` | `/mn4` | 站点子路径前缀（`""` = 根路径） |
+| `MN_SITE_HOST` | `https://manual.marginnote.com.cn` | 站点主机 |
+| `MN_SITE_URL` | `<host><prefix>/` | 完整 URL；给定则覆盖上两者 |
+
+默认 `site_url` = `https://manual.marginnote.com.cn/mn4/`（生产域名）。资源引用均为相对路径
+（按页面深度改写），故在任意前缀/域名下都正确。
+
+### GitHub Pages（CI）
+
+`.github/workflows/deploy.yml`：push 到 `main` 即构建（装 ffmpeg → `doit` 全新构建 → Pagefind
+索引）并发布到 GitHub Pages（仓库 Settings → Pages → Source 选 **GitHub Actions**）。
+
+> GitHub Pages 项目站点路径 = **仓库名**，故工作流经 `MN_SITE_URL` 覆盖为本仓库实际地址
+> **`https://marginnote.github.io/mn4-manual-v2/`**；生产部署用默认的 `manual.marginnote.com.cn/mn4/`。
+
 ## 文档
 
 - 撰写 / 增改页面：[`src/README.md`](src/README.md)

@@ -147,8 +147,10 @@ def mkdocs_config(toc) -> dict:
             "pymdownx.superfences", "pymdownx.details",
             {"toc": {"permalink": True}},
         ],
-        "extra_css": ["stylesheets/extra.css", "/pagefind/pagefind-ui.css"],
-        "extra_javascript": ["/pagefind/pagefind-ui.js", "javascripts/pagefind-init.js"],
+        # 相对路径（无前导 /）：Material 的 `| url` 按页面深度改写，故在任意子路径前缀下都正确。
+        # Pagefind 资源在站点根 /pagefind/（构建后生成）；pagefind-ui.js 自动按自身 URL 定位 bundle。
+        "extra_css": ["stylesheets/extra.css", "pagefind/pagefind-ui.css"],
+        "extra_javascript": ["pagefind/pagefind-ui.js", "javascripts/pagefind-init.js"],
         # 跨站链接（官网 / 社区）改放头部导航（见 overrides/partials/header.html），不用 footer social
         "extra": {"generator": False},
         "copyright": "© MarginNote · MarginNote 4 用户手册",

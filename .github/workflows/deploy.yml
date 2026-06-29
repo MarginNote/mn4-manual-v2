@@ -1,0 +1,60 @@
+name: Build & Deploy (GitHub Pages)
+
+# src/ + i18n/ → build/site → GitHub Pages。
+# GitHub Pages 项目站点的实际路径 = 仓库名（https://<owner>.github.io/<repo>/），故此处
+# SITE_URL 设为本仓库的实际地址 /mn4-manual-v2/。生产域名（manual.marginnote.com.cn/mn4/）
+# 是 config.py 的默认值，本工作流经 MN_SITE_URL 覆盖为 GitHub Pages 地址。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages 部署所需权限 + 单实例并发
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  # 站点完整 URL（含子路径前缀）= 本仓库的 GitHub Pages 地址。要换前缀/域名只改这一行。
+  SITE_URL: https://marginnote.github.io/mn4-manual-v2/
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install ffmpeg (媒体编码所需)
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install build deps
+        run: pip install -r requirements.txt
+
+      - name: Build (src/ + i18n/ → build/site)
+        env:
+          MN_SITE_URL: ${{ env.SITE_URL }}
+        run: python -m doit -n 4   # 全新构建：含媒体重编码 + mkdocs + Pagefind 索引
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

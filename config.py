@@ -28,8 +28,14 @@ TOC = SRC / "toc.yaml"                                # 目录结构（发布集
 I18N_EN = ROOT / "i18n" / "en"
 TOC_EN = I18N_EN / "toc.yaml"
 
-# 部署/展示配置（非路径）
-SITE_URL = os.environ.get("MN_SITE_URL", "https://manual.marginnote.com.cn/")
+# 部署/展示配置（非路径）。
+# 站点子路径前缀：默认 /mn4 → 默认 site_url = https://manual.marginnote.com.cn/mn4/（生产域名）。
+# 可经环境变量覆盖：MN_URL_PREFIX（如 "/mn4" 或 "" 表示根）、MN_SITE_HOST、或直接给 MN_SITE_URL。
+# GitHub Pages CI 经 MN_SITE_URL 覆盖为实际项目站点路径（见 .github/workflows/deploy.yml）。
+_prefix = os.environ.get("MN_URL_PREFIX", "/mn4").strip("/")
+URL_PREFIX = f"/{_prefix}" if _prefix else ""          # 规整：/mn4（无前缀则为空串）
+SITE_HOST = os.environ.get("MN_SITE_HOST", "https://manual.marginnote.com.cn").rstrip("/")
+SITE_URL = os.environ.get("MN_SITE_URL", f"{SITE_HOST}{URL_PREFIX}/")
 SITE_DESCRIPTION = (
     "MarginNote 4 用户手册——智能学习软件 PDF、笔记、脑图深度学习的完整指南。"
     "涵盖文档笔记、脑图、卡片复习、AI 功能与高级技巧。"
