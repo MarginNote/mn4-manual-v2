@@ -12,6 +12,7 @@ site_dir / custom_dir 用相对 build/ 的 "src" / "site" / "overrides"（mkdocs
 extra_css / extra_javascript 接入（构建后的 `pagefind` 步骤生成 /pagefind/）。
 """
 
+import datetime
 import re
 
 import yaml
@@ -28,6 +29,7 @@ from config import (  # noqa: F401  (部分名字供 ssg 包其它模块复用)
 )
 
 DOCS = BUILD_SRC                 # mkdocs docs_dir = build/src
+_YEAR = datetime.date.today().year   # 版权年份（构建时）；ICP / 社交链接见 overrides/partials/copyright.html
 
 
 def load_merged_toc() -> list:
@@ -136,7 +138,11 @@ def mkdocs_config(toc) -> dict:
                          "The complete MarginNote 4 user manual — your guide to deep learning "
                          "with PDFs, notes, and mind maps. Covers document notes, mind maps, "
                          "card review, AI features, and advanced tips."),
-                     "copyright": "© MarginNote · MarginNote 4 User Manual",
+                     "copyright": f"© {_YEAR} MarginNote · MarginNote 4 User Manual",
+                     # 英文页脚社交（覆盖默认中文社交）：static-i18n 合并 extra，保留 generator/alternate
+                     "extra": {"social": [
+                         {"icon": "fontawesome/brands/x-twitter",
+                          "link": "https://twitter.com/marginnoteapp", "name": "X / Twitter"}]},
                      "nav_translations": _nav_translations(toc)},
                 ],
             }},
@@ -151,9 +157,22 @@ def mkdocs_config(toc) -> dict:
         # Pagefind 资源在站点根 /pagefind/（构建后生成）；pagefind-ui.js 自动按自身 URL 定位 bundle。
         "extra_css": ["stylesheets/extra.css", "pagefind/pagefind-ui.css"],
         "extra_javascript": ["pagefind/pagefind-ui.js", "javascripts/pagefind-init.js"],
-        # 跨站链接（官网 / 社区）改放头部导航（见 overrides/partials/header.html），不用 footer social
-        "extra": {"generator": False},
-        "copyright": "© MarginNote · MarginNote 4 用户手册",
+        # 跨站链接（官网/社区）在头部（见 header.html）。页脚社交用 Material 原生 extra.social
+        # （图标在页脚右下、与版权同行）；这是中文默认列表，英文见上方语言覆盖。
+        "extra": {
+            "generator": False,
+            "social": [
+                {"icon": "simple/xiaohongshu", "name": "小红书",
+                 "link": "https://www.xiaohongshu.com/user/profile/62de06bd000000001f017b4d"},
+                {"icon": "simple/bilibili", "name": "Bilibili",
+                 "link": "https://space.bilibili.com/183940526"},
+                {"icon": "fontawesome/brands/weixin", "name": "微信公众号",
+                 "link": "https://mp.weixin.qq.com/s/RGyzJD078p27QRqs5NHBag"},
+            ],
+        },
+        # 中文版权附 ICP 备案（config.copyright 支持 HTML，Material 原样渲染）；英文版权见语言覆盖（无 ICP）。
+        "copyright": (f'© {_YEAR} MarginNote · MarginNote 4 用户手册 · '
+                      '<a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备2021022247号-2</a>'),
         "nav": _nav(toc),
     }
 

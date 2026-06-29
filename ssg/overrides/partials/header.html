@@ -40,8 +40,8 @@
     {% include "partials/search.html" %}
     {#- 跨站链接（桌面显示）-#}
     <nav class="mn-xlinks" aria-label="{{ 'Site links' if is_en else '站点链接' }}">
-      <a href="https://www.marginnote.com.cn" target="_blank" rel="noopener">{{ 'Official Site' if is_en else '官网' }}</a>
-      <a href="https://bbs.marginnote.com.cn" target="_blank" rel="noopener">{{ 'Community' if is_en else '社区' }}</a>
+      <a href="{{ 'https://www.marginnote.com/' if is_en else 'https://www.marginnote.com.cn' }}" target="_blank" rel="noopener">{{ 'Official Site' if is_en else '官网' }}</a>
+      <a href="{{ 'https://forum.marginnote.com/' if is_en else 'https://bbs.marginnote.com.cn' }}" target="_blank" rel="noopener">{{ 'Community' if is_en else '社区' }}</a>
     </nav>
     {#- 语言切换（中/英）：mkdocs-static-i18n 经 reconfigure_material 注入 config.extra.alternate -#}
     {% if config.extra.alternate %}
