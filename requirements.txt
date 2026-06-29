@@ -5,5 +5,9 @@ PyYAML==6.0.3
 doit==0.37.0
 mkdocs-material==9.7.6
 mkdocs-glightbox==0.5.2
+# i18n：中文默认 + 英文 /en/ 子路径（suffix 结构，按页生成 index.en.md）
+mkdocs-static-i18n==1.3.1
 # Pagefind：构建后中文搜索索引（extended 含 CJK 分词）；CLI 经 `python -m pagefind`
 pagefind[extended]==1.5.2
+# i18n 作者工具：把机翻 slug / *_en 合并回 src/toc.yaml 且保留注释（离线维护用，非构建运行时）
+ruamel.yaml==0.18.6

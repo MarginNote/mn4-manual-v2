@@ -21,6 +21,13 @@ MKDOCS_YML = BUILD / "mkdocs.yml"                      # 生成的 mkdocs 配置
 OVERRIDES = BUILD / "overrides"                        # 生成的 Material 主题覆盖目录（custom_dir）
 TOC = SRC / "toc.yaml"                                # 目录结构（发布集）
 
+# i18n：英文版源（自包含于 i18n/en/，纳入版本库；非构建产物）。
+#   i18n/en/<id>/index.md  每页英文译文（与 src/<id>/ 平行；预留 image/ 以便日后译图）
+#   i18n/en/toc.yaml       目录英文文案 overlay（构建期与 src/toc.yaml 内存合并，不改动 toc.yaml）
+# 构建期 pipeline 把译文落到 build/src/<slug>/index.en.md（mkdocs-static-i18n 的 suffix 结构）。
+I18N_EN = ROOT / "i18n" / "en"
+TOC_EN = I18N_EN / "toc.yaml"
+
 # 部署/展示配置（非路径）
 SITE_URL = os.environ.get("MN_SITE_URL", "https://manual.marginnote.com.cn/")
 SITE_DESCRIPTION = (

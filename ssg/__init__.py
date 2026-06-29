@@ -60,7 +60,7 @@ def task_config():
     """
     pairs = _static_pairs()
     return {
-        "file_dep": [str(config.TOC)] + [str(s) for s, _ in pairs],
+        "file_dep": [str(config.TOC), str(config.TOC_EN)] + [str(s) for s, _ in pairs],
         "targets": [str(MKDOCS_YML)] + [str(d) for _, d in pairs],
         "actions": [config.write_mkdocs_yml, copy_static],
         "clean": True,
@@ -68,13 +68,14 @@ def task_config():
 
 
 def task_home():
-    """toc.yaml + 各页 H1/缩略图 → build/src/index.md（首页 hero + 卡片）。"""
+    """toc.yaml + 各页 H1/缩略图 → build/src/index.md + index.en.md（中英首页 hero + 卡片）。"""
     page_md = sorted(str(p) for p in DOCS.glob("*/index.md"))
+    page_en = sorted(str(p) for p in DOCS.glob("*/index.en.md"))
     return {
-        "task_dep": ["page"],                     # 需正文已规范化（取 H1 / 首图）
-        "file_dep": [str(config.TOC)] + page_md,
-        "targets": [str(DOCS / "index.md")],
-        "actions": [(pages.write_home, [config.TOC, DOCS])],
+        "task_dep": ["page", "page_en"],          # 需中/英正文已规范化（取 H1 / 首图）
+        "file_dep": [str(config.TOC), str(config.TOC_EN)] + page_md + page_en,
+        "targets": [str(DOCS / "index.md"), str(DOCS / "index.en.md")],
+        "actions": [(pages.write_home, [DOCS])],
         "clean": True,
     }
 
@@ -84,7 +85,7 @@ def task_site():
     src_inputs = [str(s) for s, _ in _static_pairs()]
     md_inputs = sorted(str(p) for p in DOCS.rglob("*.md"))
     return {
-        "task_dep": ["page", "media", "config", "home"],
+        "task_dep": ["page", "page_en", "media", "config", "home"],
         "file_dep": [str(MKDOCS_YML)] + md_inputs + src_inputs,
         "targets": [str(SITE / "index.html")],
         "actions": [(_run, ["mkdocs", "build", "-f", str(MKDOCS_YML)])],

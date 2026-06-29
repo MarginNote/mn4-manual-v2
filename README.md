@@ -6,17 +6,20 @@ mkdocs 渲染为可部署的静态站点。
 ## 结构
 
 ```
-src/              内容源：每页一个 wolai-id 目录 + toc.yaml/synonyms.yaml/faq.yaml（撰写见 src/README.md）
+src/              中文内容源：每页一个 wolai-id 目录 + toc.yaml（结构/元数据，含 slug）
+                  + glossary.md（中英术语表，wolai 导出）+ synonyms.yaml/faq.yaml（见 src/README.md）
+i18n/en/          英文版源（自包含）：每页 <id>/index.md 译文 + toc.yaml（目录英文 overlay）
 config.py         路径布局（可被环境变量覆盖；pipeline 与 ssg 共用）
 pipeline/         内容规范化 + 媒体压缩 → build/src（详见 pipeline/README.md）
-ssg/              build/src → build/site，mkdocs + Material + Pagefind（详见 ssg/README.md）
-dodo.py           doit 构建入口（page → media → config → home → site → search）
+ssg/              build/src → build/site，mkdocs + Material + static-i18n + Pagefind（详见 ssg/README.md）
+dodo.py           doit 构建入口（page → page_en → media → config → home → site → search）
 requirements.txt  构建依赖（另需系统 ffmpeg）
 ```
 
-站点特性（与旧站对齐）：品牌色 `#219cfb`、深/浅色切换、首页 hero + 难度·阅读时长卡片、
-Pagefind 中文搜索、图片点击放大（glightbox）、上一篇/下一篇。均为服务端渲染——除搜索
-（静态站搜索必需）与图片放大外不依赖 JS，无 SPA。
+站点特性（与旧站对齐）：**中英双语**（中文默认在根路径，英文在 `/en/`，由 mkdocs-static-i18n
+以 suffix 结构生成）、**英文 slug URL**（页面目录名）、品牌色 `#219cfb`、深/浅色切换、
+首页 hero + 难度·阅读时长卡片、Pagefind 中英搜索、图片点击放大（glightbox）。均为服务端
+渲染——除搜索（静态站搜索必需）与图片放大外不依赖 JS，无 SPA。
 
 ## 构建
 
@@ -31,6 +34,17 @@ virtualenv .venv
 
 > 增量仅按输入文件时间戳/哈希失效，**不跟踪转换代码/配置变化**：改了 `ssg/` 或
 > `pipeline/` 的代码后，自行 `doit forget <任务>` 或 `doit clean` 再构建（CI 一律全新构建）。
+
+## i18n（中英双语）
+
+- 中文为默认语言（根路径 `/`），英文在 `/en/`；URL 用英文 **slug**（`toc.yaml` 每页 `slug` 字段，
+  中英共用同一目录名）。
+- 英文版源**自包含**于 `i18n/en/`：每页 `i18n/en/<id>/index.md`（与 `src/<id>/` 平行，预留
+  `image/` 以便日后译图）+ `i18n/en/toc.yaml`（目录英文文案 overlay，按中文名/ id 作键）。
+- `src/toc.yaml` 保持**纯中文 + slug**；构建期 ssg 把英文 overlay **内存合并**（`load_merged_toc`），
+  两个源文件都不被改写。
+- **媒体单份存放、中英共用**：static-i18n 自动把 `/en/` 页面的相对引用回指根目录，无副本。
+- 翻译术语一致性参照 `src/glossary.md`（中英术语表，wolai 导出，保持原样不结构化）。
 
 ## 文档
 

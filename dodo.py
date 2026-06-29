@@ -20,11 +20,12 @@
 """
 
 # doit 从本模块命名空间发现 task_* 创建器；逻辑在 pipeline（规范化）与 ssg（mkdocs）包内。
-from pipeline import task_page, task_media  # noqa: F401
+from pipeline import task_page, task_page_en, task_media  # noqa: F401
 from ssg import task_config, task_home, task_site, task_search  # noqa: F401
 
 DOIT_CONFIG = {
-    "default_tasks": ["page", "media", "config", "home", "site", "search"],
+    # page=中文正文；page_en=英文译文（i18n/en → build/src/<slug>/index.en.md）。
+    "default_tasks": ["page", "page_en", "media", "config", "home", "site", "search"],
     "check_file_uptodate": "timestamp",   # 按 mtime 判定 uptodate，免每次对 ~2GB 媒体做 md5
     "verbosity": 1,
 }

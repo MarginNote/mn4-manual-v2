@@ -7,370 +7,445 @@
   title: "文档"
   desc: "无论你用的是 PDF 教材、扫描版讲义还是 EPUB  电子书，文档分区的功能都能帮你高效地阅读、做笔记、查找内容和管理页面。如果你之前用过其他阅读器或笔记软件，这部分会是最熟悉的起点。"
   categories:
-    - category: "文档快速笔记"
-      icon: "📝"
-      desc: "在 PDF 上摘录、插入笔记、手写批注，快速记录阅读想法"
-      pages:
-        - id: 9aXhp2VEugXYNp9cnWCT7A   # 摘录：抓住全文重点
-          difficulty: 1
-          read_time: 4
-          desc: "摘录是 MN4 文档阅读笔记的核心功能，无需绑定脑图框架，就能高效提取、管理和复用关键信息。兼具可编辑、易复用的优势，适配多种阅读场景。"
-        - id: 3w7coSpmfsLecSW1hxQV24   # 新建文本框/图片/拍照
-          difficulty: 1
-          read_time: 3
-          desc: "文本框 - 就地标注：在原文旁边写补充、重点、疑问，避免把想法散落在别处。图片 - 讲解流程：插入截图/示意图并可改大小、复制、剪切、删除，信息更清晰。拍照 - 课堂、会议、图书学习的即刻记录：把纸页…"
-        - id: 9RzcqeeMfTifmGxNdmqzAi   # 新建空白笔记本
-          difficulty: 1
-          read_time: 3
-          desc: "新建笔记本是 MarginNote 4 提供的功能，允许你在某个学习集中创建一个独立的空白笔记本，用来做课后笔记、草稿、思维导图前的手写草稿等。它与直接在 PDF 上做笔记一样，可转为卡片并纳入脑图、…"
-        - id: vYi6Yu4oCudNCr2zDuNQkj   # 留白①|基础操作：字里行间自由开辟笔记空间
-          difficulty: 1
-          read_time: 4
-          desc: "留白功能可在 PDF 任意位置插入一块空白笔记区域，用于补充解释、记录思考、放入关联资料或提出问题，而不会改变原文的排版结构。"
-        - id: pYzC5dfXtbC7taLgQC3DFs   # 手写：, 在文档、脑图、卡片中自由书写
-          difficulty: 2
-          read_time: 9
-          desc: "随处可写！支持手写图层、消失笔模式、涂抹擦除、AI 转文本，可一键复制笔刷或导入他人配置好的参数。"
-        - id: 6gbzKZ4a16uYGaFNLMYASD   # 图层：文档笔记本&手写图层
-          difficulty: 2
-          read_time: 6
-          desc: "像“透写纸”一样：在一份原始PDF上，叠加多个图层进行记录。独家分级图层设计，让学习记录合理分区。"
-        - id: v2vpgXTJGFsqtRZkRUcqtG   # 翻译及保存译文
-          difficulty: 2
-          read_time: 6
-          desc: "翻译并保存译文的四种方式：文档即时翻译、AI 翻译与 AI OCR、研究侧栏（含自定义 URL）和插件翻译。可以将译文插入为留白、复制到剪贴板或保存为卡片，用于并排对照与后续整理。"
-        - id: iLGrRDRMEQepittcNY4Bun   # 手形工具弹出菜单栏及其自定义
-          difficulty: 1
-          read_time: 6
-          desc: "无需反复切换工具栏，手形工具能让你在选中文字或区域后，一键完成摘录、翻译、留白等操作。菜单栏支持自定义常驻选项，或创建专属快捷按钮，让高频操作快人一步。"
-    - category: "文档阅读批注、检索、对照难点"
-      icon: "🔍"
-      desc: "深度阅读一本书：全文检索、双文对照、引证回源"
-      pages:
-        - id: ma1UxicEXg8YWjPQYuDScu   # 文档阅读设置
-          difficulty: 1
-          read_time: 3
-          desc: "MarginNote 具有丰富的文档阅读设置功能，主要通过三大模块实现：一是支持对文档页面亮度、翻页模式、5"
-        - id: rpmCakup76GuHCF6N4Ns5c   # 检索①：全文 OCR +搜索定位，扫描版书籍也可畅享阅读
-          difficulty: 1
-          read_time: 4
-          desc: "能搜索！搜得准！能定位！多语种OCR识别+校正能力，让电子书阅读无忧，检索顺畅。"
-        - id: 8PoZfbSRai6owkvzpttZAE   # 检索②：查看文档目录/缩略图/书签/手写标注/卡片
-          difficulty: 1
-          read_time: 3
-          desc: "MarginNote 的书页查找功能整合了五种检索方式：目录、缩略图、书签、手写标注和卡片，可根据不同使用需求快速定位目标页面。"
-        - id: n8VMVG5yoZj8WRatAPzJkm   # 对照①：双文对照窗口
-          difficulty: 1
-          read_time: 3
-          desc: "无论是教材与视频、习题册与答案册，原文与笔记、还是同一文档不同位置，都能并排呈现，轻松切换。对照视图状态可随时保存。"
-        - id: 2dQ7P1XFEV2UyqCLWyU7dU   # 对照②：文档间引证回源
-          difficulty: 2
-          read_time: 3
-          desc: "什么是“引证”，什么是“回源”？引证简单来说是引用不同语境下的内容。可以分为两种情况。1. 在同一文档位置2. 在文档的某个位置引用其他文档的内容。回源指的则是从引用处跳转回原文的功能。"
-        - id: 91LaezjY5SXvoCRie5UsJQ   # 留白②|使用场景：分层管理阅读笔记
-          difficulty: 2
-          read_time: 3
-          desc: "重要笔记“嵌入”文中，次要笔记暂存“页边”，支持灵活调整留白位置。"
-        - id: 3RP4xfuiFKc6SAF8r1BHfK   # 对照③：附属笔记本
-          difficulty: 3
-          read_time: 3
-          desc: "在附属笔记本上书写的笔迹、批注、笔记内容，会与原 PDF 文档的对应页码、对应位置自动绑定关联。点击附属笔记本中的任意笔记/笔迹，即可一键定位、跳转回原 PDF 的原始位置，实现笔记与原文的精准溯源对照。"
-    - category: "文档排版与书页编辑"
-      icon: "✂️"
-      desc: "折叠章节、重组页面、裁剪纸张，把 PDF 改造成最适合你的版本"
-      pages:
-        - id: 3ceKFREpJyZRZRqk6WgGjM   # 书页折叠
-          difficulty: 1
-          read_time: 3
-          desc: "隐藏文档中不需要的内容——按章节折叠或手动折叠局部区域。折去页眉页脚后可顺畅跨页摘录，隐藏答案避免提前看  到解析，随时可展开，比删除页面更灵活。"
-        - id: kFM4Uh2thC5pEXp11wCuJz   # 书页重组
-          difficulty: 1
-          read_time: 3
-          desc: "把不同文档的页面拖拽组合成虚拟文档，实现以页面为单元的拆分与重组。不复制原文件只引用页面，适合从多本教  材中抽取章节组成自己的学习资料。"
-        - id: akPnCSBmGv2BXCzkTBrFTB   # 增删页面、裁剪纸张
-          difficulty: 1
-          read_time: 3
-          desc: "旋转、添加、删除页面，裁剪冗余边距和页眉页脚，或扩展页面留出笔记空间。批量处理教材排版问题，让文档更适  合学习。"
-        - id: djV6nMiEdSaxCacjWcptpA   # 手动&自动生成文档目录
-          difficulty: 1
-          read_time: 5
-          desc: "为没有目录的 PDF 搭建清晰的章节层级。支持手动创建、AI  自动生成，目录可直接转化为脑图结构。虚拟目录不修改源文件，可随时重置。"
+  - category: "文档快速笔记"
+    icon: "📝"
+    desc: "在 PDF 上摘录、插入笔记、手写批注，快速记录阅读想法"
+    pages:
+    - id: 9aXhp2VEugXYNp9cnWCT7A       # 摘录：抓住全文重点
+      difficulty: 1
+      read_time: 4
+      desc: "摘录是 MN4 文档阅读笔记的核心功能，无需绑定脑图框架，就能高效提取、管理和复用关键信息。兼具可编辑、易复用的优势，适配多种阅读场景。"
+      slug: excerpts-capture-key-points-document
+    - id: 3w7coSpmfsLecSW1hxQV24       # 新建文本框/图片/拍照
+      difficulty: 1
+      read_time: 3
+      desc: "文本框 - 就地标注：在原文旁边写补充、重点、疑问，避免把想法散落在别处。图片 - 讲解流程：插入截图/示意图并可改大小、复制、剪切、删除，信息更清晰。拍照 - 课堂、会议、图书学习的即刻记录：把纸页…"
+      slug: creating-text-boxes-images-photos
+    - id: 9RzcqeeMfTifmGxNdmqzAi       # 新建空白笔记本
+      difficulty: 1
+      read_time: 3
+      desc: "新建笔记本是 MarginNote 4 提供的功能，允许你在某个学习集中创建一个独立的空白笔记本，用来做课后笔记、草稿、思维导图前的手写草稿等。它与直接在 PDF 上做笔记一样，可转为卡片并纳入脑图、…"
+      slug: create-blank-notebook
+    - id: vYi6Yu4oCudNCr2zDuNQkj       # 留白①|基础操作：字里行间自由开辟笔记空间
+      difficulty: 1
+      read_time: 4
+      desc: "留白功能可在 PDF 任意位置插入一块空白笔记区域，用于补充解释、记录思考、放入关联资料或提出问题，而不会改变原文的排版结构。"
+      slug: extend-note-basic-operations-freely-open
+    - id: pYzC5dfXtbC7taLgQC3DFs       # 手写：, 在文档、脑图、卡片中自由书写
+      difficulty: 2
+      read_time: 9
+      desc: "随处可写！支持手写图层、消失笔模式、涂抹擦除、AI 转文本，可一键复制笔刷或导入他人配置好的参数。"
+      slug: handwriting-write-freely-documents-mind-maps
+    - id: 6gbzKZ4a16uYGaFNLMYASD       # 图层：文档笔记本&手写图层
+      difficulty: 2
+      read_time: 6
+      desc: "像“透写纸”一样：在一份原始PDF上，叠加多个图层进行记录。独家分级图层设计，让学习记录合理分区。"
+      slug: layers-document-notebooks-handwriting-layers
+    - id: v2vpgXTJGFsqtRZkRUcqtG       # 翻译及保存译文
+      difficulty: 2
+      read_time: 6
+      desc: "翻译并保存译文的四种方式：文档即时翻译、AI 翻译与 AI OCR、研究侧栏（含自定义 URL）和插件翻译。可以将译文插入为留白、复制到剪贴板或保存为卡片，用于并排对照与后续整理。"
+      slug: translating-saving-translations
+    - id: iLGrRDRMEQepittcNY4Bun       # 手形工具弹出菜单栏及其自定义
+      difficulty: 1
+      read_time: 6
+      desc: "无需反复切换工具栏，手形工具能让你在选中文字或区域后，一键完成摘录、翻译、留白等操作。菜单栏支持自定义常驻选项，或创建专属快捷按钮，让高频操作快人一步。"
+      slug: hand-tool-pop-up-menu-bar
+  - category: "文档阅读批注、检索、对照难点"
+    icon: "🔍"
+    desc: "深度阅读一本书：全文检索、双文对照、引证回源"
+    pages:
+    - id: ma1UxicEXg8YWjPQYuDScu       # 文档阅读设置
+      difficulty: 1
+      read_time: 3
+      desc: "MarginNote 具有丰富的文档阅读设置功能，主要通过三大模块实现：一是支持对文档页面亮度、翻页模式、5"
+      slug: document-reading-settings
+    - id: rpmCakup76GuHCF6N4Ns5c       # 检索①：全文 OCR +搜索定位，扫描版书籍也可畅享阅读
+      difficulty: 1
+      read_time: 4
+      desc: "能搜索！搜得准！能定位！多语种OCR识别+校正能力，让电子书阅读无忧，检索顺畅。"
+      slug: search-full-text-ocr-search-locate
+    - id: 8PoZfbSRai6owkvzpttZAE       # 检索②：查看文档目录/缩略图/书签/手写标注/卡片
+      difficulty: 1
+      read_time: 3
+      desc: "MarginNote 的书页查找功能整合了五种检索方式：目录、缩略图、书签、手写标注和卡片，可根据不同使用需求快速定位目标页面。"
+      slug: search-view-document-table-contents-thumbnails
+    - id: n8VMVG5yoZj8WRatAPzJkm       # 对照①：双文对照窗口
+      difficulty: 1
+      read_time: 3
+      desc: "无论是教材与视频、习题册与答案册，原文与笔记、还是同一文档不同位置，都能并排呈现，轻松切换。对照视图状态可随时保存。"
+      slug: comparison-bi-article-comparison-window
+    - id: 2dQ7P1XFEV2UyqCLWyU7dU       # 对照②：文档间引证回源
+      difficulty: 2
+      read_time: 3
+      desc: "什么是“引证”，什么是“回源”？引证简单来说是引用不同语境下的内容。可以分为两种情况。1. 在同一文档位置2. 在文档的某个位置引用其他文档的内容。回源指的则是从引用处跳转回原文的功能。"
+      slug: comparison-cross-document-reference-backlink
+    - id: 91LaezjY5SXvoCRie5UsJQ       # 留白②|使用场景：分层管理阅读笔记
+      difficulty: 2
+      read_time: 3
+      desc: "重要笔记“嵌入”文中，次要笔记暂存“页边”，支持灵活调整留白位置。"
+      slug: extend-note-use-cases-tiered-management
+    - id: 3RP4xfuiFKc6SAF8r1BHfK       # 对照③：附属笔记本
+      difficulty: 3
+      read_time: 3
+      desc: "在附属笔记本上书写的笔迹、批注、笔记内容，会与原 PDF 文档的对应页码、对应位置自动绑定关联。点击附属笔记本中的任意笔记/笔迹，即可一键定位、跳转回原 PDF 的原始位置，实现笔记与原文的精准溯源对照。"
+      slug: comparison-attached-notebook
+  - category: "文档排版与书页编辑"
+    icon: "✂️"
+    desc: "折叠章节、重组页面、裁剪纸张，把 PDF 改造成最适合你的版本"
+    pages:
+    - id: 3ceKFREpJyZRZRqk6WgGjM       # 书页折叠
+      difficulty: 1
+      read_time: 3
+      desc: "隐藏文档中不需要的内容——按章节折叠或手动折叠局部区域。折去页眉页脚后可顺畅跨页摘录，隐藏答案避免提前看  到解析，随时可展开，比删除页面更灵活。"
+      slug: page-folding
+    - id: kFM4Uh2thC5pEXp11wCuJz       # 书页重组
+      difficulty: 1
+      read_time: 3
+      desc: "把不同文档的页面拖拽组合成虚拟文档，实现以页面为单元的拆分与重组。不复制原文件只引用页面，适合从多本教  材中抽取章节组成自己的学习资料。"
+      slug: page-reorganization
+    - id: akPnCSBmGv2BXCzkTBrFTB       # 增删页面、裁剪纸张
+      difficulty: 1
+      read_time: 3
+      desc: "旋转、添加、删除页面，裁剪冗余边距和页眉页脚，或扩展页面留出笔记空间。批量处理教材排版问题，让文档更适  合学习。"
+      slug: adding-deleting-pages-cropping-page
+    - id: djV6nMiEdSaxCacjWcptpA       # 手动&自动生成文档目录
+      difficulty: 1
+      read_time: 5
+      desc: "为没有目录的 PDF 搭建清晰的章节层级。支持手动创建、AI  自动生成，目录可直接转化为脑图结构。虚拟目录不修改源文件，可随时重置。"
 
+      slug: manually-automatically-generating-document-table-contents
 - section: "📚 学习集与脑图"
   label: "Mind Map & Study Set"
   title: "脑图与学习集"
   desc: "读完文档、做好标注之后，下一步是什么？这部分介绍的是 MarginNote 4  的核心特色——如何把散落在不同文档中的知识点提取出来，组织成可视化的脑图结构，并在同一个界面中完成阅读、整理和复习的完整闭环。如果你希望不只是\"读过\"，而是真正\"学会\"，这部分就是关键。"
   categories:
-    - category: "从学习集开启主题式学习"
-      icon: "📚"
-      desc: "把多份材料放进同一个学科空间，脑图与文档联动，开启系统性学习"
-      pages:
-        - id: vtjSQ6LvQv1TbbjdctzroM   # 新建学习集：开启主题式学习
-          difficulty: 1
-          read_time: 9
-          desc: "学习集是围绕一个主题把文档、脑图和复习卡片整合在一起的专属空间。这篇教你创建学习集、选择界面模式、导入  文档，是使用 MN4 深度学习功能的起点。"
-        - id: 7PQUHR2ZsY58z128y6KtoW   # 脑图与文档联动视图
-          difficulty: 1
-          read_time: 2
-          desc: "边读文档边整理脑图，两个视图实时联动。支持调节比例、切换联动方向（文档→脑图、脑图→文档、双向、关闭），  无需频繁切换窗口"
-        - id: tttAu9xnHunBPj1YNXGhsc   # 文档标签页管理
-          difficulty: 1
-          read_time: 2
-          desc: "像浏览器标签页一样管理多个打开的文档。快速切换、调整顺序、控制显示数量，解决文档过多时的管理问题。"
-        - id: 4BL4PgiF2rLSyuL9AwXyP7   # 边栏快速切换与全局检索
-          difficulty: 1
-          read_time: 3
-          desc: "通过文档边栏和学习集边栏快速导航，支持全局检索（AND/OR/NOT  等高级规则）、在浮动视图中打开子脑图、按文件名搜索。快速找到你需要的任何内容。"
-        - id: jeJN7Cjyi9fSZovcQ6ZSps   # 卡片盒视图
-          difficulty: 2
-          read_time: 2
-          desc: "统一管理所有笔记卡片的核心区域，打通学习集与多个脑图的连接。支持筛选、搜索、批量编辑，点击卡片可回源定  位到脑图或文档位置，实现跨文档知识整合。"
-        - id: eSR1wAaQdCG2kXSqBMHAB8   # 复习视图
-          difficulty: 2
-          read_time: 3
-          desc: "不离开学习集界面直接开启闪卡复习。支持排序、筛选、全屏复习模式，基于 FSRS  算法科学安排复习间隔，实现文档、脑图与记忆的无缝衔接。"
-        - id: sSYs886ZU4gfwVhuBgzNaV   # 研究浏览器视图
-          difficulty: 2
-          read_time: 4
-          desc: "内置的边读边查工具，支持视频搜索、字典、学术搜索、翻译、PDF 搜索等 8 大功能。网页可一键转存为 PDF  导入文档库，无需切换外部应用即可完成知识补充。"
-        - id: ueyP4EoMFihG8RpYMY31JV   # 学习集专属样式：打造你的专属学习空间
-          difficulty: 2
-          read_time: 2
-          desc: "为每个学习集定制摘录颜色、摘录工具、手写工具和弹出菜单。配置可导出分享或导入他人配置，切换学习集时工具  自动切换，降低学习启动成本。"
-        - id: hZouyBD3Cq3HBJwix3TVJN   # 沉浸模式
-          difficulty: 1
-          read_time: 3
-          desc: "沉浸模式（Immersive Mode）沉浸模式下，工具栏被简化、界面干净整洁，实现最大利用屏幕空间，专为“长时间、连续、专注地处理摘录内容”设计。当你不想被无关的按钮、菜单打断、希望稳定推进学习与工…"
-    - category: "从文档搭建脑图"
-      icon: "🤖"
-      desc: "用 AI 一键摘录文档内容，自动生成结构化脑图"
-      pages:
-        - id: 5sY7oXw6U88xhJnKA6ChUr   # 手动摘录生成脑图
-          difficulty: 1
-          read_time: 6
-          desc: "完成摘录只是第一步。很多学习者会遇到这样的困惑：摘录了很多内容，卡片却散落在脑图里，不知道怎么组织；或者想把一本教材的笔记整理成清晰的框架，却不知从何下手。 MarginNote 4 提供了三条路径，…"
-        - id: 5DiLYYJjNeZ4rQmBpDkRwQ   # 摘录工具及其自动化
-          difficulty: 1
-          read_time: 8
-          desc: "使用摘录功能时，有一些固定的操作，例如对图片摘录进行、把所有摘录，或者有为摘录卡片设置标签、颜色等需求，这些连续流程可以借由文档导航栏的摘录工具设置，让这些功能自动进行。"
-        - id: 91ptxv4wkpB2RSq8GQkAtc   # 自动生成脑图①：使用AI模型一键摘录
-          difficulty: 1
-          read_time: 3
-          desc: "AI 自动识别文档中的标题、图片、表格、公式等 10  类元素，单击显示、双击摘录成卡，批量生成脑图。特别适合论文摘录和图文混排的课程讲义。"
-    - category: "脑图&卡片快速笔记"
-      icon: "🧠"
-      desc: "在脑图画布上新建、编辑、整理卡片，构建知识的层级结构"
-      pages:
-        - id: 67hDfmy3SZi4oXmMb2bvcH   # 脑图卡片①：新建和编辑卡片
-          difficulty: 1
-          read_time: 7
-          desc: "掌握卡片的 5 种创建方式（空白新建、节点新建、大纲新建、文档摘录、AI 新建）和编辑方法。支持  Markdown、LaTeX、代码块等富文本格式，是脑图笔记的基础操作。"
-        - id: pmyU9i1nmv96THhMEM65Na   # 脑图卡片②：移动、合并、重组
-          difficulty: 1
-          read_time: 3
-          desc: "把散乱的卡片整理成结构化知识体系。拖拽移动、合并多张卡片、拆分重组节点，还能按文档目录自动组织卡片层级  。"
-        - id: uyBkyj1HKH6iqRhn4fZLkc   # 脑图侧边工具栏
-          difficulty: 1
-          read_time: 4
-          desc: "7 个工具一览：大纲、看板、手形、复制、链接、手写设置、选择。双击可唤出设置面板自定义快捷选项，高效编辑  和管理脑图"
-        - id: dHgUPznJARhX2ksVjHDLdP   # 脑图概要：跨分支创建总结节点，支持延展为新分支
-          difficulty: 1
-          read_time: 1
-          desc: "对多个卡片进行汇总，生成总结卡片概括核心内容。总结卡片还能继续扩展为新分支，实现知识的纵向整合与横向对  比。"
-        - id: 5nntHuyzfBSdVrEo4YYhxC   # 脑图焦点
-          difficulty: 1
-          read_time: 1
-          desc: "隐藏其他所有卡片，只显示当前卡片及其下级。在复杂脑图中集中注意力学习特定知识点，退出后手写默认不显示，  保持视野清爽。"
-        - id: wAZ8JuGD8M6EZu8qFjFXmD   # 新建和管理子脑图层级
-          difficulty: 2
-          read_time: 2
-          desc: "内容太多一张脑图放不下？创建子脑图按章节或主题分层整理。支持新建、坍缩分支为子脑图、在浮动视图打开、恢  复为分支等管理操作。"
-        - id: 62qCDFNG6viCFUuWQpjzts   # 脑图手写图层：分层管理你的批注
-          difficulty: 2
-          read_time: 3
-          desc: "类似 Photoshop 的图层功能——创建多个手写图层，每轮复习用不同图层，叠加对比解题思路差异。支持切换、合并  、重命名、半透明叠加显示。"
-        - id: eShEtotNTstcUnT6o3FLAP   # Markdown与公式
-          difficulty: 2
-          read_time: 6
-          desc: "在卡片中使用 Markdown 排版笔记，支持标题、列表、表格、代码块等基础语法，以及 LaTeX/KaTeX/MathJax  公式输入和 HTML/CSS 高级格式。还可通过论坛插件扩展更多功能。"
-        - id: 6QJHeJqZghQKQ4PcEA3w5u   # 卡片弹出菜单栏及其自定义
-          difficulty: 1
-          read_time: 7
-          desc: "场景实例简单整理：生成卡片后，有时需要整理卡片内容，通过颜色、标签等对卡片进行区分，丰富内容：有时也需要针对卡片内容向深入链接：在整理脑图大纲时，需要调整卡片所在层级，对卡片进行剪切、复制、粘贴。也需…"
-    - category: "从大纲编辑脑图"
-      icon: "📋"
-      desc: "用大纲列表的方式编辑脑图，更适合逻辑严谨的层级整理"
-      pages:
-        - id: sYsFmUYt3bonXyjwjERxhN   # 大纲显示和排序
-          difficulty: 1
-          read_time: 4
-          desc: "控制大纲的显示方式——单行精简模式、全部折叠/展开、手动拖拽调整顺序、按文档页序或创建日期自动排序。快速  浏览和调整脑图结构。"
-        - id: iRnRj5X6AuY3qmEbM8iDuV   # 大纲编辑和缩进
-          difficulty: 2
-          read_time: 4
-          desc: "在大纲视图中快速创建和编辑节点。用 Tab/Shift+Tab  调整层级，回车切分内容，删除键合并节点，比在脑图画布上拖拽更高效。"
-        - id: 6tp93F8CwVtoRHBUkpeDq8   # 大纲筛选和搜索
-          difficulty: 2
-          read_time: 4
-          desc: "从大量笔记中快速定位——按标签、文档、摘录颜色筛选（支持并集/交集），或通过关键词实时检索卡片标题、摘录和评论内容。"
-    - category: "脑图排版美化"
-      icon: "🎨"
-      desc: "调整分支样式、字体、背景，让脑图更清晰、更适合演示"
-      pages:
-        - id: iXZn5PKLW4iogVnxZwQ4pt   # 10种分支样式&子脑图坍缩
-          difficulty: 1
-          read_time: 3
-          desc: "选择最适合你的脑图视觉风格，10 种分支样式满足不同场景需求。子脑图坍缩功能让复杂脑图保持整洁。"
-        - id: kNdd8eknASZXWUzQ8472U2   # 自定义卡片字体
-          difficulty: 1
-          read_time: 4
-          desc: "打破设备默认字体限制，在 Mac 和 iOS 上安装自定义字体。提供字体下载网站推荐、安装教程和常见问题解决方案  ，还能开启\"随手写\"让手写自动变印刷体。"
-        - id: 7bcacoRsGX43EK3KBoodj1   # 脑图手写背景和卡片尺寸设置
-          difficulty: 2
-          read_time: 5
-          desc: "调整卡片显示选项（只显示标题、紧凑宽度）、手写背景（点图/网格/横线）和卡片尺寸，优化脑图的视觉效果和演  示效率。"
-        - id: bqdqqoArAjk9afFWktd9aF   # 脑图手写随动绑定
-          difficulty: 2
-          read_time: 4
-          desc: "让手写批注跟着卡片走。三种绑定方式：自动绑定、焦点绑定、手动绑定，移动卡片时手写内容同步移动，不再错位。"
-        - id: 6b7GJnTDfs2kkNsBWT7AhG   # 自定义卡片摘录颜色
-    - category: "卡片链接与笔记库重复利用"
-      icon: "🔗"
-      desc: "给卡片建立关联、筛选分组、跨学习集复用，让积累的笔记活起来"
-      pages:
-        - id: dJvh1K4GEKaJYtZ14zbfgj   # 卡片分组看板①：从海量卡片中精准筛选
-          difficulty: 2
-          read_time: 3
-          desc: "按来源、颜色、标签、文档、日期等多维度筛选卡片，支持两层嵌套分组和批量编辑。从海量卡片中快速找到你需要  的内容。"
-        - id: aBEbDgL6oDgDT4CeXotdbS   # 卡片链接④|关键词标题链接：打造你的个人字典
-          difficulty: 3
-          read_time: 6
-          desc: "类似 Wikipedia 的超链接——在卡片标题中设置关键词，文档中出现这些词时自动显示蓝色虚线，点击即弹出解释卡  片。适合考试复盘、论文精读、英语学习。"
-        - id: pXcHjMTVqjcvvgEiNnTQm5   # 卡片分组看板②：从看板自动生成脑图，打造个人知识集锦
-          difficulty: 1
-          read_time: 3
-          desc: "筛选出需要的卡片后拖拽到脑图，自动生成新脑图。适合创建错题本、核心概念速查、历年真题汇编等专属集锦库。"
-        - id: mGz8BQh6r1ad6wv1jqDo1G   # 卡片链接①|单双向链接：跨越层级的自由关联
-          difficulty: 1
-          read_time: 4
-          desc: "卡片除了有上下级这种“相对固定”的节点结构外，还有一种更“自由”的结构——链接。链接的优势在于不限制两张卡片的位置：卡片可以来自不同子脑图，甚至是不同学习集，并可以随时跳转查看。"
-        - id: tg7V1E5VRtGvse2ndVgNXx   # 卡片链接②|卡片唯一ID、URL：跨脑图、学习集关联
-          difficulty: 1
-          read_time: 5
-          desc: "链接功能的本质就是某张卡片 URL"
-        - id: c8dY2ezo4RX67KkmL5dCZp   # 卡片链接③：手绘曲线链接
-          difficulty: 1
-          read_time: 2
-          desc: "用手写笔画快速调整脑图结构——画线建立链接、画折线删除链接、画圆圈选中卡片。无需频繁切换模式，提升脑图编  辑效率。"
-        - id: sncaMzMHTBx6abg1dZcPfB   # 卡片链接⑤|行内链接
-          difficulty: 1
-          read_time: 4
-          desc: "在卡片评论中用 Markdown 格式链接其他卡片，支持 [[  搜索和自定义显示文本。解决在文本中精确引用特定卡片的需求。"
+  - category: "从学习集开启主题式学习"
+    icon: "📚"
+    desc: "把多份材料放进同一个学科空间，脑图与文档联动，开启系统性学习"
+    pages:
+    - id: vtjSQ6LvQv1TbbjdctzroM       # 新建学习集：开启主题式学习
+      difficulty: 1
+      read_time: 9
+      desc: "学习集是围绕一个主题把文档、脑图和复习卡片整合在一起的专属空间。这篇教你创建学习集、选择界面模式、导入  文档，是使用 MN4 深度学习功能的起点。"
+      slug: creating-study-set-start-theme-based
+    - id: 7PQUHR2ZsY58z128y6KtoW       # 脑图与文档联动视图
+      difficulty: 1
+      read_time: 2
+      desc: "边读文档边整理脑图，两个视图实时联动。支持调节比例、切换联动方向（文档→脑图、脑图→文档、双向、关闭），  无需频繁切换窗口"
+      slug: mind-map-document-linked-view
+    - id: tttAu9xnHunBPj1YNXGhsc       # 文档标签页管理
+      difficulty: 1
+      read_time: 2
+      desc: "像浏览器标签页一样管理多个打开的文档。快速切换、调整顺序、控制显示数量，解决文档过多时的管理问题。"
+      slug: document-tab-management
+    - id: 4BL4PgiF2rLSyuL9AwXyP7       # 边栏快速切换与全局检索
+      difficulty: 1
+      read_time: 3
+      desc: "通过文档边栏和学习集边栏快速导航，支持全局检索（AND/OR/NOT  等高级规则）、在浮动视图中打开子脑图、按文件名搜索。快速找到你需要的任何内容。"
+      slug: quick-sidebar-switching-global-search
+    - id: jeJN7Cjyi9fSZovcQ6ZSps       # 卡片盒视图
+      difficulty: 2
+      read_time: 2
+      desc: "统一管理所有笔记卡片的核心区域，打通学习集与多个脑图的连接。支持筛选、搜索、批量编辑，点击卡片可回源定  位到脑图或文档位置，实现跨文档知识整合。"
+      slug: zettelkasten-styled-card-box-view
+    - id: eSR1wAaQdCG2kXSqBMHAB8       # 复习视图
+      difficulty: 2
+      read_time: 3
+      desc: "不离开学习集界面直接开启闪卡复习。支持排序、筛选、全屏复习模式，基于 FSRS  算法科学安排复习间隔，实现文档、脑图与记忆的无缝衔接。"
+      slug: review-view
+    - id: sSYs886ZU4gfwVhuBgzNaV       # 研究浏览器视图
+      difficulty: 2
+      read_time: 4
+      desc: "内置的边读边查工具，支持视频搜索、字典、学术搜索、翻译、PDF 搜索等 8 大功能。网页可一键转存为 PDF  导入文档库，无需切换外部应用即可完成知识补充。"
+      slug: research-browser-view
+    - id: ueyP4EoMFihG8RpYMY31JV       # 学习集专属样式：打造你的专属学习空间
+      difficulty: 2
+      read_time: 2
+      desc: "为每个学习集定制摘录颜色、摘录工具、手写工具和弹出菜单。配置可导出分享或导入他人配置，切换学习集时工具  自动切换，降低学习启动成本。"
+      slug: studyset-specific-styles-build-own-learning
+    - id: hZouyBD3Cq3HBJwix3TVJN       # 沉浸模式
+      difficulty: 1
+      read_time: 3
+      desc: "沉浸模式（Immersive Mode）沉浸模式下，工具栏被简化、界面干净整洁，实现最大利用屏幕空间，专为“长时间、连续、专注地处理摘录内容”设计。当你不想被无关的按钮、菜单打断、希望稳定推进学习与工…"
+      slug: immersive-mode
+  - category: "从文档搭建脑图"
+    icon: "🤖"
+    desc: "用 AI 一键摘录文档内容，自动生成结构化脑图"
+    pages:
+    - id: 5sY7oXw6U88xhJnKA6ChUr       # 手动摘录生成脑图
+      difficulty: 1
+      read_time: 6
+      desc: "完成摘录只是第一步。很多学习者会遇到这样的困惑：摘录了很多内容，卡片却散落在脑图里，不知道怎么组织；或者想把一本教材的笔记整理成清晰的框架，却不知从何下手。 MarginNote 4 提供了三条路径，…"
+      slug: manually-generate-mind-map-from-excerpts
+    - id: 5DiLYYJjNeZ4rQmBpDkRwQ       # 摘录工具及其自动化
+      difficulty: 1
+      read_time: 8
+      desc: "使用摘录功能时，有一些固定的操作，例如对图片摘录进行、把所有摘录，或者有为摘录卡片设置标签、颜色等需求，这些连续流程可以借由文档导航栏的摘录工具设置，让这些功能自动进行。"
+      slug: excerpt-tools-their-automation
+    - id: 91ptxv4wkpB2RSq8GQkAtc       # 自动生成脑图①：使用AI模型一键摘录
+      difficulty: 1
+      read_time: 3
+      desc: "AI 自动识别文档中的标题、图片、表格、公式等 10  类元素，单击显示、双击摘录成卡，批量生成脑图。特别适合论文摘录和图文混排的课程讲义。"
+      slug: auto-generate-mind-maps-one-tap
+  - category: "脑图&卡片快速笔记"
+    icon: "🧠"
+    desc: "在脑图画布上新建、编辑、整理卡片，构建知识的层级结构"
+    pages:
+    - id: 67hDfmy3SZi4oXmMb2bvcH       # 脑图卡片①：新建和编辑卡片
+      difficulty: 1
+      read_time: 7
+      desc: "掌握卡片的 5 种创建方式（空白新建、节点新建、大纲新建、文档摘录、AI 新建）和编辑方法。支持  Markdown、LaTeX、代码块等富文本格式，是脑图笔记的基础操作。"
+      slug: mind-map-card-creating-editing-cards
+    - id: pmyU9i1nmv96THhMEM65Na       # 脑图卡片②：移动、合并、重组
+      difficulty: 1
+      read_time: 3
+      desc: "把散乱的卡片整理成结构化知识体系。拖拽移动、合并多张卡片、拆分重组节点，还能按文档目录自动组织卡片层级  。"
+      slug: mind-map-cards-move-merge-regroup
+    - id: uyBkyj1HKH6iqRhn4fZLkc       # 脑图侧边工具栏
+      difficulty: 1
+      read_time: 4
+      desc: "7 个工具一览：大纲、看板、手形、复制、链接、手写设置、选择。双击可唤出设置面板自定义快捷选项，高效编辑  和管理脑图"
+      slug: mind-map-side-toolbar
+    - id: dHgUPznJARhX2ksVjHDLdP       # 脑图概要：跨分支创建总结节点，支持延展为新分支
+      difficulty: 1
+      read_time: 1
+      desc: "对多个卡片进行汇总，生成总结卡片概括核心内容。总结卡片还能继续扩展为新分支，实现知识的纵向整合与横向对  比。"
+      slug: mind-map-summary-create-summary-nodes
+    - id: 5nntHuyzfBSdVrEo4YYhxC       # 脑图焦点
+      difficulty: 1
+      read_time: 1
+      desc: "隐藏其他所有卡片，只显示当前卡片及其下级。在复杂脑图中集中注意力学习特定知识点，退出后手写默认不显示，  保持视野清爽。"
+      slug: mind-map-focus
+    - id: wAZ8JuGD8M6EZu8qFjFXmD       # 新建和管理子脑图层级
+      difficulty: 2
+      read_time: 2
+      desc: "内容太多一张脑图放不下？创建子脑图按章节或主题分层整理。支持新建、坍缩分支为子脑图、在浮动视图打开、恢  复为分支等管理操作。"
+      slug: creating-managing-child-mind-map-hierarchy
+    - id: 62qCDFNG6viCFUuWQpjzts       # 脑图手写图层：分层管理你的批注
+      difficulty: 2
+      read_time: 3
+      desc: "类似 Photoshop 的图层功能——创建多个手写图层，每轮复习用不同图层，叠加对比解题思路差异。支持切换、合并  、重命名、半透明叠加显示。"
+      slug: mindmap-handwriting-layers-manage-annotations-layers
+    - id: eShEtotNTstcUnT6o3FLAP       # Markdown与公式
+      difficulty: 2
+      read_time: 6
+      desc: "在卡片中使用 Markdown 排版笔记，支持标题、列表、表格、代码块等基础语法，以及 LaTeX/KaTeX/MathJax  公式输入和 HTML/CSS 高级格式。还可通过论坛插件扩展更多功能。"
+      slug: markdown-formulas
+    - id: 6QJHeJqZghQKQ4PcEA3w5u       # 卡片弹出菜单栏及其自定义
+      difficulty: 1
+      read_time: 7
+      desc: "场景实例简单整理：生成卡片后，有时需要整理卡片内容，通过颜色、标签等对卡片进行区分，丰富内容：有时也需要针对卡片内容向深入链接：在整理脑图大纲时，需要调整卡片所在层级，对卡片进行剪切、复制、粘贴。也需…"
+      slug: card-pop-up-menu-bar-customization
+  - category: "从大纲编辑脑图"
+    icon: "📋"
+    desc: "用大纲列表的方式编辑脑图，更适合逻辑严谨的层级整理"
+    pages:
+    - id: sYsFmUYt3bonXyjwjERxhN       # 大纲显示和排序
+      difficulty: 1
+      read_time: 4
+      desc: "控制大纲的显示方式——单行精简模式、全部折叠/展开、手动拖拽调整顺序、按文档页序或创建日期自动排序。快速  浏览和调整脑图结构。"
+      slug: outline-display-sorting
+    - id: iRnRj5X6AuY3qmEbM8iDuV       # 大纲编辑和缩进
+      difficulty: 2
+      read_time: 4
+      desc: "在大纲视图中快速创建和编辑节点。用 Tab/Shift+Tab  调整层级，回车切分内容，删除键合并节点，比在脑图画布上拖拽更高效。"
+      slug: outline-editing-indentation
+    - id: 6tp93F8CwVtoRHBUkpeDq8       # 大纲筛选和搜索
+      difficulty: 2
+      read_time: 4
+      desc: "从大量笔记中快速定位——按标签、文档、摘录颜色筛选（支持并集/交集），或通过关键词实时检索卡片标题、摘录和评论内容。"
+      slug: outline-filtering-search
+  - category: "脑图排版美化"
+    icon: "🎨"
+    desc: "调整分支样式、字体、背景，让脑图更清晰、更适合演示"
+    pages:
+    - id: iXZn5PKLW4iogVnxZwQ4pt       # 10种分支样式&子脑图坍缩
+      difficulty: 1
+      read_time: 3
+      desc: "选择最适合你的脑图视觉风格，10 种分支样式满足不同场景需求。子脑图坍缩功能让复杂脑图保持整洁。"
+      slug: 10-branch-styles-sub-mind-map
+    - id: kNdd8eknASZXWUzQ8472U2       # 自定义卡片字体
+      difficulty: 1
+      read_time: 4
+      desc: "打破设备默认字体限制，在 Mac 和 iOS 上安装自定义字体。提供字体下载网站推荐、安装教程和常见问题解决方案  ，还能开启\"随手写\"让手写自动变印刷体。"
+      slug: custom-card-fonts
+    - id: 7bcacoRsGX43EK3KBoodj1       # 脑图手写背景和卡片尺寸设置
+      difficulty: 2
+      read_time: 5
+      desc: "调整卡片显示选项（只显示标题、紧凑宽度）、手写背景（点图/网格/横线）和卡片尺寸，优化脑图的视觉效果和演  示效率。"
+      slug: mind-map-handwriting-background-card-size
+    - id: bqdqqoArAjk9afFWktd9aF       # 脑图手写随动绑定
+      difficulty: 2
+      read_time: 4
+      desc: "让手写批注跟着卡片走。三种绑定方式：自动绑定、焦点绑定、手动绑定，移动卡片时手写内容同步移动，不再错位。"
+      slug: mindmap-handwriting-follow-along-binding
+    - id: 6b7GJnTDfs2kkNsBWT7AhG       # 自定义卡片摘录颜色
+      slug: customize-card-excerpt-colors
+  - category: "卡片链接与笔记库重复利用"
+    icon: "🔗"
+    desc: "给卡片建立关联、筛选分组、跨学习集复用，让积累的笔记活起来"
+    pages:
+    - id: dJvh1K4GEKaJYtZ14zbfgj       # 卡片分组看板①：从海量卡片中精准筛选
+      difficulty: 2
+      read_time: 3
+      desc: "按来源、颜色、标签、文档、日期等多维度筛选卡片，支持两层嵌套分组和批量编辑。从海量卡片中快速找到你需要  的内容。"
+      slug: card-grouping-board-precisely-filter-cards
+    - id: aBEbDgL6oDgDT4CeXotdbS       # 卡片链接④|关键词标题链接：打造你的个人字典
+      difficulty: 3
+      read_time: 6
+      desc: "类似 Wikipedia 的超链接——在卡片标题中设置关键词，文档中出现这些词时自动显示蓝色虚线，点击即弹出解释卡  片。适合考试复盘、论文精读、英语学习。"
+      slug: card-links-keyword-title-links-build
+    - id: pXcHjMTVqjcvvgEiNnTQm5       # 卡片分组看板②：从看板自动生成脑图，打造个人知识集锦
+      difficulty: 1
+      read_time: 3
+      desc: "筛选出需要的卡片后拖拽到脑图，自动生成新脑图。适合创建错题本、核心概念速查、历年真题汇编等专属集锦库。"
+      slug: card-grouping-board-auto-generate-mind
+    - id: mGz8BQh6r1ad6wv1jqDo1G       # 卡片链接①|单双向链接：跨越层级的自由关联
+      difficulty: 1
+      read_time: 4
+      desc: "卡片除了有上下级这种“相对固定”的节点结构外，还有一种更“自由”的结构——链接。链接的优势在于不限制两张卡片的位置：卡片可以来自不同子脑图，甚至是不同学习集，并可以随时跳转查看。"
+      slug: card-links-one-way-two-way
+    - id: tg7V1E5VRtGvse2ndVgNXx       # 卡片链接②|卡片唯一ID、URL：跨脑图、学习集关联
+      difficulty: 1
+      read_time: 5
+      desc: "链接功能的本质就是某张卡片 URL"
+      slug: card-linking-unique-card-id-url
+    - id: c8dY2ezo4RX67KkmL5dCZp       # 卡片链接③：手绘曲线链接
+      difficulty: 1
+      read_time: 2
+      desc: "用手写笔画快速调整脑图结构——画线建立链接、画折线删除链接、画圆圈选中卡片。无需频繁切换模式，提升脑图编  辑效率。"
+      slug: card-links-hand-drawn-curve-links
+    - id: sncaMzMHTBx6abg1dZcPfB       # 卡片链接⑤|行内链接
+      difficulty: 1
+      read_time: 4
+      desc: "在卡片评论中用 Markdown 格式链接其他卡片，支持 [[  搜索和自定义显示文本。解决在文本中精确引用特定卡片的需求。"
 
+      slug: card-link-inline-links
 - section: "🔄 复习"
   label: "Review"
   title: "复习"
   desc: "整理好的知识如果不复习，很快就会遗忘。这部分介绍如何利用脑图和闪卡进行科学复习——包括主动回忆、间隔重复、回溯原文等方法，帮你把短期记忆转化为长期掌握。"
   categories:
-    - category: "脑图&文档上下文场景式复习"
-      icon: "💡"
-      desc: "在脑图结构中遮挡回忆，或跳回原文上下文，带着语境复习"
-      pages:
-        - id: 5MLZk1D4vJ6wQRx1Y9t8vy   # 脑图复习①：主动回忆与自测方法
-          difficulty: 2
-          read_time: 4
-          desc: "四种脑图复习法：遮挡回忆（测细节）、标题抽查（测主干）、节点逐级展开（测结构）、子脑图默写（测完整知识  ）。建议先定位薄弱点，再针对性强化。"
-        - id: xb9ytGwYP6gPVGJ4hDvca4   # 脑图复习②：脑图上下文（回源定位）
-          difficulty: 2
-          read_time: 4
-          desc: "复习时一键回溯原文。支持脑图↔文档四种联动模式，还可通过大纲、卡片盒、看板等多种方式定位卡片，快速查看  知识点的上下文。"
-    - category: "闪卡制作与复习"
-      icon: "🃏"
-      desc: "制作正反面闪卡，用 FSRS 算法自动安排复习间隔，科学对抗遗忘"
-      pages:
-        - id: auMvW4AbuCoxDmYipisYoS   # 闪卡制作①：认识闪卡和复习卡片组
-          difficulty: 1
-          read_time: 6
-          desc: "了解闪卡的基本概念——正面是问题，背面是答案。学会创建复习卡片组、添加卡片、查看闪卡效果，是使用间隔复习  功能的第一步。"
-        - id: pKZaNAWQAm3Wp41awj1ZJb   # 闪卡制作②：添加卡片到复习卡组
-          difficulty: 2
-          read_time: 6
-          desc: "多种高效制卡方式：手动添加、看板批量筛选、摘录时自动添加、AI OCR 和 AI  对话制卡。预设摘录属性可大幅降低制卡成本。"
-        - id: 31KwWufHLt8MUbyxQahbP3   # 闪卡复习①：基于FSRS抗遗忘算法的科学复习
-          difficulty: 2
-          read_time: 8
-          desc: "FSRS 算法根据你的记忆反馈自动计算最优复习时间。掌握全屏复习模式、四个记忆程度选项的含义、收藏和批注等  辅助功能，让复习更科学高效。"
-        - id: ozYBXbvi3AkqiBShA7X7Co   # 闪卡复习②：溯源上下文
-          difficulty: 2
-          read_time: 5
-          desc: "复习时记不起来？切换到脑图或文档视图查看卡片的上下文。两种复习方式对比：日常快速复习 vs  深度理解复习，卡片-脑图-文档三位一体联动。"
-        - id: 4zZ4C4Y4jgfdszohqSE4Zm   # 闪卡复习③：导出到Anki &模板配置
-          difficulty: 3
-          read_time: 9
-          desc: "将 MN4 闪卡导出到  Anki，支持遮挡设置、默认模板和自定义模板。提供多个社区模板下载链接，适合追求更丰富卡片样式的高级用户。"
-        - id: pBH9BFrgyZgeWJVf3xLyVA   # 闪卡制作③：设置闪卡正反面
-          difficulty: 1
-          read_time: 7
-          desc: "前置条件你需要先阅读闪卡制作第①②篇，确保你已经有卡片添加到复习卡组。在第②篇，你学会了如何添加卡片。本页将教你如何精细设置闪卡的正反面，让复习更高效开始前建议先了解卡片编辑器的相关功能（详见：）。"
+  - category: "脑图&文档上下文场景式复习"
+    icon: "💡"
+    desc: "在脑图结构中遮挡回忆，或跳回原文上下文，带着语境复习"
+    pages:
+    - id: 5MLZk1D4vJ6wQRx1Y9t8vy       # 脑图复习①：主动回忆与自测方法
+      difficulty: 2
+      read_time: 4
+      desc: "四种脑图复习法：遮挡回忆（测细节）、标题抽查（测主干）、节点逐级展开（测结构）、子脑图默写（测完整知识  ）。建议先定位薄弱点，再针对性强化。"
+      slug: mind-map-review-active-recall-self
+    - id: xb9ytGwYP6gPVGJ4hDvca4       # 脑图复习②：脑图上下文（回源定位）
+      difficulty: 2
+      read_time: 4
+      desc: "复习时一键回溯原文。支持脑图↔文档四种联动模式，还可通过大纲、卡片盒、看板等多种方式定位卡片，快速查看  知识点的上下文。"
+      slug: mind-map-review-mind-map-context
+  - category: "闪卡制作与复习"
+    icon: "🃏"
+    desc: "制作正反面闪卡，用 FSRS 算法自动安排复习间隔，科学对抗遗忘"
+    pages:
+    - id: auMvW4AbuCoxDmYipisYoS       # 闪卡制作①：认识闪卡和复习卡片组
+      difficulty: 1
+      read_time: 6
+      desc: "了解闪卡的基本概念——正面是问题，背面是答案。学会创建复习卡片组、添加卡片、查看闪卡效果，是使用间隔复习  功能的第一步。"
+      slug: making-flashcards-understanding-flashcards-review-card
+    - id: pKZaNAWQAm3Wp41awj1ZJb       # 闪卡制作②：添加卡片到复习卡组
+      difficulty: 2
+      read_time: 6
+      desc: "多种高效制卡方式：手动添加、看板批量筛选、摘录时自动添加、AI OCR 和 AI  对话制卡。预设摘录属性可大幅降低制卡成本。"
+      slug: making-flashcards-adding-cards-review-card
+    - id: 31KwWufHLt8MUbyxQahbP3       # 闪卡复习①：基于FSRS抗遗忘算法的科学复习
+      difficulty: 2
+      read_time: 8
+      desc: "FSRS 算法根据你的记忆反馈自动计算最优复习时间。掌握全屏复习模式、四个记忆程度选项的含义、收藏和批注等  辅助功能，让复习更科学高效。"
+      slug: flashcard-review-scientific-review-fsrs-anti
+    - id: ozYBXbvi3AkqiBShA7X7Co       # 闪卡复习②：溯源上下文
+      difficulty: 2
+      read_time: 5
+      desc: "复习时记不起来？切换到脑图或文档视图查看卡片的上下文。两种复习方式对比：日常快速复习 vs  深度理解复习，卡片-脑图-文档三位一体联动。"
+      slug: flashcard-review-tracing-source-context
+    - id: 4zZ4C4Y4jgfdszohqSE4Zm       # 闪卡复习③：导出到Anki &模板配置
+      difficulty: 3
+      read_time: 9
+      desc: "将 MN4 闪卡导出到  Anki，支持遮挡设置、默认模板和自定义模板。提供多个社区模板下载链接，适合追求更丰富卡片样式的高级用户。"
+      slug: flashcard-review-export-anki-template-configuration
+    - id: pBH9BFrgyZgeWJVf3xLyVA       # 闪卡制作③：设置闪卡正反面
+      difficulty: 1
+      read_time: 7
+      desc: "前置条件你需要先阅读闪卡制作第①②篇，确保你已经有卡片添加到复习卡组。在第②篇，你学会了如何添加卡片。本页将教你如何精细设置闪卡的正反面，让复习更高效开始前建议先了解卡片编辑器的相关功能（详见：）。"
 
+      slug: making-flashcards-setting-front-back-flashcard
 - section: "🔧 通用"
   label: "General"
   title: "通用"
   desc: "数据安全、多设备同步、导出分享、跨应用联动——这些不直接关乎\"学什么\"，但关乎\"学得安心、用得顺手\"。当你需要备份数据、迁移笔记、多设备协作或与其他工具配合使用时，来这里找答案。"
   categories:
-    - category: "数据安全与管理"
-      icon: "🗂️"
-      desc: "导入文档、管理数据库、同步备份、导出分享"
-      pages:
-        - id: ehTLoD9HictQhkFirV1g9k   # 导入文档及文档管理
-          difficulty: 1
-          read_time: 5
-          desc: "文档的导入、分类和管理全流程。支持从文件、网页、文档库等多种方式导入，通过分类（标签式）或文件夹（层级  式）组织文档，还能跨学习集复用笔记和卡片。"
-        - id: gaqm2hZ9YMPQSFpWQjLJ9g   # 从MarginNote 3 迁移笔记
-          difficulty: 1
-          read_time: 2
-          desc: "从 MN3 导出学习集备份（.marginpkg），在 MN4 中导入即可完成迁移。支持替换和合并两种导入模式。"
-        - id: wW5jUCGqwwDVgqFKz7dF48   # 添加USB存储文档库
-          difficulty: 1
-          read_time: 2
-          desc: "将 U 盘或移动硬盘中的文档直接在 MN4 中打开和学习，适合需要便携访问大量资料的场景。"
-        - id: wVmpipXpgJM4ZicKDvV6A7   # 笔记数据库①：新建和管理数据库
-          difficulty: 1
-          read_time: 5
-          desc: "通过频率 ID  系统创建隔离的笔记数据库，实现不同时期、不同领域的笔记数据分离。支持多设备同步和灵活的数据管理。"
-        - id: erRJu57Xk6QiAZ6u4yZRoM   # 导出文档、脑图和学习集
-          difficulty: 2
-          read_time: 6
-          desc: "支持导出为 PDF、mmap、OmniOutliner、Word、Anki 等多种格式。脑图可导出为思维导图 PDF  或焦点分支，学习集可整体备份或导出到其他数据库。"
-        - id: oVbmHKiwfNETVYEapEWctk   # 笔记数据库②：加密分享
-          difficulty: 3
-          read_time: 6
-          desc: "通过许可证机制控制数据库访问权限，支持在线/离线激活。适合教师分享教学资料或团队协作时的数据安全管理。"
-        - id: qU6nwa4s6GCBuTDsjs9oeu   # 数据同步、备份与恢复
-          difficulty: 1
-          read_time: 10
-          desc: "iCloud 同步实现多设备数据一致，版本备份（自动）和完整备份（手动）保障数据安全。支持从版本历史恢复，避  免数据丢失。"
-    - category: "演示与协同"
-      icon: "🖥️"
-      desc: "多窗口联动、跨设备协作、第三方应用联动"
-      pages:
-        - id: 8t31KYaFrm1XdjqZuPBSVr   # 演示模式及其应用
-          difficulty: 1
-          read_time: 2
-          desc: "录屏+录音，适合制作教学视频和课程演示。配合消失笔模式，实现讲解时笔迹自动消失的效果。"
-        - id: f8k3D3oR5bCw4QCQU7CBZC   # 多窗口联动①：同一设备多开 MN4窗口
-          difficulty: 1
-          read_time: 2
-          desc: "在同一台设备上同时打开多个 MN4 窗口，对照不同文档或学习集，提升多任务处理效率。"
-        - id: iz4fVfRZ5meSevCJ8yBfcj   # 多窗口联动②：跨设备、跨平台多开 MN4窗口
-          difficulty: 2
-          read_time: 6
-          desc: "Mac+iPad 通过 Sidecar 扩展显示，iPad+Windows 通过 Spacedesk/Duet Display  实现跨平台协同，充分利用多设备优势。"
-        - id: sfUjjrbMwvEdtmDgXuzpL2   # 第三方应用联动①：认识笔记回源链接
-          difficulty: 3
-          read_time: 4
-          desc: "生成卡片 URL 和界面 URL，在其他应用中点击即可跳回 MN4 对应位置。打通 MN4 与第三方应用的知识链路。"
-        - id: hTKcNyLnc362NvwEvMbt2e   # 第三方应用联动②：Obsidian+MN4
-          difficulty: 1
-          read_time: 5
-          desc: "通过 Obsidian-Bridge 插件将 MN4 笔记同步到  Obsidian，实现双向链接和知识图谱可视化，构建更完整的个人知识管理系统。"
+  - category: "数据安全与管理"
+    icon: "🗂️"
+    desc: "导入文档、管理数据库、同步备份、导出分享"
+    pages:
+    - id: ehTLoD9HictQhkFirV1g9k       # 导入文档及文档管理
+      difficulty: 1
+      read_time: 5
+      desc: "文档的导入、分类和管理全流程。支持从文件、网页、文档库等多种方式导入，通过分类（标签式）或文件夹（层级  式）组织文档，还能跨学习集复用笔记和卡片。"
+      slug: importing-documents-document-management
+    - id: gaqm2hZ9YMPQSFpWQjLJ9g       # 从MarginNote 3 迁移笔记
+      difficulty: 1
+      read_time: 2
+      desc: "从 MN3 导出学习集备份（.marginpkg），在 MN4 中导入即可完成迁移。支持替换和合并两种导入模式。"
+      slug: migrate-notes-from-marginnote-3
+    - id: wW5jUCGqwwDVgqFKz7dF48       # 添加USB存储文档库
+      difficulty: 1
+      read_time: 2
+      desc: "将 U 盘或移动硬盘中的文档直接在 MN4 中打开和学习，适合需要便携访问大量资料的场景。"
+      slug: adding-usb-storage-document-library
+    - id: wVmpipXpgJM4ZicKDvV6A7       # 笔记数据库①：新建和管理数据库
+      difficulty: 1
+      read_time: 5
+      desc: "通过频率 ID  系统创建隔离的笔记数据库，实现不同时期、不同领域的笔记数据分离。支持多设备同步和灵活的数据管理。"
+      slug: note-database-creating-managing-databases
+    - id: erRJu57Xk6QiAZ6u4yZRoM       # 导出文档、脑图和学习集
+      difficulty: 2
+      read_time: 6
+      desc: "支持导出为 PDF、mmap、OmniOutliner、Word、Anki 等多种格式。脑图可导出为思维导图 PDF  或焦点分支，学习集可整体备份或导出到其他数据库。"
+      slug: export-documents-mind-maps-study-sets
+    - id: oVbmHKiwfNETVYEapEWctk       # 笔记数据库②：加密分享
+      difficulty: 3
+      read_time: 6
+      desc: "通过许可证机制控制数据库访问权限，支持在线/离线激活。适合教师分享教学资料或团队协作时的数据安全管理。"
+      slug: note-database-encrypted-sharing
+    - id: qU6nwa4s6GCBuTDsjs9oeu       # 数据同步、备份与恢复
+      difficulty: 1
+      read_time: 10
+      desc: "iCloud 同步实现多设备数据一致，版本备份（自动）和完整备份（手动）保障数据安全。支持从版本历史恢复，避  免数据丢失。"
+      slug: data-sync-backup-restore
+  - category: "演示与协同"
+    icon: "🖥️"
+    desc: "多窗口联动、跨设备协作、第三方应用联动"
+    pages:
+    - id: 8t31KYaFrm1XdjqZuPBSVr       # 演示模式及其应用
+      difficulty: 1
+      read_time: 2
+      desc: "录屏+录音，适合制作教学视频和课程演示。配合消失笔模式，实现讲解时笔迹自动消失的效果。"
+      slug: presentation-mode-applications
+    - id: f8k3D3oR5bCw4QCQU7CBZC       # 多窗口联动①：同一设备多开 MN4窗口
+      difficulty: 1
+      read_time: 2
+      desc: "在同一台设备上同时打开多个 MN4 窗口，对照不同文档或学习集，提升多任务处理效率。"
+      slug: multi-window-linking-opening-multiple-mn4
+    - id: iz4fVfRZ5meSevCJ8yBfcj       # 多窗口联动②：跨设备、跨平台多开 MN4窗口
+      difficulty: 2
+      read_time: 6
+      desc: "Mac+iPad 通过 Sidecar 扩展显示，iPad+Windows 通过 Spacedesk/Duet Display  实现跨平台协同，充分利用多设备优势。"
+      slug: multi-window-linking-opening-multiple-mn4-2
+    - id: sfUjjrbMwvEdtmDgXuzpL2       # 第三方应用联动①：认识笔记回源链接
+      difficulty: 3
+      read_time: 4
+      desc: "生成卡片 URL 和界面 URL，在其他应用中点击即可跳回 MN4 对应位置。打通 MN4 与第三方应用的知识链路。"
+      slug: third-party-app-integration-understanding-note
+    - id: hTKcNyLnc362NvwEvMbt2e       # 第三方应用联动②：Obsidian+MN4
+      difficulty: 1
+      read_time: 5
+      desc: "通过 Obsidian-Bridge 插件将 MN4 笔记同步到  Obsidian，实现双向链接和知识图谱可视化，构建更完整的个人知识管理系统。"
+      slug: third-party-app-integration-obsidian-mn4

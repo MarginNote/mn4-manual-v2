@@ -1,0 +1,204 @@
+# 英文 overlay：合并进 ../../src/toc.yaml 的英文文案（构建期内存合并，不改动 toc.yaml）。
+# sections / categories 以中文名为键，pages 以 id 为键。这是英文版的源文件之一。
+sections:
+  📄 文档:
+    title_en: Documents
+    desc_en: Whether you're working with a PDF textbook, scanned lecture notes, or an EPUB e-book, the features in the Document section help you read efficiently, take notes, find content, and manage pages. If you've used another reader or note-taking app before, this is the most familiar place to start.
+  📚 学习集与脑图:
+    title_en: Mind Maps and Study Sets
+    desc_en: Once you've read your documents and made your annotations, what's next? This part covers the core strength of MarginNote 4—how to extract knowledge points scattered across different documents, organize them into a visual mind map structure, and complete the full loop of reading, organizing, and reviewing in a single interface. If you want to do more than just 'read' and truly 'learn,' this part is the key.
+  🔄 复习:
+    title_en: Review
+    desc_en: Knowledge you've organized will soon be forgotten if you don't review it. This part explains how to review scientifically using mind maps and flashcards—including methods such as active recall, spaced repetition, and tracing back to the source text—to help you turn short-term memory into long-term mastery.
+  🔧 通用:
+    title_en: General
+    desc_en: Data security, multi-device sync, export and sharing, cross-app integration—these aren't directly about 'what you learn,' but about 'learning with peace of mind and using the app smoothly.' When you need to back up data, migrate notes, collaborate across devices, or work alongside other tools, come here for answers.
+categories:
+  文档快速笔记:
+    category_en: Quick Notes on Documents
+    desc_en: Make excerpts on PDFs, insert notes, and add handwritten annotations to quickly capture your reading ideas.
+  文档阅读批注、检索、对照难点:
+    category_en: 'Document Reading: Annotation, Search, and Comparison'
+    desc_en: 'Read a book in depth: full-text search, bi-article comparison, and cross-document referencing with backlinks.'
+  文档排版与书页编辑:
+    category_en: Document Layout and Page Editing
+    desc_en: Fold chapters, reorganize pages, and crop the paper to reshape a PDF into the version that suits you best.
+  从学习集开启主题式学习:
+    category_en: Start Theme-Based Learning with a Study Set
+    desc_en: Put multiple materials into one subject space, link the mind map with your documents, and begin systematic learning.
+  从文档搭建脑图:
+    category_en: Build a Mind Map from Documents
+    desc_en: Use AI to excerpt document content with one tap and automatically generate a structured mind map.
+  脑图&卡片快速笔记:
+    category_en: Quick Notes with Mind Maps and Cards
+    desc_en: Create, edit, and organize cards on the mind map canvas to build a hierarchical structure of knowledge.
+  从大纲编辑脑图:
+    category_en: Edit a Mind Map from the Outline
+    desc_en: Edit a mind map as an outline list—better suited for rigorous, logical hierarchical organization.
+  脑图排版美化:
+    category_en: Mind Map Layout and Styling
+    desc_en: Adjust branch styles, fonts, and backgrounds to make your mind map clearer and better suited for presentation.
+  卡片链接与笔记库重复利用:
+    category_en: Card Links and Reusing Your Note Library
+    desc_en: Create associations between cards, filter and group them, and reuse them across study sets to bring your accumulated notes to life.
+  脑图&文档上下文场景式复习:
+    category_en: Context-Based Review with Mind Maps and Documents
+    desc_en: Use cloze occlusion within the mind map structure to recall, or jump back to the original context to review with situational context.
+  闪卡制作与复习:
+    category_en: Making and Reviewing Flashcards
+    desc_en: Create flashcards with a front and back, and use the FSRS algorithm to automatically schedule review intervals, fighting forgetting scientifically.
+  数据安全与管理:
+    category_en: Data Security and Management
+    desc_en: Import documents, manage databases, sync and back up, and export and share.
+  演示与协同:
+    category_en: Presentation and Collaboration
+    desc_en: Multi-window linking, cross-device collaboration, and third-party app integration.
+pages:
+  9aXhp2VEugXYNp9cnWCT7A:
+    desc_en: Excerpts are the core feature for document reading notes in MN4. Without binding to a mind map framework, you can efficiently extract, manage, and reuse key information. They are both editable and easy to reuse, fitting a wide range of reading scenarios.
+  3w7coSpmfsLecSW1hxQV24:
+    desc_en: 'Text box – annotate in place: write supplements, key points, and questions right next to the original text, so your ideas don''t get scattered elsewhere. Image – illustrate a process: insert screenshots or diagrams that can be resized, copied, cut, and deleted for clearer information. Photo – instant capture for classes, meetings, and book study: turn paper pages…'
+  9RzcqeeMfTifmGxNdmqzAi:
+    desc_en: New Notebook is a feature in MarginNote 4 that lets you create a standalone blank notebook within a study set, for after-class notes, drafts, handwritten sketches before building a mind map, and more. Just like taking notes directly on a PDF, its content can be turned into cards and incorporated into the mind map, …
+  vYi6Yu4oCudNCr2zDuNQkj:
+    desc_en: The extend note feature lets you insert a blank note area anywhere in a PDF—for adding explanations, recording your thoughts, placing related material, or raising questions—without changing the original layout.
+  pYzC5dfXtbC7taLgQC3DFs:
+    desc_en: Write anywhere! Supports handwriting layers, Vanish Mode, smudge-erase, and AI text conversion, and you can duplicate a brush with one tap or import parameters others have configured.
+  6gbzKZ4a16uYGaFNLMYASD:
+    desc_en: 'Like tracing paper: layer multiple overlays on a single original PDF to take notes. An exclusive tiered-layer design keeps your study records sensibly partitioned.'
+  v2vpgXTJGFsqtRZkRUcqtG:
+    desc_en: 'Four ways to translate and save translations: instant in-document translation, AI translation with AI OCR, the research sidebar (including custom URLs), and plugin translation. You can insert a translation as an extend note, copy it to the clipboard, or save it as a card for side-by-side comparison and later organization.'
+  iLGrRDRMEQepittcNY4Bun:
+    desc_en: No need to switch toolbars repeatedly—after selecting text or an area, the hand tool lets you make an excerpt, translate, add an extend note, and more with a single tap. The menu bar supports customizable pinned options, or you can create your own shortcut buttons to put frequent actions a step ahead.
+  ma1UxicEXg8YWjPQYuDScu:
+    desc_en: 'MarginNote offers rich document reading settings, delivered mainly through three modules: the first supports adjusting document page brightness, the page-turning mode, 5'
+  rpmCakup76GuHCF6N4Ns5c:
+    desc_en: Searchable! Accurate! Locatable! Multilingual OCR recognition and correction make e-book reading worry-free and searching smooth.
+  8PoZfbSRai6owkvzpttZAE:
+    desc_en: MarginNote's page-finding feature brings together five search methods—Table of Contents, Thumbnails, Bookmarks, handwritten annotations, and cards—so you can quickly locate the target page for different needs.
+  n8VMVG5yoZj8WRatAPzJkm:
+    desc_en: Whether it's a textbook and a video, a workbook and its answer key, the original text and your notes, or different positions in the same document, you can display them side by side and switch easily. The comparison view state can be saved at any time.
+  2dQ7P1XFEV2UyqCLWyU7dU:
+    desc_en: 'What are a ''reference'' and a ''backlink''? A reference, simply put, is citing content from a different context. There are two cases: 1. within the same document position; 2. citing content from another document at a position in this document. A backlink is the feature that jumps from the citation back to the original source.'
+  91LaezjY5SXvoCRie5UsJQ:
+    desc_en: Embed important notes within the text and park secondary notes in the margins, with the position of an extend note flexibly adjustable.
+  3RP4xfuiFKc6SAF8r1BHfK:
+    desc_en: The strokes, annotations, and note content written in a companion notebook are automatically bound to the corresponding page and position in the original PDF. Tap any note or stroke in the companion notebook to instantly locate and jump back to its original position in the PDF, achieving precise source tracing and comparison between notes and the original text.
+  3ceKFREpJyZRZRqk6WgGjM:
+    desc_en: Hide content you don't need in a document—fold by chapter or manually fold a local area. After folding away headers and footers you can make excerpts smoothly across pages, and hiding answers keeps you from seeing the solution early. You can expand at any time, making it more flexible than deleting pages.
+  kFM4Uh2thC5pEXp11wCuJz:
+    desc_en: Drag and drop pages from different documents to combine them into a virtual document, splitting and recombining at the page level. It references pages without copying the original files—ideal for extracting chapters from multiple textbooks to build your own study material.
+  akPnCSBmGv2BXCzkTBrFTB:
+    desc_en: Rotate, add, and delete pages, crop redundant margins, headers, and footers, or extend a page to make room for notes. Batch-fix textbook layout problems to make documents better suited for study.
+  djV6nMiEdSaxCacjWcptpA:
+    desc_en: Build a clear chapter hierarchy for PDFs that lack a table of contents. Supports manual creation and AI auto-generation, and the table of contents can be turned directly into a mind map structure. The virtual table of contents doesn't modify the source file and can be reset at any time.
+  vtjSQ6LvQv1TbbjdctzroM:
+    desc_en: A study set is a dedicated space that brings documents, mind maps, and review cards together around a single topic. This article teaches you to create a study set, choose an interface mode, and import documents—the starting point for using MN4's deep learning features.
+  7PQUHR2ZsY58z128y6KtoW:
+    desc_en: Organize your mind map while reading documents, with the two views linked in real time. You can adjust the ratio and switch the link direction (document→mind map, mind map→document, two-way, or off), without constantly switching windows.
+  tttAu9xnHunBPj1YNXGhsc:
+    desc_en: Manage multiple open documents like browser tabs. Quickly switch, reorder, and control how many are shown, solving the problem of managing too many documents.
+  4BL4PgiF2rLSyuL9AwXyP7:
+    desc_en: Navigate quickly through the document sidebar and the study set sidebar, with support for global search (advanced rules such as AND/OR/NOT), opening a sub-mind map in a floating view, and searching by file name. Find anything you need, fast.
+  jeJN7Cjyi9fSZovcQ6ZSps:
+    desc_en: A central area that manages all your note cards in one place, connecting a study set with multiple mind maps. It supports filtering, searching, and batch editing; tap a card to backlink to its position in a mind map or document, achieving cross-document knowledge integration.
+  eSR1wAaQdCG2kXSqBMHAB8:
+    desc_en: Start flashcard review directly without leaving the study set interface. It supports sorting, filtering, and a full-screen review mode, and uses the FSRS algorithm to schedule review intervals scientifically, seamlessly connecting documents, mind maps, and memory.
+  sSYs886ZU4gfwVhuBgzNaV:
+    desc_en: A built-in look-up-while-you-read tool with 8 major functions, including video search, dictionary, academic search, translation, and PDF search. Web pages can be saved as PDFs with one tap and imported into your document library, so you can fill knowledge gaps without switching to external apps.
+  ueyP4EoMFihG8RpYMY31JV:
+    desc_en: Customize excerpt colors, excerpt tools, handwriting tools, and the pop-up menu for each study set. Configurations can be exported to share or imported from others, and tools switch automatically when you switch study sets, lowering the cost of getting started.
+  hZouyBD3Cq3HBJwix3TVJN:
+    desc_en: Immersive Mode. In Immersive Mode the toolbar is simplified and the interface is clean and tidy, maximizing use of screen space. It's designed specifically for 'handling excerpt content over long, continuous, focused stretches.' When you don't want to be interrupted by irrelevant buttons and menus and want to steadily advance your study and work…
+  5sY7oXw6U88xhJnKA6ChUr:
+    desc_en: 'Making excerpts is only the first step. Many learners run into this confusion: they''ve excerpted a lot of content, but the cards are scattered across the mind map with no idea how to organize them; or they want to organize a textbook''s notes into a clear framework but don''t know where to begin. MarginNote 4 offers three paths, …'
+  5DiLYYJjNeZ4rQmBpDkRwQ:
+    desc_en: When using the excerpt feature there are some routine actions—such as handling image excerpts, processing all excerpts, or setting tags and colors for excerpt cards. These sequential workflows can be automated through the excerpt tool settings in the document navigation bar.
+  91ptxv4wkpB2RSq8GQkAtc:
+    desc_en: AI automatically recognizes 10 types of elements in a document—titles, images, tables, formulas, and more. Single-tap to reveal, double-tap to excerpt into a card, and batch-generate a mind map. It's especially suited to excerpting papers and course handouts that mix text and images.
+  67hDfmy3SZi4oXmMb2bvcH:
+    desc_en: Master the 5 ways to create cards (blank, from a node, from the outline, from a document excerpt, and with AI) and how to edit them. With support for rich-text formats such as Markdown, LaTeX, and code blocks, this is the foundation of mind map note-taking.
+  pmyU9i1nmv96THhMEM65Na:
+    desc_en: Organize scattered cards into a structured knowledge system. Drag to move, merge multiple cards, split and regroup nodes, and even auto-organize the card hierarchy by the document's table of contents.
+  uyBkyj1HKH6iqRhn4fZLkc:
+    desc_en: 'An overview of the 7 tools: outline, board, hand, copy, link, handwriting settings, and select. Double-tap to bring up the settings panel and customize shortcut options for efficient editing and management of your mind map.'
+  dHgUPznJARhX2ksVjHDLdP:
+    desc_en: Summarize multiple cards to generate a summary card that captures the core content. A summary card can be further expanded into a new branch, enabling vertical integration and horizontal comparison of knowledge.
+  5nntHuyzfBSdVrEo4YYhxC:
+    desc_en: Hide all other cards and show only the current card and its descendants. Focus your attention on a specific knowledge point within a complex mind map; after you exit, handwriting is hidden by default to keep your view clean.
+  wAZ8JuGD8M6EZu8qFjFXmD:
+    desc_en: Too much content for a single mind map? Create sub-mind maps to organize by chapter or topic in layers. Supports management actions such as creating, collapsing a branch into a sub-mind map, opening in a floating view, and restoring it back to a branch.
+  62qCDFNG6viCFUuWQpjzts:
+    desc_en: A layer feature similar to Photoshop's—create multiple handwriting layers, use a different layer for each round of review, and overlay them to compare differences in problem-solving approaches. Supports switching, merging, renaming, and semi-transparent overlay display.
+  eShEtotNTstcUnT6o3FLAP:
+    desc_en: Use Markdown to format notes in cards, with support for basic syntax such as headings, lists, tables, and code blocks, as well as LaTeX/KaTeX/MathJax formula input and advanced HTML/CSS formatting. You can also extend functionality further with forum plugins.
+  6QJHeJqZghQKQ4PcEA3w5u:
+    desc_en: 'A quick rundown of real scenarios: after creating a card, you sometimes need to organize its content and distinguish cards by color, tags, and the like to enrich them; sometimes you also need to create deeper links from a card''s content; and when organizing the mind map outline, you need to adjust a card''s hierarchy level and cut, copy, and paste cards. You may also need…'
+  sYsFmUYt3bonXyjwjERxhN:
+    desc_en: Control how the outline is displayed—single-line compact mode, collapse/expand all, manual drag-to-reorder, and automatic sorting by document page order or creation date. Quickly browse and adjust the mind map structure.
+  iRnRj5X6AuY3qmEbM8iDuV:
+    desc_en: Quickly create and edit nodes in the outline view. Use Tab/Shift+Tab to adjust the hierarchy, Enter to split content, and Delete to merge nodes—more efficient than dragging on the mind map canvas.
+  6tp93F8CwVtoRHBUkpeDq8:
+    desc_en: Quickly locate items among large volumes of notes—filter by tag, document, or excerpt color (with union/intersection support), or search card titles, excerpts, and comments in real time by keyword.
+  iXZn5PKLW4iogVnxZwQ4pt:
+    desc_en: Choose the visual style that fits your mind map best, with 10 branch styles for different scenarios. The sub-mind map collapse feature keeps complex mind maps tidy.
+  kNdd8eknASZXWUzQ8472U2:
+    desc_en: Break past your device's default font limits and install custom fonts on Mac and iOS. Includes recommended font-download sites, installation tutorials, and solutions to common problems, plus a 'write-as-you-go' option that automatically turns handwriting into printed text.
+  7bcacoRsGX43EK3KBoodj1:
+    desc_en: Adjust card display options (title-only, compact width), the handwriting background (dots/grid/lines), and card size to optimize your mind map's visual effect and presentation efficiency.
+  bqdqqoArAjk9afFWktd9aF:
+    desc_en: Make handwritten annotations follow the card. Three binding modes—automatic binding, focus binding, and manual binding—keep handwriting moving in sync when you move a card, so it never gets misaligned.
+  dJvh1K4GEKaJYtZ14zbfgj:
+    desc_en: Filter cards across multiple dimensions—source, color, tag, document, date, and more—with support for two-level nested grouping and batch editing. Quickly find what you need among a huge number of cards.
+  aBEbDgL6oDgDT4CeXotdbS:
+    desc_en: Hyperlinks like Wikipedia's—set keywords in a card title, and when those words appear in a document they automatically show a blue dashed underline; tap to pop up the explanation card. Great for exam review, close reading of papers, and English study.
+  pXcHjMTVqjcvvgEiNnTQm5:
+    desc_en: After filtering out the cards you need, drag them to the mind map to auto-generate a new mind map. Ideal for building dedicated collections such as a mistakes notebook, a core-concept quick reference, or a compilation of past exam questions.
+  mGz8BQh6r1ad6wv1jqDo1G:
+    desc_en: 'Beyond the ''relatively fixed'' node structure of parent-child relationships, cards also have a more ''free'' structure—the link. The advantage of a link is that it doesn''t restrict the positions of the two cards: they can come from different sub-mind maps, or even different study sets, and you can jump between them at any time.'
+  tg7V1E5VRtGvse2ndVgNXx:
+    desc_en: The essence of the link feature is a card's URL
+  c8dY2ezo4RX67KkmL5dCZp:
+    desc_en: Quickly adjust the mind map structure with handwritten strokes—draw a line to create a link, a zigzag to delete a link, and a circle to select a card. No need to switch modes constantly, which boosts mind map editing efficiency.
+  sncaMzMHTBx6abg1dZcPfB:
+    desc_en: Link to other cards in Markdown format within a card's comment, with support for [[ search and custom display text. This meets the need to precisely reference a specific card within text.
+  5MLZk1D4vJ6wQRx1Y9t8vy:
+    desc_en: 'Four mind map review methods: cloze recall (tests details), title spot-checks (test the main structure), expanding nodes level by level (tests structure), and writing out a sub-mind map from memory (tests complete knowledge). It''s best to locate weak points first, then strengthen them in a targeted way.'
+  xb9ytGwYP6gPVGJ4hDvca4:
+    desc_en: Trace back to the original text with one tap while reviewing. Supports four mind map↔document linking modes, and you can also locate cards through the outline, card box, board, and more, to quickly view the context of a knowledge point.
+  auMvW4AbuCoxDmYipisYoS:
+    desc_en: Learn the basic concept of flashcards—the front is the question, the back is the answer. Learning to create a review card deck, add cards, and preview your flashcards is the first step to using the spaced repetition feature.
+  pKZaNAWQAm3Wp41awj1ZJb:
+    desc_en: 'Multiple efficient ways to make cards: add manually, batch-filter from the board, auto-add while excerpting, and create cards with AI OCR and AI chat. Presetting excerpt attributes can greatly reduce the cost of making cards.'
+  31KwWufHLt8MUbyxQahbP3:
+    desc_en: The FSRS algorithm automatically calculates the optimal review time based on your memory feedback. Master the full-screen review mode, the meaning of the four memory-level options, and helper features like favorites and annotations to make review more scientific and efficient.
+  ozYBXbvi3AkqiBShA7X7Co:
+    desc_en: Can't recall something during review? Switch to the mind map or document view to see the card's context. A comparison of two review approaches—quick daily review vs. deep-understanding review—with cards, mind maps, and documents working together as a unified whole.
+  4zZ4C4Y4jgfdszohqSE4Zm:
+    desc_en: Export MN4 flashcards to Anki, with support for cloze settings, default templates, and custom templates. Includes download links for several community templates—great for advanced users who want richer card styles.
+  pBH9BFrgyZgeWJVf3xLyVA:
+    desc_en: 'Prerequisites: you should first read Parts 1 and 2 of Making Flashcards and make sure you''ve already added cards to a review card deck. In Part 2 you learned how to add cards. This page will teach you how to fine-tune the front and back of a flashcard to make review more efficient. Before you begin, it''s recommended to first understand the relevant features of the flashcard editor (see: ).'
+  ehTLoD9HictQhkFirV1g9k:
+    desc_en: The full workflow for importing, categorizing, and managing documents. Import from files, web pages, the document library, and more; organize documents by category (tag-based) or folders (hierarchical); and reuse notes and cards across study sets.
+  gaqm2hZ9YMPQSFpWQjLJ9g:
+    desc_en: 'Export a study set backup (.marginpkg) from MN3 and import it into MN4 to complete the migration. Supports two import modes: replace and merge.'
+  wW5jUCGqwwDVgqFKz7dF48:
+    desc_en: Open and study documents from a USB drive or external hard drive directly in MN4—ideal when you need portable access to large amounts of material.
+  wVmpipXpgJM4ZicKDvV6A7:
+    desc_en: Create isolated note databases through the frequency-ID system to separate note data across different periods and fields. Supports multi-device sync and flexible data management.
+  erRJu57Xk6QiAZ6u4yZRoM:
+    desc_en: Export to many formats, including PDF, mmap, OmniOutliner, Word, and Anki. A mind map can be exported as a mind map PDF or a focus branch, and a study set can be backed up as a whole or exported to another database.
+  oVbmHKiwfNETVYEapEWctk:
+    desc_en: Control database access permissions through a license mechanism, with support for online and offline activation. Ideal for data-security management when teachers share teaching materials or teams collaborate.
+  qU6nwa4s6GCBuTDsjs9oeu:
+    desc_en: iCloud sync keeps data consistent across devices, while version backups (automatic) and full backups (manual) safeguard your data. You can restore from version history to avoid data loss.
+  8t31KYaFrm1XdjqZuPBSVr:
+    desc_en: Screen recording plus audio recording, ideal for creating instructional videos and course presentations. Combined with Vanish Mode, it makes strokes disappear automatically as you explain.
+  f8k3D3oR5bCw4QCQU7CBZC:
+    desc_en: Open multiple MN4 windows on the same device at once to compare different documents or study sets and boost multitasking efficiency.
+  iz4fVfRZ5meSevCJ8yBfcj:
+    desc_en: Extend your display with Sidecar on Mac+iPad, and achieve cross-platform collaboration on iPad+Windows via Spacedesk/Duet Display, making the most of multiple devices.
+  sfUjjrbMwvEdtmDgXuzpL2:
+    desc_en: Generate card URLs and interface URLs that, when tapped in other apps, jump back to the corresponding position in MN4. This connects the knowledge chain between MN4 and third-party apps.
+  hTKcNyLnc362NvwEvMbt2e:
+    desc_en: Sync MN4 notes to Obsidian through the Obsidian-Bridge plugin to enable bidirectional links and knowledge-graph visualization, building a more complete personal knowledge management system.

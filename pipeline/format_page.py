@@ -29,6 +29,20 @@ WOLAI_HOST_RE = re.compile(r"^https?://(?:www\.)?wolai\.com/(.+)$", re.I)
 WOLAI_ID_RE = re.compile(r"[0-9A-Za-z]{20,24}")      # wolai 页面 id（实测 21~22 位）
 ROOT_ID_RE = re.compile(r"^/([0-9A-Za-z]{20,24})(?:[#/?].*)?$")
 HTTP_RE = re.compile(r"^https?://", re.I)
+# 已规范化正文里的站内链接（`../<id>/index.md`）——用于把 id 目录改写成 slug 目录。
+INTERNAL_LINK_RE = re.compile(r"\.\./([0-9A-Za-z]{20,24})/index\.md")
+
+
+def rewrite_internal_links(text: str, id2slug: dict) -> str:
+    """把已规范化文本里的 `../<id>/index.md` 改写为 `../<slug>/index.md`。
+
+    供 EN 译文（i18n/en/<id>.md，链接目标仍是 id）落盘到 slug 目录前做目录改写；
+    媒体引用是页内相对路径（image/…），不受目录改名影响，无需改写。
+    """
+    if not id2slug:
+        return text
+    return INTERNAL_LINK_RE.sub(
+        lambda m: f"../{id2slug.get(m.group(1), m.group(1))}/index.md", text)
 
 
 # ---------------------------------------------------------------------------
@@ -129,7 +143,8 @@ def handle_link(tok, ctx: dict) -> list:
             return list(tok.children)
         if pid in ctx["published"]:
             ctx["stat"]["internal"] += 1
-            tok.target, tok.title, tok.dest_type = f"../{pid}/index.md", "", "uri"
+            slug = ctx["id2slug"].get(pid, pid)       # slug 目录（未配置 slug 时回退为 id）
+            tok.target, tok.title, tok.dest_type = f"../{slug}/index.md", "", "uri"
             return [tok]
         ctx["stat"]["dangling"] += 1
         return list(tok.children)
@@ -203,14 +218,18 @@ def _new_stat() -> dict:
             "external": 0, "missing": 0, "anim": 0}
 
 
-def render_page(md_path, out_path, published) -> dict:
-    """转换单页 → 写 build/src/<id>/index.md。返回统计（含 missing_list）。"""
+def render_page(md_path, out_path, published, id2slug=None) -> dict:
+    """转换单页 → 写 build/src/<slug>/index.md。返回统计（含 missing_list）。
+
+    id2slug：站内链接目标 id → slug 目录名（缺省/未配置 → 回退为 id，保持旧行为）。
+    媒体哈希仍按**源** id 路径计算（见 assets），与 slug 解耦。
+    """
     md_path, out_path = Path(md_path), Path(out_path)
     pid = md_path.parent.name
     stat = _new_stat()
     missing: list = []
     ctx = {"id": pid, "page_dir": md_path.parent, "published": published,
-           "stat": stat, "missing": missing}
+           "stat": stat, "missing": missing, "id2slug": id2slug or {}}
     with MarkdownRenderer() as renderer:
         doc = mistletoe.Document(md_path.read_text(encoding="utf-8"))
         normalize_headings(doc, stat)
