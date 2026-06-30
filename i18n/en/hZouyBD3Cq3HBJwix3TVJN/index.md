@@ -98,7 +98,7 @@ In `Immersive mode`, the `bottom toolbar` changes depending on the current mode.
 
 ![Recall mode settings](image/2da2d586f736791f.webp)
 
-`Cloze Mind Map (Titles Only)`: in `recall mode`, hides card bodies and shows only titles.
+`Cloze Mind Map (Title-Only)`: in `recall mode`, hides card bodies and shows only titles.
 
 `Blur Excerpts`: in `recall mode`, covers the excerpt passages in the document.
 

@@ -172,7 +172,7 @@ Example prompt: Set the card's content and title—extract the core concept as t
 > 
 > **How to choose between AI OCR and AI Chat?**
 > 
-> - If you're a beginner, or you just need to make a card or two while excerpting, use **AI OCR (Method 2)**
+> - If you're a beginner, or you just need to make cards incidentally while excerpting, use **AI OCR (Method 2)**
 > - If you need to make flashcards in bulk, use **AI Chat (Method 3)**
 
 **Steps:**

@@ -131,7 +131,7 @@ Dictionary Search supports several built-in interfaces: Wikipedia (Auto language
 - More translation URLs you can use: just copy and paste them into MarginNote's `Custom URL` field.
   > 💡Web address rule: replace the website's "search term" with {keyword}, and MarginNote will automatically fill the text you select in the document into that position and run the query. Suitable for connecting translation, dictionary, terminology, and bilingual corpus sites.
   > Portuguese → Chinese: [https://fanyi.baidu.com/#pt/zh/{keyword}](https://fanyi.baidu.com/#pt/zh/{keyword} "https://fanyi.baidu.com/#pt/zh/{keyword}")
-  > French → Chinese: [https://fanyi.baidu.com/#fra/zh/{keyword}](https://fanyi.baidu.com/#fra/zh/{keyword} "https://fanyi.baidu.com/#fra/zh/{keyword}")
+  French → Chinese: [https://fanyi.baidu.com/#fra/zh/{keyword}](https://fanyi.baidu.com/#fra/zh/{keyword} "https://fanyi.baidu.com/#fra/zh/{keyword}")
 
   German → Chinese: [https://fanyi.baidu.com/#de/zh/{keyword}](https://fanyi.baidu.com/#de/zh/{keyword} "https://fanyi.baidu.com/#de/zh/{keyword}")
 

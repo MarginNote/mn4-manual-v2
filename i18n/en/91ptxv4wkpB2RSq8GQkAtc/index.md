@@ -1,6 +1,6 @@
 # Auto-Generate Mind Maps ①: One-Tap Excerpting with AI Models
 
-MarginNote's one-tap excerpt model can recognize text, titles, images, image captions, tables, table captions, headers, footers, references, and formulas, so you no longer need to manually draw and adjust selection boxes. `Assistive excerpt` helps you select the elements you need more quickly and accurately.
+MarginNote's one-tap excerpt model can recognize text, titles, images, image captions, tables, table captions, headers, footers, references, and formulas, so you no longer need to manually draw and adjust selection boxes. `Assistive Excerpt` helps you select the elements you need more quickly and accurately.
 
 > 💡 Quick overview of this page's features:
 > 

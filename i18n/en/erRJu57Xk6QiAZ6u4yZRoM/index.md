@@ -47,7 +47,7 @@ When you need to export a document that contains notes, there are two ways:
 
 1. Select `Export Mind Map` and `Export Card Outline`
    > 💡The exported PDF shows the mind map/outline at its current expansion state, so to display all content **you must expand all levels**![The card outline is a linear output, similar to a document The card outline is a linear output, similar to a document ](image/dd320c563e5d21f4.webp)
-   > Select the content to export, tap `Export`, then choose to print or export to another app in the mind map PDF preview screen.
+   Select the content to export, tap `Export`, then choose to print or export to another app in the mind map PDF preview screen.
 
 #### 1.2.2 Export Mind Map as PDF (Focus Branch)
 

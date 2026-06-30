@@ -106,7 +106,7 @@ Tap the `...` More in the top-right corner of the `mind map` view - `Branch Styl
 
 ### 2.4 Framework
 
-> 💡\*\*`Framework`**is suited to**bundling into a group\*\* concept: put cards from the same module together
+> 💡\*\*`Framework`**is suited to** bundling into a group\*\* concept: put cards from the same module together
 > 
 > - Gather a set of nodes together to highlight them as a single "framework" unit
 

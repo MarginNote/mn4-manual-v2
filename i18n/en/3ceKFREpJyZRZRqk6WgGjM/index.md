@@ -75,7 +75,7 @@ In the document, use the hand tool to select the area you want to fold, bring up
 | --- | --- | --- |
 | Fold Above | Slide up and down to adjust the fold range; once set, tap "`Fold Above`" | All pages above the document's baseline are folded. E.g.: 🖼️ image |
 | Fold Middle | You must slide to set the upper and lower bounds of the fold range; once set, tap "`Fold Middle`" | While sliding, the folded area is no longer shown. E.g.: 🖼️ image |
-| Fold Below | Slide up and down to adjust the fold range; once set, tap "`Fold Above`" | All pages below the document's baseline are folded. E.g.: 🖼️ image |
+| Fold Below | Slide up and down to adjust the fold range; once set, tap "`Fold Below`" | All pages below the document's baseline are folded. E.g.: 🖼️ image |
 | × | Tap the icon | Cancel this fold operation |
 
 ![Fold Above example Fold Above example ](image/7cdcb1573e56334d.webp)

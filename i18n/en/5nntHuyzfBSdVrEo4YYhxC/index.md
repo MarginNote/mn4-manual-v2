@@ -28,7 +28,7 @@ You can exit by double-tapping a blank area around the card, or by double-tappin
 
 After you exit Focus, the handwriting inside the focus is hidden by default so it does not clutter the mind map view. Tap the focused card to show the handwriting inside the focus.
 
-[Longshot20251004230704.mov](video/3554af1e88a23d0d.webp)
+[Longshot20251004230704.mov](video/3554af1e88a23d0d.webp "Exit Focus Mode")
 
 Take the red "2025 Math I/II/III" card in the image below as an example: after you exit Focus, the handwriting inside the focus is hidden by default, keeping the mind map view tidy; single-tap the card to display the handwriting inside the focus.
 
