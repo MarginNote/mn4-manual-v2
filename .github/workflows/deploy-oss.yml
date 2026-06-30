@@ -34,7 +34,6 @@ jobs:
   deploy:
     name: Build & sync mn4 site to OSS
     runs-on: ubuntu-latest
-    timeout-minutes: 20
 
     steps:
       - name: Checkout
