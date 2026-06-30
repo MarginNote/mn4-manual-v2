@@ -1,0 +1,177 @@
+name: Deploy to Aliyun OSS
+
+# src/ + i18n/ → build/site → 阿里云 OSS 的 mn4/ 前缀。
+#
+# 与旧 repo 的区别（关键）：本站点全部内容服务于 /mn4/ 前缀下
+# （生产 site_url = https://manual.marginnote.com.cn/mn4/，见 config.py 默认值）。
+# 因此构建产物 build/site/ 整目录同步到 bucket 的 mn4/ 前缀，而非 bucket 根。
+# 旧 repo 占用 bucket 根的 /index.html、/docs/、/mn3/——本工作流只动 mn4/，互不冲突；
+# --delete 只作用于 mn4/ 前缀内的对象，永远不会误删旧 repo 的产物。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-oss-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+# 仓库 / 组织级 Secrets & Variables 需要的字段：
+#   secrets.ACCESS_KEY_ID         OSS 部署账号 AccessKey ID
+#   secrets.ACCESS_KEY_SECRET     OSS 部署账号 AccessKey Secret
+#   vars.OSS_BUCKET               目标 Bucket 名
+#   vars.OSS_ENDPOINT             如 "oss-cn-beijing.aliyuncs.com"
+#   vars.OSS_REGION   (可选)      默认从 endpoint 推导 (oss-<region>...)
+#   vars.CDN_DOMAIN   (可选)      设置则刷新 CDN /mn4/ 目录，例如 "manual.marginnote.com.cn"
+#   secrets.CDN_ACCESS_KEY_ID     CDN 账号（与 OSS 账号通常不同）
+#   secrets.CDN_ACCESS_KEY_SECRET
+
+jobs:
+  deploy:
+    name: Build & sync mn4 site to OSS
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sanity check required secrets and vars
+        env:
+          OSS_BUCKET:   ${{ vars.OSS_BUCKET }}
+          OSS_ENDPOINT: ${{ vars.OSS_ENDPOINT }}
+          OSS_AK:       ${{ secrets.ACCESS_KEY_ID }}
+          OSS_SK:       ${{ secrets.ACCESS_KEY_SECRET }}
+          CDN_DOMAIN:   ${{ vars.CDN_DOMAIN }}
+          CDN_AK:       ${{ secrets.CDN_ACCESS_KEY_ID }}
+          CDN_SK:       ${{ secrets.CDN_ACCESS_KEY_SECRET }}
+        run: |
+          missing=0
+          [ -z "$OSS_AK" ]       && echo "::error::secret ACCESS_KEY_ID is empty"     && missing=1
+          [ -z "$OSS_SK" ]       && echo "::error::secret ACCESS_KEY_SECRET is empty" && missing=1
+          [ -z "$OSS_BUCKET" ]   && echo "::error::variable OSS_BUCKET is empty"      && missing=1
+          [ -z "$OSS_ENDPOINT" ] && echo "::error::variable OSS_ENDPOINT is empty"    && missing=1
+          if [ -n "$CDN_DOMAIN" ]; then
+            [ -z "$CDN_AK" ] && echo "::error::CDN_DOMAIN is set but secret CDN_ACCESS_KEY_ID is empty"     && missing=1
+            [ -z "$CDN_SK" ] && echo "::error::CDN_DOMAIN is set but secret CDN_ACCESS_KEY_SECRET is empty" && missing=1
+          fi
+          [ "$missing" = "1" ] && exit 1 || echo "All required inputs present."
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install ffmpeg (媒体编码所需)
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install build deps
+        run: pip install -r requirements.txt
+
+      - name: Build (src/ + i18n/ → build/site)
+        # 不覆盖 MN_SITE_URL：使用 config.py 默认的生产 URL
+        # https://manual.marginnote.com.cn/mn4/——前缀 /mn4 烘进产物。
+        run: python -m doit -n 4   # 全新构建：含媒体重编码 + mkdocs + Pagefind 索引
+
+      - name: Verify build output
+        run: |
+          set -euo pipefail
+          [ -d ./build/site ]            || { echo "::error::build/site/ missing";            exit 1; }
+          [ -f ./build/site/index.html ] || { echo "::error::build/site/index.html missing"; exit 1; }
+          echo "Built $(find ./build/site -type f | wc -l) files for deploy."
+
+      - name: Install ossutil
+        env:
+          OSSUTIL_VERSION: "2.1.0"
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://gosspublic.alicdn.com/ossutil/v2/${OSSUTIL_VERSION}/ossutil-${OSSUTIL_VERSION}-linux-amd64.zip" -o /tmp/ossutil.zip
+          unzip -q /tmp/ossutil.zip -d /tmp/ossutil
+          sudo mv "/tmp/ossutil/ossutil-${OSSUTIL_VERSION}-linux-amd64/ossutil" /usr/local/bin/ossutil
+          sudo chmod +x /usr/local/bin/ossutil
+          ossutil version
+
+      - name: Sync build/site to OSS bucket mn4/ prefix
+        env:
+          OSS_ACCESS_KEY_ID:     ${{ secrets.ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT:          ${{ vars.OSS_ENDPOINT }}
+          OSS_BUCKET:            ${{ vars.OSS_BUCKET }}
+          OSS_REGION_OVERRIDE:   ${{ vars.OSS_REGION }}
+        run: |
+          set -euo pipefail
+          # ossutil v2 默认 sign-version v4，必须显式 region；
+          # 从 endpoint 推导 (oss-<region>[-internal].aliyuncs.com)，
+          # 允许 OSS_REGION 变量覆盖。
+          if [ -n "${OSS_REGION_OVERRIDE}" ]; then
+            OSS_REGION="${OSS_REGION_OVERRIDE}"
+          else
+            OSS_REGION=$(printf '%s' "${OSS_ENDPOINT}" \
+              | sed -nE 's/^oss-(.+)\.aliyuncs\.com$/\1/p' \
+              | sed 's/-internal$//')
+          fi
+          if [ -z "${OSS_REGION}" ]; then
+            echo "::error::Could not derive region from OSS_ENDPOINT=${OSS_ENDPOINT}. Set OSS_REGION explicitly."
+            exit 1
+          fi
+          echo "Using region: ${OSS_REGION}"
+
+          # 同步到 bucket 的 mn4/ 前缀 = 域名下的 /mn4/ 子路径。
+          # --delete: 只清理 mn4/ 前缀内的历史残留对象（旧文章页、被改名的文件等），
+          #           不触及 bucket 根的 /index.html、/docs/、/mn3/（旧 repo 的产物）。
+          # --force:  跳过 ossutil v2 覆盖差异对象时的交互式 y/N 提示，
+          #           否则非首次部署（前缀已有大量旧对象）会卡死 CI。
+          # 末尾斜杠：本地 build/site/ 与远端 mn4/ 都带 /，保证目录内容对齐而非嵌套。
+          ossutil sync ./build/site/ "oss://${OSS_BUCKET}/mn4/" \
+            --region "${OSS_REGION}" \
+            --endpoint "${OSS_ENDPOINT}" \
+            --access-key-id "${OSS_ACCESS_KEY_ID}" \
+            --access-key-secret "${OSS_ACCESS_KEY_SECRET}" \
+            --delete \
+            --force
+
+      - name: Refresh Aliyun CDN (optional)
+        if: vars.CDN_DOMAIN != ''
+        env:
+          # CDN 账号与 OSS 部署账号通常不同，不复用 ACCESS_KEY_ID / ACCESS_KEY_SECRET
+          ALIBABA_CLOUD_ACCESS_KEY_ID:     ${{ secrets.CDN_ACCESS_KEY_ID }}
+          ALIBABA_CLOUD_ACCESS_KEY_SECRET: ${{ secrets.CDN_ACCESS_KEY_SECRET }}
+          CDN_DOMAIN:                      ${{ vars.CDN_DOMAIN }}
+        run: |
+          set -euo pipefail
+          curl -fsSL https://aliyuncli.alicdn.com/aliyun-cli-linux-latest-amd64.tgz -o /tmp/aliyun-cli.tgz
+          tar -xzf /tmp/aliyun-cli.tgz -C /tmp
+          sudo mv /tmp/aliyun /usr/local/bin/aliyun
+          sudo chmod +x /usr/local/bin/aliyun
+          # CDN 是全局服务，profile 需要 region 字段但 cdn.aliyuncs.com 实际忽略它
+          aliyun configure set \
+            --profile default \
+            --mode AK \
+            --region cn-hangzhou \
+            --access-key-id "${ALIBABA_CLOUD_ACCESS_KEY_ID}" \
+            --access-key-secret "${ALIBABA_CLOUD_ACCESS_KEY_SECRET}"
+          # 只刷新 /mn4/ 目录，不影响旧 repo 的 /docs/ /mn3/ 缓存
+          aliyun cdn RefreshObjectCaches \
+            --ObjectPath "https://${CDN_DOMAIN}/mn4/" \
+            --ObjectType Directory
+
+      - name: Summary
+        if: always()
+        env:
+          OSS_BUCKET:   ${{ vars.OSS_BUCKET }}
+          OSS_ENDPOINT: ${{ vars.OSS_ENDPOINT }}
+        run: |
+          {
+            echo "## Deploy result"
+            echo ""
+            echo "- Status: ${{ job.status }}"
+            echo "- Bucket: \`${OSS_BUCKET}\`"
+            echo "- Endpoint: \`${OSS_ENDPOINT}\`"
+            echo "- Synced (to bucket mn4/ prefix): \`build/site/\` → \`oss://${OSS_BUCKET}/mn4/\`"
+            echo "- Commit: \`${{ github.sha }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

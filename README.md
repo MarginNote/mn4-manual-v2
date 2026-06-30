@@ -67,6 +67,33 @@ virtualenv .venv
 > GitHub Pages 项目站点路径 = **仓库名**，故工作流经 `MN_SITE_URL` 覆盖为本仓库实际地址
 > **`https://marginnote.github.io/mn4-manual-v2/`**；生产部署用默认的 `manual.marginnote.com.cn/mn4/`。
 
+### 阿里云 OSS（CI，生产）
+
+`.github/workflows/deploy-oss.yml`：push 到 `main` 即构建（装 ffmpeg → `doit` 全新构建 →
+Pagefind 索引），再用 `ossutil sync` 把 `build/site/` 同步到 bucket 的 **`mn4/` 前缀**。不覆盖
+`MN_SITE_URL`，直接用 `config.py` 默认的生产 URL `https://manual.marginnote.com.cn/mn4/`
+（`/mn4` 前缀已烘进产物）。
+
+> **与同 bucket 旧站隔离**：旧 repo 占用 bucket 根的 `/index.html`、`/docs/`、`/mn3/`；本工作流
+> 只写 `mn4/` 前缀，`--delete` 也只清理该前缀内的残留对象，**永不触及旧站产物**——故同一 bucket
+> 并存无冲突。CDN 刷新同样只针对 `/mn4/` 目录。
+
+部署账号在仓库 / 组织级配置以下 Secrets 与 Variables：
+
+| 名称 | 类型 | 必需 | 说明 |
+|---|---|---|---|
+| `ACCESS_KEY_ID` | secret | ✅ | OSS 部署账号 AccessKey ID |
+| `ACCESS_KEY_SECRET` | secret | ✅ | OSS 部署账号 AccessKey Secret |
+| `OSS_BUCKET` | var | ✅ | 目标 Bucket 名 |
+| `OSS_ENDPOINT` | var | ✅ | 如 `oss-cn-beijing.aliyuncs.com` |
+| `OSS_REGION` | var | ⬜ | 默认从 endpoint 推导（`oss-<region>...`） |
+| `CDN_DOMAIN` | var | ⬜ | 设置则刷新 CDN，如 `manual.marginnote.com.cn` |
+| `CDN_ACCESS_KEY_ID` | secret | ⬜ | CDN 账号（设了 `CDN_DOMAIN` 时必需） |
+| `CDN_ACCESS_KEY_SECRET` | secret | ⬜ | CDN 账号 Secret |
+
+> ossutil v2 默认 sign-version v4 必须显式 region；`--force` 跳过覆盖时的交互提示，否则非首次
+> 部署会卡死 CI。CDN 账号通常与 OSS 部署账号不同，故单列。
+
 ## 文档
 
 - 撰写 / 增改页面：[`src/README.md`](src/README.md)
