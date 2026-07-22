@@ -9,6 +9,7 @@
 本文件承载 doit 任务（task_page / task_media）与发布集加载；dodo.py 仅「导入 + 配置」。
 """
 
+import sys
 from pathlib import Path
 
 import yaml
@@ -89,6 +90,79 @@ def task_page_en():
             "actions": [(_write_en_page, [str(en_md), str(out)])],
             "clean": True,
         }
+
+
+def _iter_en_media():
+    """遍历英文媒体覆盖：yield (覆盖文件, 源相对路径 '<id>/<子目录>/<原名>')。"""
+    for sub in assets.ASSET_DIRS:
+        for f in sorted(config.I18N_EN.glob(f"*/{sub}/*")):
+            if f.is_file():
+                yield f, f.relative_to(config.I18N_EN).as_posix()
+
+
+def task_media_en():
+    """i18n/en/<id>/<子目录>/<与中文源同名文件> → build/src/<slug>/…/<hash>.en.<ext>（英文媒体覆盖）。
+
+    哈希仍按中文源路径计算（与正文引用名一致），仅加 .en 语言后缀：static-i18n（suffix）
+    令英文站用覆盖版，无覆盖的媒体自动回退中文版。文件名须与中文源完全一致（含扩展名）；
+    孤儿覆盖（无同名中文源）不构建，由 media_en_check 报告。
+    """
+    for f, src_rel in _iter_en_media():
+        if not (SRC / src_rel).is_file():
+            continue                                   # 孤儿 → media_en_check 警告
+        build_rel, kind = assets.out_relpath(src_rel)
+        out = BUILD_SRC / assets.en_relpath(_slug_relpath(build_rel))
+        yield {
+            "name": src_rel,
+            "file_dep": [str(f)],
+            "targets": [str(out)],
+            "actions": [(format_media.encode, [str(f), str(out), kind])],
+            "clean": True,
+        }
+
+
+def _report_media_en() -> None:
+    """英文媒体覆盖检查（只报告，不构建）：
+    ① 孤儿覆盖：i18n/en 下无同名中文源的媒体（不会被构建）；
+    ② 缺英文覆盖：已译页面正文引用、而 i18n/en/<id>/<子目录>/ 无同名文件的媒体
+       （英文站回退显示中文版）。
+    """
+    def warn(msg: str) -> None:
+        print(f"WARN media_en: {msg}", file=sys.stderr)
+
+    overrides = set()
+    for _, src_rel in _iter_en_media():
+        overrides.add(src_rel)
+        if not (SRC / src_rel).is_file():
+            warn(f"孤儿覆盖（无同名中文源，未构建）: i18n/en/{src_rel}")
+    missing = 0
+    for pid in sorted(PUBLISHED):
+        en_md = config.I18N_EN / pid / "index.md"
+        if not en_md.exists():
+            continue
+        ref2src = {}                                   # 页内引用名 <子目录>/<hash>.<ext> → 源相对路径
+        for sub in assets.ASSET_DIRS:
+            for f in sorted((SRC / pid / sub).glob("*")):
+                if f.is_file():
+                    ref, _ = format_page.page_ref(f"{sub}/{f.name}", pid)
+                    ref2src[ref] = f"{pid}/{sub}/{f.name}"
+        for ref in sorted(format_page.collect_local_asset_refs(en_md.read_text(encoding="utf-8"))):
+            src_rel = ref2src.get(ref)
+            if src_rel is None:
+                warn(f"译文引用了无中文源的媒体: {pid}: {ref}")
+            elif src_rel not in overrides:
+                missing += 1
+                warn(f"缺英文覆盖（回退中文）: src/{src_rel}")
+    if missing:
+        warn(f"共 {missing} 处引用缺英文覆盖（英文站回退显示中文媒体）")
+
+
+def task_media_en_check():
+    """报告英文媒体覆盖状况（孤儿 / 缺覆盖 → stderr 警告；每次构建都运行）。"""
+    return {
+        "actions": [_report_media_en],
+        "uptodate": [False],
+    }
 
 
 def task_media():

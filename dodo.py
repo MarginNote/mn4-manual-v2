@@ -7,6 +7,8 @@
   doit list         列出任务组
   doit page         只构建正文；  doit "page:<id>" 单页
   doit media        只编码媒体
+  doit media_en     只编码英文媒体覆盖（i18n/en/<id>/image 等同名文件）
+  doit media_en_check  报告英文媒体覆盖状况（孤儿 / 缺覆盖警告）
   doit config       toc.yaml → mkdocs.yml + 拷贝品牌 css/js + 主题覆盖 + logo 到 build/
   doit home         生成首页（hero + 卡片）
   doit site         mkdocs build → site/
@@ -20,12 +22,17 @@
 """
 
 # doit 从本模块命名空间发现 task_* 创建器；逻辑在 pipeline（规范化）与 ssg（mkdocs）包内。
-from pipeline import task_page, task_page_en, task_media  # noqa: F401
+from pipeline import (  # noqa: F401
+    task_page, task_page_en, task_media, task_media_en, task_media_en_check,
+)
 from ssg import task_config, task_home, task_site, task_search  # noqa: F401
 
 DOIT_CONFIG = {
-    # page=中文正文；page_en=英文译文（i18n/en → build/src/<slug>/index.en.md）。
-    "default_tasks": ["page", "page_en", "media", "config", "home", "site", "search"],
+    # page=中文正文；page_en=英文译文（i18n/en → build/src/<slug>/index.en.md）；
+    # media_en=英文媒体覆盖（i18n/en/<id>/<子目录>/ 同名文件 → <hash>.en.webp，缺则回退中文）；
+    # media_en_check=覆盖状况报告（孤儿 / 缺覆盖 → stderr 警告）。
+    "default_tasks": ["page", "page_en", "media", "media_en", "media_en_check",
+                      "config", "home", "site", "search"],
     "check_file_uptodate": "timestamp",   # 按 mtime 判定 uptodate，免每次对 ~2GB 媒体做 md5
     "verbosity": 1,
 }

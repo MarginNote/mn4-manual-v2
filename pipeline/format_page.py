@@ -45,6 +45,29 @@ def rewrite_internal_links(text: str, id2slug: dict) -> str:
         lambda m: f"../{id2slug.get(m.group(1), m.group(1))}/index.md", text)
 
 
+def collect_local_asset_refs(text: str) -> set[str]:
+    """收集正文里引用的页内本地资源路径（image/… video/… file/…）。
+
+    遍历 mistletoe 语法树（含表格 header 行），不正则解析 MD。
+    供 media_en_check 对照英文译文的媒体引用与英文覆盖（i18n/en/<id>/<子目录>/）。
+    """
+    refs: set[str] = set()
+
+    def walk(tok):
+        kids = list(getattr(tok, "children", None) or [])
+        if isinstance(tok, B.Table) and getattr(tok, "header", None) is not None:
+            kids.append(tok.header)
+        for c in kids:
+            url = c.src if isinstance(c, S.Image) else c.target if isinstance(c, S.Link) else ""
+            if assets.is_local_asset(url or ""):
+                refs.add(url)
+            walk(c)
+
+    with MarkdownRenderer():
+        walk(mistletoe.Document(text))
+    return refs
+
+
 # ---------------------------------------------------------------------------
 # URL 工具
 # ---------------------------------------------------------------------------

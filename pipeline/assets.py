@@ -21,6 +21,7 @@ GIF_EXT = {".gif"}                               # → webp（动画）
 VID_EXT = {".mp4", ".mov", ".webm", ".m4v"}      # → webp（动画，KISS：一律转动图，无 <video>）
 
 HASH_LEN = 16
+EN_SUFFIX = ".en"                                # 英文覆盖产物的语言后缀（static-i18n suffix 结构）
 
 
 def is_local_asset(url: str) -> bool:
@@ -57,3 +58,13 @@ def out_relpath(src_rel: str) -> tuple[str, str]:
     kind = classify(p.suffix)
     name = hashlib.md5(src_rel.encode("utf-8")).hexdigest()[:HASH_LEN] + _out_ext(kind, p.suffix)
     return (p.parent / name).as_posix(), kind
+
+
+def en_relpath(build_rel: str) -> str:
+    """build 相对路径 → 英文覆盖产物路径：<name>.<ext> → <name>.en.<ext>。
+
+    与中文产物同哈希、仅加语言后缀 → mkdocs-static-i18n（suffix 结构）在英文站用覆盖版，
+    无覆盖时自动回退中文版；正文引用名两种语言保持同一个。
+    """
+    p = Path(build_rel)
+    return (p.parent / (p.stem + EN_SUFFIX + p.suffix)).as_posix()

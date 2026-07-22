@@ -12,7 +12,7 @@
 | `assets` | 共享契约：资源识别 / 分类 / 16 位 path-hash 命名（纯路径逻辑，无重依赖） |
 | `format_page` | `render_page(md, out, published, id2slug)` —— 遍历 mistletoe 语法树转换**一页**（含站内链接 id→slug 改写） |
 | `format_media` | `encode(src, dst, kind)` —— ffmpeg 编码**一个文件** |
-| `__init__` | 发布集 + slug 映射加载 + doit 任务 `task_page` / `task_page_en` / `task_media`（由 `dodo.py` 导入） |
+| `__init__` | 发布集 + slug 映射加载 + doit 任务 `task_page` / `task_page_en` / `task_media` / `task_media_en` / `task_media_en_check`（由 `dodo.py` 导入） |
 
 `format_page` / `format_media` 各自只处理一页 / 一个文件，对称、易测；`assets` 保证
 「正文引用名 / 磁盘文件名 / doit 构建目标」三者一致。
@@ -45,13 +45,22 @@
 **源路径**决定（非文件内容、与 slug/语言无关）→ 确定、增量安全、跨语言共用同一份；纯 ASCII
 免编码、定长无冲突，并抹掉原文件名里的拍摄元数据。产物按 **slug** 目录归置（见下）。`src/` 保留原始可读名。
 
+## 英文媒体覆盖（可选，按图回退）
+
+在 `i18n/en/<id>/<子目录>/` 放一个**与中文源完全同名**（含扩展名）的文件，即为该图提供英文版：
+`task_media_en` 按中文源路径算同一哈希、加 `.en` 语言后缀编码为 `<hash>.en.<ext>`，
+mkdocs-static-i18n（suffix 结构）令英文站用覆盖版；未覆盖的媒体自动回退中文版，正文引用名不变。
+`task_media_en_check` 每次构建报告：孤儿覆盖（无同名中文源，不构建）与已译页面缺英文覆盖
+（回退中文）的媒体 → stderr 警告。
+
 ## 输出与交接
 
 ```
 build/src/<slug>/         # 目录名 = toc.yaml 的英文 slug（中英共用）
   index.md                # 中文规范化正文（默认语言）
   index.en.md             # 英文译文（若 i18n/en/<id>/index.md 存在；mkdocs-static-i18n suffix 结构）
-  image/ video/ file/     # 该页被引用到的压缩资源（哈希名；中英共用单份）
+  image/ video/ file/     # 该页被引用到的压缩资源（哈希名；中英共用单份；
+                          #   有英文覆盖的图另有 <hash>.en.<ext>，static-i18n 按后缀分流/回退）
 ```
 
 `task_page_en` 把 `i18n/en/<id>/index.md` 落到 `build/src/<slug>/index.en.md`（并改写站内链接

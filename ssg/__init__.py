@@ -85,7 +85,7 @@ def task_site():
     src_inputs = [str(s) for s, _ in _static_pairs()]
     md_inputs = sorted(str(p) for p in DOCS.rglob("*.md"))
     return {
-        "task_dep": ["page", "page_en", "media", "config", "home"],
+        "task_dep": ["page", "page_en", "media", "media_en", "config", "home"],
         "file_dep": [str(MKDOCS_YML)] + md_inputs + src_inputs,
         "targets": [str(SITE / "index.html")],
         "actions": [(_run, ["mkdocs", "build", "-f", str(MKDOCS_YML)])],
