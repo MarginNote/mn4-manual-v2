@@ -327,3 +327,121 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* ============================================================
+   手册内容：还原 Wolai 提示框与图片说明
+   ============================================================ */
+.md-typeset .mn-callout {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  margin: 1em 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.3rem;
+  background: rgba(5, 117, 197, 0.12);
+}
+
+.md-typeset .mn-callout--danger {
+  background: rgba(233, 30, 44, 0.12);
+}
+
+.md-typeset .mn-callout--warning {
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.md-typeset .mn-callout__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5rem;
+}
+
+.md-typeset .mn-callout__body {
+  min-width: 0;
+}
+
+.md-typeset .mn-callout--info .mn-callout__icon {
+  color: rgb(220, 48, 53);
+  font-family: system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.md-typeset .mn-callout__body > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .mn-callout__body > :last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset .mn-callout__body :is(ul, ol) {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.md-typeset .mn-image-caption {
+  display: block;
+  margin: -0.35rem auto 1.15rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Wolai 行内着重：提示蓝 / 警示红。 */
+.md-typeset .mn-highlight {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.08em 0.18em;
+  border-radius: 0.2rem;
+}
+
+.md-typeset .mn-highlight--info {
+  background: rgba(5, 117, 197, 0.2);
+}
+
+.md-typeset .mn-highlight--danger {
+  background: rgba(233, 30, 44, 0.2);
+}
+
+/* 页面引用的悬浮预览卡；链接本身仍可正常点击和键盘聚焦。 */
+.md-typeset a.mn-preview-link[data-preview] {
+  position: relative;
+}
+
+.md-typeset a.mn-preview-link[data-preview]::after {
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  width: max-content;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.35rem;
+  background: var(--md-default-bg-color);
+  box-shadow: var(--md-shadow-z2);
+  color: var(--md-default-fg-color);
+  content: attr(data-preview);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 0.25rem);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  pointer-events: none;
+}
+
+.md-typeset a.mn-preview-link[data-preview]:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}

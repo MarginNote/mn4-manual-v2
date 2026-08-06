@@ -376,6 +376,20 @@
       desc: "前置条件你需要先阅读闪卡制作第①②篇，确保你已经有卡片添加到复习卡组。在第②篇，你学会了如何添加卡片。本页将教你如何精细设置闪卡的正反面，让复习更高效开始前建议先了解卡片编辑器的相关功能（详见：）。"
 
       slug: making-flashcards-setting-front-back-flashcard
+- section: "✨ MarginNote AI"
+  label: "MarginNote AI"
+  title: "MarginNote AI"
+  desc: "自定义 AI（Max） 是 Max 用户可使用的高级设置。它用于把 您自己的服务提供商或本地模型服务接入到MarginNote AI 中。"
+  categories:
+  - category: "AI 设置与接入"
+    icon: "🤖"
+    desc: "配置自定义 API成功后，MarginNote 中的 AI 功能全部使用当前自定义 AI 配置。"
+    pages:
+    - id: 7nmbjF1NEsyu6ok8yGTFcc       # 自定义 AI API 配置教程（4.4.4 及后续版本）
+      difficulty: 2
+      read_time: 7
+      desc: "本文将帮助您完成服务地址、密钥和模型名称的填写，并确认自定义 AI 是否已经绑定成功。"
+      slug: custom-ai-api-configuration
 - section: "🔧 通用"
   label: "General"
   title: "通用"

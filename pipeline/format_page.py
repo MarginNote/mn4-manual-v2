@@ -144,7 +144,8 @@ def handle_link(tok, ctx: dict) -> list:
         if pid in ctx["published"]:
             ctx["stat"]["internal"] += 1
             slug = ctx["id2slug"].get(pid, pid)       # slug 目录（未配置 slug 时回退为 id）
-            tok.target, tok.title, tok.dest_type = f"../{slug}/index.md", "", "uri"
+            # 保留源链接 title，交给 Material 的 content.tooltips 渲染悬浮预览。
+            tok.target, tok.dest_type = f"../{slug}/index.md", "uri"
             return [tok]
         ctx["stat"]["dangling"] += 1
         return list(tok.children)
