@@ -1,192 +1,247 @@
 # Export Documents, Mind Maps, and Study Sets
 
-> 💡This page mainly explains how to export PDFs, mind maps, and study sets for sharing. For exports related to document backup and note backup, see [Data Sync, Backup & Restore](../qU6nwa4s6GCBuTDsjs9oeu/index.md)
+> 💡This page explains how to export PDFs, mind maps, and study sets for sharing. For document-backup and note-backup exports, see [Data Sync, Backup & Restore](https://www.wolai.com/qU6nwa4s6GCBuTDsjs9oeu "Data Sync, Backup & Restore")
 
-> 💡**Quick jump to common scenarios**
+> 💡**Quick Jump to Common Scenarios**
 > 1\. Export a PDF with notes: Export Flattened PDF (with notes)
-> 2\. Export the full mind map / outline list as PDF: Export Mind Map as PDF
-> 3\. Export part of the mind map / outline list as PDF: Export Mind Map as PDF (Focus Branch)
+> 2\. Export the complete mind map/outline list as a PDF: Export the Entire Mind Map as PDF
+> 3\. Export part of a mind map/outline list as a PDF: Export a Mind Map Focus as PDF
 
-## 1 Export
+# 1 Export
 
-### 1.1 Documents
+## 1.1 Documents
 
-#### 1.1.1 Source PDF (without notes)
+### 1.1.1 Source PDF (without notes)
 
-When you need to export the original document, tap the "..." More button at the bottom-right of the document, then tap "Export Source PDF File" in the submenu that pops up
+To export the original document, tap the `...` More button in the bottom-right corner of the document, then tap `Export Source PDF File` in the pop-up submenu.
 
-![Animated demo: Export Source PDF File Animated demo: Export Source PDF File ](image/9d4d0864a80a514a.webp)
+![Animated demo: Export Source PDF File Animated demo: Export Source PDF File ](<image/62d3a00874faa800.webp> "Animated demo: Export Source PDF File Animated demo: Export Source PDF File ")
 
-#### 1.1.2 Export Flattened PDF (with notes)
+### 1.1.2 Export Flattened PDF (with notes)
 
-When you need to export a document that contains notes, there are two ways:
+> 💡Notes in an exported flattened PDF cannot be edited in any software (including MarginNote), and a flattened PDF currently does not include the table of contents created in MarginNote.
 
-1. Tap the `Document - More` button at the top-right of the document view, then tap `Export Document as Flattened PDF` to export the document as a flattened PDF or a long image
+There are two ways to export a document that contains notes:
 
-![](image/732a1adbe0fea2df.webp)
+1. Tap the `Document - More` button in the top-right corner of the document view, then tap `Export Document` to export the document as a flattened PDF or long image.
 
-1. Tap `Study Set - More` - `Export Study Set - Export Document as Flattened PDF` at the top-right of the study set view
+![](image/5069291c83859641.webp)
 
-![](image/6f7e64e532c13d45.webp)
+1. In the top-right corner of the study set view, tap `Study Set - More` - `Export Study Set - Export Document`.
 
-> 💡The notes in an exported flattened PDF cannot be edited in any software (including MarginNote), and exported flattened PDFs currently do not include the table of contents created in MarginNote
+![](image/d28f61bfe8cd4745.webp)
 
-### 1.2 Mind Map
+1. Select the pages to export. You can select pages using thumbnails, `Table of Contents`, `Page Range`, or `Annotations` (supported in version 4.4.4 and later).
 
-#### 1.2.1 Export Mind Map as PDF
+![](image/4a822900f68379d4.webp)
 
-> 💡The exported PDF shows the mind map/outline at its current expansion state, so to display all content **you must expand all levels**
+- `Table of Contents`: Select specific nodes in the table of contents to export.
 
-1. Tap `Study Set - More`
+![](image/47c7d78299a25bb2.webp)
 
-![](image/49ebd2a67e979070.webp)
+- `All Pages`: Exports all pages except folded pages.
+- `Page Range`: Export selected page numbers separated by commas (either Chinese or English punctuation is accepted). For example, “1,3,5-6” exports pages 1, 3, and 5 through 6.
+- `Annotations`: Selects all pages that contain notes.
 
-2.Tap `Export Mind Map as PDF`
+> About exporting extended margins: to export extended margins, set them to expanded. Extended margins are not currently shown in the export thumbnails.
 
-![](image/6f7e64e532c13d45.webp)
+### 1.1.3 Exporting in Immersive Mode
 
-1. Select `Export Mind Map` and `Export Card Outline`
-   > 💡The exported PDF shows the mind map/outline at its current expansion state, so to display all content **you must expand all levels**![The card outline is a linear output, similar to a document The card outline is a linear output, similar to a document ](image/dd320c563e5d21f4.webp)
-   Select the content to export, tap `Export`, then choose to print or export to another app in the mind map PDF preview screen.
+Tap the third `Document` button at the top, then tap `Export Document`.
 
-#### 1.2.2 Export Mind Map as PDF (Focus Branch)
+![](image/6a417ad4500b74c1.webp)
 
-> 💡When you only need to export part of the mind map, you can choose to export just the focus branch
+## 1.2 Mind Maps
 
-1. First enter Focus mode on the top-level card of the branch you want to export (for the specific way to enter focus, see [Mind Map Focus](../5nntHuyzfBSdVrEo4YYhxC/index.md))
-2. Tap `Study Set - More` - `Export Study Set`
+### 1.2.1 Export a Branch as PDF (Supported in Version 4.4.4 and Later)
 
-![](image/49ebd2a67e979070.webp)
+Tap the **top-level card** of the branch you want to export. In the pop-up menu, switch to `Advanced`, then select Export Branch or Export This Card, as described below.
 
-1. Tap `Focus Branch` - `Export Mind Map as PDF`; the remaining steps and notes are the same as Export Mind Map as PDF
+![](image/da554a86c0cc0978.webp)
 
-   ![](image/2aab73ca788ce360.webp)
+#### 1.2.1.1 Export Branch
 
-### 1.3 Study Set
+After selecting `Export Branch`, MarginNote automatically paginates the content according to the node hierarchy and density. You can then adjust the PDF information density using Spacious, Balanced, Compact, or Classic Mind Map (ordered from lowest to highest card density).
 
-Tap `Study Set - More` - `Export Study Set`
+![](image/fdce6c2dd4831438.webp)
 
-![](image/bcf78590c802b365.webp)
+Export examples:
 
-Under the `Export Backup` tab there are `Export Study Set Backup` and `Export to Note Database`
+![](image/0c644566c518eabd.webp)
 
-1. `Export Study Set Backup`: exports all document and note data of the current study set for sharing or backup; the backup file can only be opened with MarginNote
-2. `Export to Note Database`: an exclusive feature of multi-note-database Max. By exporting some study sets to another note database, you can conveniently move study sets between databases, which is useful for isolating note data across different periods and different fields.
-   > 💡For how to use note databases and common scenarios, see [Note Database ①: Creating and Managing Databases](../wVmpipXpgJM4ZicKDvV6A7/index.md)
+![](image/ce3a61d4f902715d.webp)
 
-### 1.4 Export to Other Formats
+#### 1.2.1.2 Export This Card
 
-> 💡When exporting to other formats, you can also choose to export only the focus branch; the steps are the same as Export Mind Map as PDF (Focus Branch)
+You can export the card as a `PDF` or `Long Image`. Export This Card includes only one card.
 
-1. Tap `Study Set - More` - `Export Study Set`
-2. You can export to the following formats: OmniOutliner (oo3), MindManager and iThoughts (mmap), Evernote (api), MS Word (docx), Anki (apkg)
+![Export This Card Export This Card ](image/f1d0cb8982a48a57.webp "Export This Card Export This Card ")
 
-> 💡Cards created with [Markdown and Formulas](../eShEtotNTstcUnT6o3FLAP/index.md) will not render correctly after export in software that does not support Markdown syntax
+![Export example Export example ](image/adfe50f3aa2ec742.webp "Export example Export example ")
 
-#### 1.4.1 Export to OmniOutliner (oo3)
+### 1.2.2 Export the Entire Mind Map as PDF
+
+> 💡The exported PDF reflects the mind map/outline's current expanded state. To show all content, **expand all levels** first.
+
+1. Tap `Study Set - More`.
+
+![](image/0ff9fd03e5290f4d.webp)
+
+2.Tap `Export Mind Map as PDF`.
+
+![](image/a6114078d7a0d0cc.webp)
+
+1. Select `Export Mind Map` and `Export Card Outline`.
+   > 💡The exported PDF reflects the mind map/outline's current expanded state. To show all content, **expand all levels** first.![](image/a90e79fbc2e74485.webp)
+   Select the content to export and tap `Export`. The remaining steps and notes are the same as Export Branch. In the mind map PDF preview, select Print or export to another app.
+
+### 1.2.3 Export a Mind Map Focus as PDF
+
+> 💡When you need to export only part of a mind map, export the focus branch.
+
+#### 1.2.3.1 Method 1
+
+Tap the top-level card of the branch you want to export. In the pop-up menu, switch to `Advanced`, then select `Export Branch` or `Export This Card`. The remaining steps are the same as Export a Branch as PDF (supported in version 4.4.4 and later).
+
+![](image/7285846267f4879b.webp)
+
+#### 1.2.3.2 Method 2
+
+First enter Focus mode on the top-level card of the branch you want to export (for instructions, see [Mind Map Focus](https://www.wolai.com/5nntHuyzfBSdVrEo4YYhxC "Mind Map Focus")).
+
+1. Tap `Study Set` - `More` - `Export Study Set`.
+
+![](image/0ff9fd03e5290f4d.webp)
+
+1. Tap `Focus Branch` - `Export Mind Map as PDF`. The remaining steps and notes are the same as Export the Entire Mind Map as PDF.
+
+   ![](image/18d7840b68a9fdbd.webp)
+
+## 1.3 Study Sets
+
+Tap `Study Set - More` - `Export Study Set`.
+
+![](image/ea19cf536e35aac6.webp)
+
+The `Export Backup` tab contains `Export Study Set Backup` and `Export to Note Database`.
+
+1. `Export Study Set Backup`: Exports all documents and note data in the current study set for sharing or backup. The backup file can only be opened with MarginNote.
+2. `Export to Note Database`: A multi-note-database Max feature. Exporting selected study sets to another note database makes it easy to move study sets between databases and isolate note data from different periods or fields.
+   > 💡For usage and common scenarios, see [Note Database ①: Creating and Managing Databases](https://www.wolai.com/wVmpipXpgJM4ZicKDvV6A7 "Note Database ①: Creating and Managing Databases").
+
+## 1.4 Export to Other Formats
+
+> 💡You can also export only the focus branch to other formats. The steps are the same as Export a Mind Map Focus as PDF.
+
+1. Tap `Study Set - More` - `Export Study Set`.
+2. Choose from the following export formats: OmniOutliner (oo3), MindManager and iThoughts (mmap), Evernote (api), MS Word (docx), and Anki (apkg).
+
+> 💡Cards created using [Markdown and Formulas](https://www.wolai.com/eShEtotNTstcUnT6o3FLAP "Markdown and Formulas") will not render correctly after export in software that does not support Markdown syntax.
+
+### 1.4.1 Export to OmniOutliner (oo3)
 
 1. Tap this option and choose whether to include excerpt colors when exporting the outline.
-2.  An oo3 file is generated; import it using OmniOutliner, which supports the oo3 file format.
+2. An oo3 file is generated. Import it using OmniOutliner or another app that supports oo3 files.
 
-> 💡Tip: this file is located in the ExportedOmniOutlinerFiles folder within MarginNote 4's local folder.
+> 💡Tip: This file is stored in the ExportedOmniOutlinerFiles folder inside MarginNote 4's local folder.
 
-![How the sample study set appears in OmniOutliner 4. How the sample study set appears in OmniOutliner 4. ](image/bf724b66d0b990b4.webp)
+![How the sample study set appears in OmniOutliner 4. How the sample study set appears in OmniOutliner 4. ](image/6a2ec31282e197a6.webp "How the sample study set appears in OmniOutliner 4. How the sample study set appears in OmniOutliner 4. ")
 
-> 💡Tip: OmniOutliner's editing features require a subscription and are fairly expensive. You can tap the More Options after the file name in the top-left corner - Export As, to convert to more file formats.
-> 
-> ![  ](image/c0f3e8b4fff42c0e.webp)
+> 💡Tip: OmniOutliner's editing features require a subscription and are relatively expensive. Tap More Options after the file name in the top-left corner, then select Export As to convert the file to other formats.
+>
+> ![  ](image/fc3da594b4895900.webp "  ")
 
-#### 1.4.2 Export to MindManager and iThoughts (mmap)
+### 1.4.2 Export to MindManager and iThoughts (mmap)
 
-1. Tap this option. You can choose whether to add MarginNote links to the exported mind map; if you do, you can tap a link to jump back to the corresponding card location in MarginNote
+1. Tap this option and choose whether to include MarginNote links in the exported mind map. When links are included, tapping one returns to the corresponding card in MarginNote.
 
-   ![](image/b39ba00ad156adcf.webp)
-2. An mmap file is generated; import it with software that supports the mmap format.
-   > 💡Tip: this file is also located in MarginNote 4's local folder.
-3. Software that supports the mmap format:
+   ![](image/54e752bded74d55e.webp)
+2. An mmap file is generated. Import it with an app that supports the mmap format.
+   > 💡Tip: This file is also stored in MarginNote 4's local folder.
+3. Apps that support the mmap format:
    1. MindManager
 
-      ![How the sample study set appears in MindManager. How the sample study set appears in MindManager. ](image/a979f432af00bc38.webp)
-      > 💡MindManager Go in the App Store can only view mmap files
+      ![How the sample study set appears in MindManager. How the sample study set appears in MindManager. ](image/133cfb90f4534bf4.webp "How the sample study set appears in MindManager. How the sample study set appears in MindManager. ")
+      > 💡MindManager Go in the App Store can only view mmap files.
    2. iThoughts
 
-      ![How the sample study set appears in iThoughts. How the sample study set appears in iThoughts. ](image/3182053e0a45113d.webp)
-      > 💡Tip: iThoughts can convert mind maps to many formats; among them, files in mm, opml, and xmind formats can be imported into Mubu (must be under 2 MB). Mubu lets you view mind maps/outlines synced across all platforms and devices. You can export the Mubu file, convert it back to an mmap file via iThoughts, and import it back into MarginNote 4, choosing either to append it to an existing study set's mind map or to create a new mind map.
-      > 
-      > ⚠️iThoughts is no longer available for download in the App Store; Mac and Windows users can find the iThoughts installer on their own.
-      > 
-      > ![  ](image/41a56d9850f08c34.webp)
+      ![How the sample study set appears in iThoughts. How the sample study set appears in iThoughts. ](image/9aa5d96c6ee69de5.webp "How the sample study set appears in iThoughts. How the sample study set appears in iThoughts. ")
+      > 💡Tip: iThoughts can convert mind maps to many formats. Files in mm, opml, and xmind formats can be imported into Mubu (they must be under 2 MB). Mubu lets you view mind maps/outlines synced across platforms and devices. You can export the Mubu file, convert it back to mmap through iThoughts, and import it into MarginNote 4, either appending it to an existing study set mind map or creating a new mind map.
+      >
+      > ⚠️iThoughts is no longer available in the App Store. Mac and Windows users can find an iThoughts installer separately.
+      >
+      > ![  ](image/ed68e6d1669e4fcf.webp "  ")
    3. MindNode
 
-      ![How the sample study set appears in MindNode. How the sample study set appears in MindNode. ](image/f802c2bbae318118.webp)
-      > 💡Tip: MindNode can convert the mind map format into the formats shown.
-      > 
-      > ![  ](image/e08365b598018d71.webp)
+      ![How the sample study set appears in MindNode. How the sample study set appears in MindNode. ](image/a5bad6c633c3674d.webp "How the sample study set appears in MindNode. How the sample study set appears in MindNode. ")
+      > 💡Tip: MindNode can convert a mind map to the formats shown.
+      >
+      > ![  ](image/b07d11d03a8ba483.webp "  ")
    4. MindMaster (under 10 MB)
    5. Baidu Naotu
    6. Xmind (non-mobile version)
 
-#### 1.4.3 Export to Evernote (api)
+### 1.4.3 Export to Evernote (api)
 
-1. Tap this option, log in to Evernote (Yinxiang Biji), choose the target folder, and tap Import.
+1. Tap this option, sign in to Evernote (Yinxiang Biji), choose the target folder, and tap Import.
 
-   ![](image/cfb6752a81b49544.webp)
+   ![](image/2e99ffb69d31868d.webp)
 2. Choose whether to attach the documents associated with the cards.
 3. Choose whether to attach the mind map.
-4. The study set will be exported in the background, and you will receive a notification when it finishes.
+4. The study set is exported in the background. You receive a notification when the export finishes.
 
-#### 1.4.4 Export to MS Word (docx)
+### 1.4.4 Export to MS Word (docx)
 
 1. Tap this option and choose whether to include excerpt colors when exporting the outline.
-2. A docx file is generated; import it with software that supports docx.
+2. A docx file is generated. Import it with an app that supports docx files.
 
-> 💡Tip: this file is located in MarginNote 4's local folder.
+> 💡Tip: This file is stored in MarginNote 4's local folder.
 
-![Display is abnormal in software such as WPS and Shimo Docs; open the file with Microsoft Word or Pages Display is abnormal in software such as WPS and Shimo Docs; open the file with Microsoft Word or Pages ](image/1b958a49c5072922.webp)
+![The file may display incorrectly in WPS, Shimo Docs, and similar apps; open it with Microsoft Word or Pages. The file may display incorrectly in WPS, Shimo Docs, and similar apps; open it with Microsoft Word or Pages. ](image/1d4f4b627a715d4d.webp "The file may display incorrectly in WPS, Shimo Docs, and similar apps; open it with Microsoft Word or Pages. The file may display incorrectly in WPS, Shimo Docs, and similar apps; open it with Microsoft Word or Pages. ")
 
-#### 1.4.5 Export to Anki (apkg)
+### 1.4.5 Export to Anki (apkg)
 
-After tapping this option, the dialog shown appears. Besides exporting cards, the default template also offers the following export settings
+Tap this option to open the dialog shown below. In addition to exporting cards, the default template provides the following export settings.
 
-![](image/018c0cd3b692c696.webp)
+![](image/6d266749e89db1eb.webp)
 
-1. `Export link to MarginNote`
+1. `Export Link to MarginNote`
 
-   ![Exports the card's URL; this link jumps to the card's location in the MarginNote mind map. Exports the card's URL; this link jumps to the card's location in the MarginNote mind map. ](image/b95a678d5156bdae.webp)
-2. `Export sub-links as images`
+   ![Exports the card URL, which can be used to jump to the card's location in the MarginNote mind map. Exports the card URL, which can be used to jump to the card's location in the MarginNote mind map. ](image/c6840dbfe5d20761.webp "Exports the card URL, which can be used to jump to the card's location in the MarginNote mind map. Exports the card URL, which can be used to jump to the card's location in the MarginNote mind map. ")
+2. `Export Child Links as Images`
 
-![Exports all child nodes of the card as images. Exports all child nodes of the card as images. ](image/3315032b31b62153.webp)
+![Exports all child nodes of the card as images. Exports all child nodes of the card as images. ](image/5529100c0d00b462.webp "Exports all child nodes of the card as images. Exports all child nodes of the card as images. ")
 
-1. `Export voice comments`
+1. `Export Voice Comments`
 
-![Exports the voice comments on the card. Exports the voice comments on the card. ](image/f754af9187a86cc9.webp)
+![Exports voice comments from the card. Exports voice comments from the card. ](image/983aa5126fdefff3.webp "Exports voice comments from the card. Exports voice comments from the card. ")
 
-`Export multiple Anki cards for the multiple image clozes on a single MN card`: when a single review card has multiple clozes, a corresponding number of Anki cards will be generated
+`Export Multiple Anki Cards for Multiple Image Occlusions on One MN Card`: When one review card contains multiple fill-in occlusions, a corresponding number of Anki cards is generated.
 
 1. `Hide All, Show One`
 
-   ![Front side Front side ](image/ecbab2915b22e1a7.webp)
+   ![Front Front ](image/829afc2b32384f99.webp "Front Front ")
 
-   ![Back side Back side ](image/40f4d8b2499ef2b1.webp)
+   ![Back Back ](image/bcc0bf31f034eb99.webp "Back Back ")
 2. `Hide All, Show All`
 
-   ![Front side Front side ](image/bfaf4470033a7f7a.webp)
+   ![Front Front ](image/a77f7813773dd59b.webp "Front Front ")
 
-   ![Back side Back side ](image/5f4fbadc99dc5c83.webp)
+   ![Back Back ](image/7f3e2330fbf857cc.webp "Back Back ")
 3. `Hide One, Show One`
 
-   ![Front side Front side ](image/d2e1f0b6c930cab9.webp)
+   ![Front Front ](image/caff091662c49630.webp "Front Front ")
 
-   ![Back side Back side ](image/c2c7554de55c562c.webp)
+   ![Back Back ](image/30c19be1169463d5.webp "Back Back ")
 
-> 💡For advanced usage of custom templates, see [Flashcard Review ③: Export to Anki & Template Configuration](../4zZ4C4Y4jgfdszohqSE4Zm/index.md)
+> 💡For advanced usage of custom templates, see [Flashcard Review ③: Export to Anki & Template Configuration](https://www.wolai.com/4zZ4C4Y4jgfdszohqSE4Zm "Flashcard Review ③: Export to Anki & Template Configuration").
 
-## 2 Other Note-Export Plugins
+# 2 Other Note-Export Plugins
 
-> 💡Plugins on the MarginNote forum also support exporting study sets to more third-party apps, such as Obsidian and flomo; visit the forum to learn more.
+> 💡Plugins on the MarginNote forum also support exporting study sets to more third-party apps, such as Obsidian and flomo. Visit the forum to learn more.
 
-[Third-Party App Integration ②: Obsidian + MN4](../hTKcNyLnc362NvwEvMbt2e/index.md)
+[Third-Party App Integration ②: Obsidian + MN4](https://www.wolai.com/hTKcNyLnc362NvwEvMbt2e "Third-Party App Integration ②: Obsidian + MN4")
 
-[ [Third-Party MN Plugin] Obsidian-Bridge (Dynamic Markdown Export) — Bridging Two Knowledge Worlds #Ver.3.0.0 Officially Signed# - #162, by Deanlzy - Plugin Release Area｜Unrestricted editing and updating of the main post allowed - MarginNote Chinese Community Obsidian BridgeObsidian Bridge plugin builds a bridge from MarginNote to Obsidian. Through it, we can import the writing material / creative inspiration accumulated in MarginNote into Obsidian, using Ma\&hellip; https://bbs.marginnote.com.cn/t/topic/21235/162](https://bbs.marginnote.com.cn/t/topic/21235/162 " 【第三方MN插件】Obsidian-Bridge（Markdown动态导出）——连接两个知识星球 #Ver.3.0.0 已获官方签名# - #162，来自 Deanlzy - 插件发布区｜允许不受限制地编辑更新主帖 - MarginNote 中文社区 Obsidian BridgeObsidian Bridge 插件架起了 MarginNote 通往 Obsidian 的桥梁，通过它，我们可以把在 MarginNote 中积累的写作素材/创作灵感导入到 Obsidian 中，使用 Ma… https://bbs.marginnote.com.cn/t/topic/21235/162")
+[[Third-Party MN Plugin] Obsidian-Bridge (Dynamic Markdown Export)—Connecting Two Knowledge Worlds #Ver.3.0.0 Officially Signed# - #162, by Deanlzy - Plugin Releases | MarginNote Chinese Community](https://bbs.marginnote.com.cn/t/topic/21235/162 "[Third-Party MN Plugin] Obsidian-Bridge (Dynamic Markdown Export)—Connecting Two Knowledge Worlds #Ver.3.0.0 Officially Signed#")
 
-[ [Third-Party MN Plugin] I wrote a flomo plugin — is anyone here using flomo? #Ver.0.0.2 Officially Signed# - Plugin Release Area｜Unrestricted editing and updating of the main post allowed - MarginNote Chinese Community The v0.0.2 release adds the following support: support for switching flomo's location (mainly referencing deepl's code; I'd like to ask how to refresh the location directly — currently it only takes effect after toggling the plugin off and on again) notes now include a note id, in preparation for opening marginNote preview image    \&hellip; https://bbs.marginnote.com.cn/t/topic/18381](https://bbs.marginnote.com.cn/t/topic/18381 " 【第三方MN插件】写了个flomo的插件，有在用flomo的同学吗 #Ver.0.0.2 已获官方签名# - 插件发布区｜允许不受限制地编辑更新主帖 - MarginNote 中文社区 v 0.0.2版本发布做了以下支持 支持切换flomo的位置(主要参考deepl的代码，想请教下怎么直接刷新位置，现在是再次开关插件后生效) 笔记增加了笔记id ,为打开marginNote做准备 预览图    … https://bbs.marginnote.com.cn/t/topic/18381")
+[[Third-Party MN Plugin] I Wrote a flomo Plugin—Is Anyone Using flomo? #Ver.0.0.2 Officially Signed# - Plugin Releases | MarginNote Chinese Community](https://bbs.marginnote.com.cn/t/topic/18381 "[Third-Party MN Plugin] I Wrote a flomo Plugin—Is Anyone Using flomo? #Ver.0.0.2 Officially Signed#")

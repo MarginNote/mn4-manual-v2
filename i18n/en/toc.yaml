@@ -10,6 +10,9 @@ sections:
   🔄 复习:
     title_en: Review
     desc_en: Knowledge you've organized will soon be forgotten if you don't review it. This part explains how to review scientifically using mind maps and flashcards—including methods such as active recall, spaced repetition, and tracing back to the source text—to help you turn short-term memory into long-term mastery.
+  ✨ MarginNote AI:
+    title_en: MarginNote AI
+    desc_en: Custom AI (Max) is an advanced setting for Max users that connects your own service provider or local model service to MarginNote AI.
   🔧 通用:
     title_en: General
     desc_en: Data security, multi-device sync, export and sharing, cross-app integration—these aren't directly about 'what you learn,' but about 'learning with peace of mind and using the app smoothly.' When you need to back up data, migrate notes, collaborate across devices, or work alongside other tools, come here for answers.
@@ -47,6 +50,9 @@ categories:
   闪卡制作与复习:
     category_en: Making and Reviewing Flashcards
     desc_en: Create flashcards with a front and back, and use the FSRS algorithm to automatically schedule review intervals, fighting forgetting scientifically.
+  AI 设置与接入:
+    category_en: AI Settings and Integration
+    desc_en: After a custom API is configured successfully, all AI features in MarginNote use the current Custom AI configuration.
   数据安全与管理:
     category_en: Data Security and Management
     desc_en: Import documents, manage databases, sync and back up, and export and share.
@@ -178,6 +184,8 @@ pages:
     desc_en: Export MN4 flashcards to Anki, with support for cloze settings, default templates, and custom templates. Includes download links for several community templates—great for advanced users who want richer card styles.
   pBH9BFrgyZgeWJVf3xLyVA:
     desc_en: 'Prerequisites: you should first read Parts 1 and 2 of Making Flashcards and make sure you''ve already added cards to a review card deck. In Part 2 you learned how to add cards. This page will teach you how to fine-tune the front and back of a flashcard to make review more efficient. Before you begin, it''s recommended to first understand the relevant features of the flashcard editor (see: ).'
+  7nmbjF1NEsyu6ok8yGTFcc:
+    desc_en: This guide explains how to enter the service address, key, and model names, and how to confirm that Custom AI has been bound successfully.
   ehTLoD9HictQhkFirV1g9k:
     desc_en: The full workflow for importing, categorizing, and managing documents. Import from files, web pages, the document library, and more; organize documents by category (tag-based) or folders (hierarchical); and reuse notes and cards across study sets.
   gaqm2hZ9YMPQSFpWQjLJ9g:
