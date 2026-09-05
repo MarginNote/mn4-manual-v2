@@ -73,7 +73,7 @@ MarginNote 会依次检查自定义 AI 的基础连接能力，以及流式输�
 >
 > [了解MarginNote AI积分](https://www.wolai.com/kr1DqNY4irGSmikpwLoyV8 "了解MarginNote AI积分")
 
-- [AI 浮窗（Ask）](/qx5HusQ7gV2WZmK4S4PfhY "AI 浮窗（Ask）")
+- [AI 浮窗（Ask）](https://www.wolai.com/qx5HusQ7gV2WZmK4S4PfhY "AI 浮窗（Ask）")
 - [AI 对话侧边栏（Chat）](https://www.wolai.com/dbRow-5iNniGsRaUaEWhu4QaXwYB-2WafWJVa7zyQJ8xduDNUXA "AI 对话侧边栏（Chat）")
 - [AI目录](https://www.wolai.com/dR9jWaQeoKJx3zreicvxvo#kEJH3fcRdAGhf8VpWmtHhG "AI目录")
 - [记忆回朔](https://www.wolai.com/dR9jWaQeoKJx3zreicvxvo#dF1KdHWENyg7TveUyMuYw6 "记忆回朔")

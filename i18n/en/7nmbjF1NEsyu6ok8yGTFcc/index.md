@@ -73,7 +73,7 @@ After the custom API is configured successfully, all AI features in MarginNote u
 >
 > [Learn About MarginNote AI Credits](https://www.wolai.com/kr1DqNY4irGSmikpwLoyV8 "Learn About MarginNote AI Credits")
 
-- [AI Floating Window (Ask)](/qx5HusQ7gV2WZmK4S4PfhY "AI Floating Window (Ask)")
+- [AI Floating Window (Ask)](https://www.wolai.com/qx5HusQ7gV2WZmK4S4PfhY "AI Floating Window (Ask)")
 - [AI Chat Sidebar (Chat)](https://www.wolai.com/dbRow-5iNniGsRaUaEWhu4QaXwYB-2WafWJVa7zyQJ8xduDNUXA "AI Chat Sidebar (Chat)")
 - [AI Table of Contents](https://www.wolai.com/dR9jWaQeoKJx3zreicvxvo#kEJH3fcRdAGhf8VpWmtHhG "AI Table of Contents")
 - [Memory Recall](https://www.wolai.com/dR9jWaQeoKJx3zreicvxvo#dF1KdHWENyg7TveUyMuYw6 "Memory Recall")

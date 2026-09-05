@@ -154,6 +154,8 @@ pages:
     desc_en: Adjust card display options (title-only, compact width), the handwriting background (dots/grid/lines), and card size to optimize your mind map's visual effect and presentation efficiency.
   bqdqqoArAjk9afFWktd9aF:
     desc_en: Make handwritten annotations follow the card. Three binding modes—automatic binding, focus binding, and manual binding—keep handwriting moving in sync when you move a card, so it never gets misaligned.
+  6b7GJnTDfs2kkNsBWT7AhG:
+    desc_en: Customize the 16 preset excerpt colors individually using RGB or Hex values and color controls, or import an excerpt color template from a .mbtoolstyle file to update the palette at once.
   dJvh1K4GEKaJYtZ14zbfgj:
     desc_en: Filter cards across multiple dimensions—source, color, tag, document, date, and more—with support for two-level nested grouping and batch editing. Quickly find what you need among a huge number of cards.
   aBEbDgL6oDgDT4CeXotdbS:
@@ -168,6 +170,8 @@ pages:
     desc_en: Quickly adjust the mind map structure with handwritten strokes—draw a line to create a link, a zigzag to delete a link, and a circle to select a card. No need to switch modes constantly, which boosts mind map editing efficiency.
   sncaMzMHTBx6abg1dZcPfB:
     desc_en: Link to other cards in Markdown format within a card's comment, with support for [[ search and custom display text. This meets the need to precisely reference a specific card within text.
+  fyHE27B9XM8VeZ4G2xkFhZ:
+    desc_en: Turn on recall mode and practice active recall with excerpt occlusion or Emphasize clozes. Learn how the two approaches differ and how to create occlusions with the highlighter, rectangle, lasso, and text excerpt tools.
   5MLZk1D4vJ6wQRx1Y9t8vy:
     desc_en: 'Four mind map review methods: cloze recall (tests details), title spot-checks (test the main structure), expanding nodes level by level (tests structure), and writing out a sub-mind map from memory (tests complete knowledge). It''s best to locate weak points first, then strengthen them in a targeted way.'
   xb9ytGwYP6gPVGJ4hDvca4:
