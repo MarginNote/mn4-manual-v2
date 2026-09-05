@@ -33,6 +33,51 @@ HTTP_RE = re.compile(r"^https?://", re.I)
 INTERNAL_LINK_RE = re.compile(r"\.\./([0-9A-Za-z]{20,24})/index\.md")
 
 
+class PythonMarkdownRenderer(MarkdownRenderer):
+    """Render CommonMark AST with block boundaries Python-Markdown preserves."""
+
+    def blocks_to_lines(self, tokens, max_line_length: int):
+        previous = None
+        for token in tokens:
+            if previous is not None and self._needs_blank_line(previous, token):
+                yield ""
+            yield from self.render_map[token.__class__.__name__](
+                token, max_line_length=max_line_length)
+            previous = token
+
+    @staticmethod
+    def _needs_blank_line(previous, current) -> bool:
+        if previous.__class__.__name__ == "BlankLine" or current.__class__.__name__ == "BlankLine":
+            return False
+        if isinstance(previous, B.ListItem) and isinstance(current, B.ListItem):
+            return not (
+                len(previous.children) == 1
+                and isinstance(previous.children[0], B.Paragraph)
+            )
+        return True
+
+    def render_list_item(self, token: B.ListItem, max_line_length: int):
+        # CommonMark accepts a three-space continuation after ``1.``; Python-Markdown
+        # needs four spaces for paragraphs, images, quotes, tables and nested lists.
+        prepend = max(4, token.prepend)
+        max_child_line_length = max_line_length - prepend if max_line_length else None
+        lines = self.blocks_to_lines(
+            token.children, max_line_length=max_child_line_length)
+        leader = token.leader[:-1] + "." if token.leader.endswith(")") else token.leader
+        first_prefix = leader + " " * (prepend - len(leader))
+        rendered = []
+        for index, line in enumerate(list(lines) or [""]):
+            prefix = first_prefix if index == 0 else " " * prepend
+            rendered.append(prefix + line)
+        return rendered
+
+
+def normalize_markdown(text: str) -> str:
+    """Round-trip Markdown through mistletoe using Python-Markdown-safe layout."""
+    with PythonMarkdownRenderer() as renderer:
+        return renderer.render(mistletoe.Document(text)).rstrip() + "\n"
+
+
 def rewrite_internal_links(text: str, id2slug: dict) -> str:
     """把已规范化文本里的 `../<id>/index.md` 改写为 `../<slug>/index.md`。
 
@@ -230,12 +275,12 @@ def render_page(md_path, out_path, published, id2slug=None) -> dict:
     missing: list = []
     ctx = {"id": pid, "page_dir": md_path.parent, "published": published,
            "stat": stat, "missing": missing, "id2slug": id2slug or {}}
-    with MarkdownRenderer() as renderer:
+    with PythonMarkdownRenderer() as renderer:
         doc = mistletoe.Document(md_path.read_text(encoding="utf-8"))
         normalize_headings(doc, stat)
         walk_blocks(doc, ctx)
-        body = renderer.render(doc)
+        body = renderer.render(doc).rstrip() + "\n"
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(body.rstrip() + "\n", encoding="utf-8")
+    out_path.write_text(body, encoding="utf-8")
     stat["missing_list"] = missing
     return stat

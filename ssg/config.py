@@ -149,7 +149,7 @@ def mkdocs_config(toc) -> dict:
             "glightbox",
         ],
         "markdown_extensions": [
-            "tables", "attr_list", "md_in_html", "admonition", "footnotes",
+            "tables", "sane_lists", "attr_list", "md_in_html", "admonition", "footnotes",
             "pymdownx.superfences", "pymdownx.details",
             {"toc": {"permalink": True}},
         ],

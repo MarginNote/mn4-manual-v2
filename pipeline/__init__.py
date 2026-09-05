@@ -68,8 +68,9 @@ def task_page():
 def _write_en_page(en_md: str, out: str) -> None:
     """i18n/en/<id>.md（译文，链接目标仍是 id）→ build/src/<slug>/index.en.md，改写站内链接目录。"""
     text = format_page.rewrite_internal_links(Path(en_md).read_text(encoding="utf-8"), SLUGS)
+    text = format_page.normalize_markdown(text)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
-    Path(out).write_text(text.rstrip() + "\n", encoding="utf-8")
+    Path(out).write_text(text, encoding="utf-8")
 
 
 def task_page_en():
