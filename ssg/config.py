@@ -152,6 +152,11 @@ def mkdocs_config(toc) -> dict:
             "tables", "sane_lists", "attr_list", "md_in_html", "admonition", "footnotes",
             "pymdownx.superfences", "pymdownx.details",
             {"toc": {"permalink": True}},
+            # 只预览正文中的手册链接，不启用全局预览或 SPA 导航。
+            {"material.extensions.preview": {"configurations": [{
+                "sources": {"include": ["*/index.md", "*/index.en.md"]},
+                "targets": {"include": ["*/index.md", "*/index.en.md"]},
+            }]}},
         ],
         # 相对路径（无前导 /）：Material 的 `| url` 按页面深度改写，故在任意子路径前缀下都正确。
         # Pagefind 资源在站点根 /pagefind/（构建后生成）；pagefind-ui.js 自动按自身 URL 定位 bundle。

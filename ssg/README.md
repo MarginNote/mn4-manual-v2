@@ -47,6 +47,20 @@
 static-i18n 自动回指根目录（**无副本**）。首页卡片的难度/阅读时长取自 `toc.yaml`，英文描述取自
 `i18n/en/toc.yaml`（构建期 `load_merged_toc()` 内存合并，不改动 `toc.yaml`）。
 
+## 浮动预览
+
+通过 Material 9.7+ 内置的 `material.extensions.preview` 扩展，为中英文正文中指向手册页面的
+链接自动添加 `data-preview`。`sources` / `targets` 均匹配 `*/index.md` 和 `*/index.en.md`，
+不包含根目录首页，导航菜单也不受影响。范围在 `ssg/config.py` 中维护。
+
+悬停或聚焦链接时显示目标内容；标题锚点链接可预览对应章节，不支持任意非标题元素的 ID。
+不启用全局 `navigation.instant.preview`，也不需要 `navigation.instant`，保留普通整页导航。
+此功能仍属上游实验特性，依赖 JS 及非空的 `sitemap.xml`；部署时须正确设置 `site_url`
+（本项目由 `MN_SITE_URL` 或 `MN_SITE_HOST` / `MN_URL_PREFIX` 提供）。
+
+参考：[官方文档](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-previews)、
+[设计讨论与限制](https://github.com/squidfunk/mkdocs-material/issues/6704)。
+
 ## 搜索
 
 Material 内置搜索（jieba，中文分词较弱）**已禁用**，改用 **Pagefind**（extended 含 CJK 分词；
@@ -56,5 +70,5 @@ Material 内置搜索（jieba，中文分词较弱）**已禁用**，改用 **Pa
 ## 现状
 
 中英双语（中文默认 / 英文 `/en/`）、slug URL、首页 hero+卡片、品牌色、随系统深/浅色
-（头部/页脚自适应）、全宽、Pagefind 中英搜索、图片放大（glightbox）均已就绪。FAQ
+（头部/页脚自适应）、全宽、Pagefind 中英搜索、图片放大（glightbox）、正文链接浮动预览均已就绪。FAQ
 （`src/faq.yaml`）、同义词查询扩展（`src/synonyms.yaml`）规划见 [`REWRITE_PLAN.md`](../REWRITE_PLAN.md)。

@@ -18,8 +18,8 @@ requirements.txt  构建依赖（另需系统 ffmpeg）
 
 站点特性（与旧站对齐）：**中英双语**（中文默认在根路径，英文在 `/en/`，由 mkdocs-static-i18n
 以 suffix 结构生成）、**英文 slug URL**（页面目录名）、品牌色 `#219cfb`、深/浅色切换、
-首页 hero + 难度·阅读时长卡片、Pagefind 中英搜索、图片点击放大（glightbox）。均为服务端
-渲染——除搜索（静态站搜索必需）与图片放大外不依赖 JS，无 SPA。
+首页 hero + 难度·阅读时长卡片、Pagefind 中英搜索、图片点击放大（glightbox）、正文链接浮动预览。
+页面均为服务端渲染，搜索、图片放大与浮动预览使用 JS 增强，无 SPA。
 
 ## 构建
 
