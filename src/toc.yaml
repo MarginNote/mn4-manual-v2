@@ -331,6 +331,11 @@
     icon: "💡"
     desc: "在脑图结构中遮挡回忆，或跳回原文上下文，带着语境复习"
     pages:
+    - id: fyHE27B9XM8VeZ4G2xkFhZ       # 文档复习：遮挡挖空与回忆模式
+      difficulty: 2
+      read_time: 5
+      desc: "开启回忆模式，用摘录遮挡或划重点挖空进行主动回忆。了解两种遮挡方式的区别，以及使用荧光笔、矩形、套索和文本摘录制作遮挡的方法。"
+      slug: document-review-occlusion-cloze-recall-mode
     - id: 5MLZk1D4vJ6wQRx1Y9t8vy       # 脑图复习①：主动回忆与自测方法
       difficulty: 2
       read_time: 4

@@ -244,7 +244,7 @@ When the `Excerpt Occlusion` toggle is on, content excerpted with this tool is s
 
 After excerpting, tapping the content in that area shows it as a colored block again, helping with review and recall.
 
-> 💡 Tap to see the difference between emphasize occlusion and excerpt occlusion.
+> 💡 [Tap to see the difference between emphasize occlusion and excerpt occlusion.](../fyHE27B9XM8VeZ4G2xkFhZ/index.md)
 
 #### 2.1.10 Choose Emphasize and Cloze
 
