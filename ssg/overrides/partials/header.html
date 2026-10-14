@@ -1,5 +1,5 @@
 {#-
-  覆盖 Material 头部，对齐旧站：搜索栏（Pagefind）+ 跨站链接（官网/社区）。
+  覆盖 Material 头部，对齐旧站：搜索栏（Pagefind）+ 跨站链接（手册/官网/社区）。
   底色/前景随主题切换见 extra.css。其余结构对照 pin 的上游 partials/header.html；
   升级 mkdocs-material 时同步。
 -#}
@@ -41,6 +41,7 @@
     {#- 跨站链接（桌面显示）。MN3 手册置首：英文页指向 mn3/en/，中文页指向 mn3/。-#}
     <nav class="mn-xlinks" aria-label="{{ 'Site links' if is_en else '站点链接' }}">
       <a href="{{ 'https://manual.marginnote.com.cn/mn3/en/' if is_en else 'https://manual.marginnote.com.cn/mn3/' }}" target="_blank" rel="noopener">{{ 'MN3 Manual' if is_en else 'MN3 手册' }}</a>
+      <a href="{{ 'https://dev.marginnote.com.cn/en' if is_en else 'https://dev.marginnote.com.cn/zh' }}" target="_blank" rel="noopener">{{ 'Developer Manual' if is_en else '开发手册' }}</a>
       <a href="{{ 'https://www.marginnote.com/' if is_en else 'https://www.marginnote.com.cn' }}" target="_blank" rel="noopener">{{ 'Official Site' if is_en else '官网' }}</a>
       <a href="{{ 'https://forum.marginnote.com/' if is_en else 'https://bbs.marginnote.com.cn' }}" target="_blank" rel="noopener">{{ 'Community' if is_en else '社区' }}</a>
     </nav>
